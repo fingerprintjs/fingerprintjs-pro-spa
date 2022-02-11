@@ -1,0 +1,1 @@
+# fingerprintjs-spa-js
