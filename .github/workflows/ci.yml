@@ -1,0 +1,9 @@
+name: ci
+on:
+  push:
+    paths-ignore:
+      - '**.md'
+
+jobs:
+  test:
+    uses: fingerprintjs/fingerprintjs-spa/.github/workflows/reusable/test.yml@main

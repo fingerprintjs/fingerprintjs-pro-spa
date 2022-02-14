@@ -1,8 +1,6 @@
-name: npm-publish
+name: test
 on:
-  push:
-    paths-ignore:
-      - '**.md'
+  workflow_call:
 
 jobs:
   test:
