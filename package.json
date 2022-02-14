@@ -2,7 +2,9 @@
   "name": "@fingerprintjs/fingerprintjs-spa",
   "version": "0.1.0",
   "description": "FingerprintJS Pro JavaScript agent for Single-Page Applications (SPA)",
-  "main": "index.js",
+	"main": "dist/fp-spa.cjs.js",
+	"module": "dist/fp-spa.esm.js",
+	"types": "dist/fp-spa.d.ts",
   "scripts": {
     "build": "rimraf dist && rollup -c rollup.config.js",
 		"lint": "eslint --ext .js,.ts --ignore-path .gitignore --max-warnings 0 .",
