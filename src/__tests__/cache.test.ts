@@ -7,8 +7,7 @@ import {
   LocalStorageCache,
   SessionStorageCache,
 } from '../cache'
-import { GetResult } from '@fingerprintjs/fingerprintjs-pro'
-import { GetOptions } from '../global'
+import { GetResult, GetOptions } from '@fingerprintjs/fingerprintjs-pro'
 
 const defaultKey = new CacheKey({
   tag: 'my-tag',
