@@ -6,4 +6,4 @@ on:
 
 jobs:
   test:
-    uses: fingerprintjs/fingerprintjs-spa/.github/workflows/reusable/test.yml@main
+    uses: fingerprintjs/fingerprintjs-spa/.github/workflows/test.yml@main
