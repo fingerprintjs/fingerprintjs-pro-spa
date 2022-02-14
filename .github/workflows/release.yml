@@ -7,12 +7,8 @@ on:
       - '**.md'
 
 jobs:
-  test:
-    uses: fingerprintjs/fingerprintjs-spa/.github/workflows/test.yml@main
-
   npm-publish:
     name: npm-publish
-    needs: test
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -27,6 +23,10 @@ jobs:
         run: yarn install
       - name: Build
         run: yarn build
+      - name: Check the distributive TypeScript declarations
+        run: yarn test:dts
+      - name: Run tests
+        run: yarn test
       - name: Publish if version has been updated
         uses: pascalgn/npm-publish-action@1.3.8
         with:
