@@ -9,11 +9,7 @@ on:
 jobs:
   npm-publish:
     name: npm-publish
-    needs: test
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [14.x]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -23,6 +19,8 @@ jobs:
           path: node_modules
           key: nodemodules-${{ hashFiles('yarn.lock') }}
           restore-keys: nodemodules-
+      - name: Test
+        uses: fingerprintjs/fingerprintjs-spa/.github/workflows/test.yml@test
       - name: Install Node packages
         run: yarn install
       - name: Build
