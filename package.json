@@ -9,8 +9,9 @@
     "build": "rimraf dist && rollup -c rollup.config.js",
 		"lint": "eslint --ext .js,.ts --ignore-path .gitignore --max-warnings 0 .",
 		"lint:fix": "yarn lint --fix",
-    "test": "yarn test"
-  },
+    "test": "yarn test",
+		"test:dts": "tsc --noEmit dist/fp-spa.d.ts"
+	},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/fingerprintjs/fingerprintjs-spa-js.git"
