@@ -7,8 +7,12 @@ on:
       - '**.md'
 
 jobs:
+  test:
+    uses: fingerprintjs/fingerprintjs-spa/.github/workflows/test.yml@main
+
   npm-publish:
     name: npm-publish
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -19,8 +23,6 @@ jobs:
           path: node_modules
           key: nodemodules-${{ hashFiles('yarn.lock') }}
           restore-keys: nodemodules-
-      - name: Test
-        uses: fingerprintjs/fingerprintjs-spa/.github/workflows/test.yml@test
       - name: Install Node packages
         run: yarn install
       - name: Build
