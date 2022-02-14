@@ -3,25 +3,58 @@ on:
   push:
     branches:
       - main
+
 jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Cache
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: nodemodules-${{ hashFiles('yarn.lock') }}
+          restore-keys: nodemodules-
+      - name: Install Node packages
+        run: yarn install
+      - name: Lint
+        run: yarn lint
+      - name: Build
+        run: yarn build
+      - name: Check the distributive TypeScript declarations
+        run: yarn test:dts
+      - name: Run tests
+        run: yarn test
+
   npm-publish:
     name: npm-publish
+    needs: test
     runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [14.x]
     steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Cache
+        uses: actions/cache@v2
         with:
-          node-version: ${{ matrix.node-version }}
-          registry-url: 'https://registry.npmjs.org'
-      - name: Install packages
-        run: yarn install --prefer-offline --frozen-lockfile
+          path: node_modules
+          key: nodemodules-${{ hashFiles('yarn.lock') }}
+          restore-keys: nodemodules-
+      - name: Install Node packages
+        run: yarn install
       - name: Build
         run: yarn build
-      - name: Publish to npm
-        run: yarn publish
+      - name: Publish if version has been updated
+        uses: pascalgn/npm-publish-action@1.3.8
+        with:
+          tag_name: "v%s"
+          tag_message: "v%s"
+          commit_pattern: "^Release (\\S+)"
+          publish_command: "yarn"
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
