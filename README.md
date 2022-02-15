@@ -35,13 +35,13 @@ yarn add @fingerprintjs/fingerprintjs-spa
 
 ## Getting Started
 
-### FingerprintJS public token
+### FingerprintJS public API key
 
 In order to identify visitors you'll need a FingerprintJS Pro account (you can [sign up for free](https://dashboard.fingerprintjs.com/signup/)).
 
 - Go to [FingerprintJS Dashboard](https://dashboard.fingerprintjs.com/)
-- Open the _Tokens_ page from the sidebar
-- Find your _Public_ token
+- Open the _API keys_ page from the sidebar
+- Find your _Public_ API key
 
 ### Creating the client
 
@@ -53,7 +53,7 @@ import { FpjsClient } from '@fingerprintjs/fingerprintjs-spa';
 // It can receive mulptiple parameters but the only required one is `loadOptions`, which contains the token
 const fpjsClient = new FpjsClient({
   loadOptions: {
-    token: "your-fpjs-public-token" // insert your public token form the dashboard here
+    token: "your-fpjs-public-api-key" // insert your public api key from the dashboard here
   }
 });
 ```
@@ -101,7 +101,7 @@ To use the session storage mode, no additional options need are required as this
 ```js
 const fpjsClient = new FpjsClient({
   loadOptions: {
-    token: "your-fpjs-public-token"
+    token: "your-fpjs-public-api-key"
   },
   cacheLocation: 'localstorage'
 });
@@ -111,7 +111,7 @@ Or if you are using TypeScript:
 ```ts
 const fpjsClient = new FpjsClient({
   loadOptions: {
-    token: "your-fpjs-public-token"
+    token: "your-fpjs-public-api-key"
   },
   cacheLocation: CacheLocation.LocalStorage
 });
@@ -122,7 +122,7 @@ will be stored independently.
 
 #### Creating a custom cache
 
-The SDK can be configured to use a custom cache store that is implemented by your application. This is useful if you are using this SDK in an environment where more secure token storage is available, such as potentially a hybrid mobile app.
+The SDK can be configured to use a custom cache store that is implemented by your application. This is useful if you are using this SDK in an environment where a different data storage is more convenient, such as potentially a hybrid mobile app.
 
 To do this, provide an object to the `cache` property of the SDK configuration.
 
