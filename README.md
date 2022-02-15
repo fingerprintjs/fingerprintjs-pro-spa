@@ -1,4 +1,4 @@
-# @fingerprintjs/fingerprintjs-spa
+# @fingerprintjs/fingerprintjs-pro-spa
 
 This SDK was designed to be used in SPA framework wrappers for the FingerprintJS Pro Javascript Agent. 
 It also has several built-in caching mechanism that are optimized according to the official recommendations. 
@@ -24,13 +24,13 @@ From the CDN:
 Using [npm](https://npmjs.org):
 
 ```sh
-npm install @fingerprintjs/fingerprintjs-spa
+npm install @fingerprintjs/fingerprintjs-pro-spa
 ```
 
 Using [yarn](https://yarnpkg.com):
 
 ```sh
-yarn add @fingerprintjs/fingerprintjs-spa
+yarn add @fingerprintjs/fingerprintjs-pro-spa
 ```
 
 ## Getting Started
@@ -48,7 +48,7 @@ In order to identify visitors you'll need a FingerprintJS Pro account (you can [
 Create an `FpjsClient` instance before rendering or initializing your application. You should only have one instance of the client.
 
 ```js
-import { FpjsClient } from '@fingerprintjs/fingerprintjs-spa';
+import { FpjsClient } from '@fingerprintjs/fingerprintjs-pro-spa';
 
 // It can receive mulptiple parameters but the only required one is `loadOptions`, which contains the token
 const fpjsClient = new FpjsClient({
@@ -145,7 +145,7 @@ For that reason, if you pass a value higher than 86400 (60 * 60 * 24), the FpjsC
 
 ## Support + Feedback
 
-For support or to provide feedback, please [raise an issue on our issue tracker](https://github.com/fingerprintjs/fingerprintjs-spa/issues).
+For support or to provide feedback, please [raise an issue on our issue tracker](https://github.com/fingerprintjs/fingerprintjs-pro-spa/issues).
 
 ## What is FingerprintJS?
 
@@ -166,4 +166,4 @@ Learn more on our [official documentation page](https://dev.fingerprintjs.com/do
 
 ## License
 
-This project is licensed under the MIT license. See the [LICENSE](https://github.com/fingerprintjs/fingerprintjs-spa/blob/master/LICENSE) file for more info.
+This project is licensed under the MIT license. See the [LICENSE](https://github.com/fingerprintjs/fingerprintjs-pro-spa/blob/master/LICENSE) file for more info.
