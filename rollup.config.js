@@ -22,7 +22,7 @@ const commonInput = {
 }
 
 const commonOutput = {
-  name: 'FingerprintJS-SPA',
+  name: 'FingerprintJS-Pro-SPA',
   exports: 'named',
 }
 
@@ -35,14 +35,14 @@ export default [
       // CJS for usage with `require()`
       {
         ...commonOutput,
-        file: `${outputDirectory}/fp-spa.cjs.js`,
+        file: `${outputDirectory}/fp-pro-spa.cjs.js`,
         format: 'cjs',
       },
 
       // ESM for usage with `import`
       {
         ...commonOutput,
-        file: `${outputDirectory}/fp-spa.esm.js`,
+        file: `${outputDirectory}/fp-pro-spa.esm.js`,
         format: 'es',
       },
     ],
@@ -53,7 +53,7 @@ export default [
     ...commonInput,
     plugins: [dtsPlugin(), commonBanner],
     output: {
-      file: `${outputDirectory}/fp-spa.d.ts`,
+      file: `${outputDirectory}/fp-pro-spa.d.ts`,
       format: 'es',
     },
   },
