@@ -1,6 +1,6 @@
 {
 	"name": "@fingerprintjs/fingerprintjs-spa",
-	"version": "0.1.1",
+	"version": "0.2.0",
 	"description": "FingerprintJS Pro JavaScript agent for Single-Page Applications (SPA)",
 	"main": "dist/fp-spa.cjs.js",
 	"module": "dist/fp-spa.esm.js",
