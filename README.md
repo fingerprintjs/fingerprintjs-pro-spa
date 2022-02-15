@@ -149,16 +149,16 @@ For support or to provide feedback, please [raise an issue on our issue tracker]
 
 ## What is FingerprintJS?
 
-###FingerprintJS Pro is the fraud detection API for your business
+### FingerprintJS Pro is the fraud detection API for your business
 
 FingerprintJS Pro is a combination of a JavaScript agent that runs in the browser and a server-side storage and API system 
 that securely identifies visitors and stores all the information you need to detect fraud.
 
-###JavaScript agent
+### JavaScript agent
 FingerprintJS Pro does not calculate fingerprints in the browser. Instead, it uses a lightweight JavaScript agent that collects multiple device signals and sends them to our servers. 
 This helps prevent reverse engineering and spoofing of an identifier by advanced bots. The agent is hosted at edge locations around the world. It is only 12 KB in size and 20 ms away from your users.
 
-###Server-side identification system
+### Server-side identification system
 Server-side identification system provides a platform that processes and stores page views and events to identify your website visitors. 
 It also provides many helpful features that are explained in more detail on dedicated documentation pages.
 
