@@ -1,27 +1,27 @@
 {
-	"name": "@fingerprintjs/fingerprintjs-spa",
+	"name": "@fingerprintjs/fingerprintjs-pro-spa",
 	"version": "0.1.1",
 	"description": "FingerprintJS Pro JavaScript agent for Single-Page Applications (SPA)",
-	"main": "dist/fp-spa.cjs.js",
-	"module": "dist/fp-spa.esm.js",
-	"types": "dist/fp-spa.d.ts",
+	"main": "dist/fp-pro-spa.cjs.js",
+	"module": "dist/fp-pro-spa.esm.js",
+	"types": "dist/fp-pro-spa.d.ts",
 	"scripts": {
 		"build": "rimraf dist && rollup -c rollup.config.js",
 		"lint": "eslint --ext .js,.ts --ignore-path .gitignore --max-warnings 0 .",
 		"lint:fix": "yarn lint --fix",
 		"test": "jest",
-		"test:dts": "tsc --noEmit dist/fp-spa.d.ts"
+		"test:dts": "tsc --noEmit dist/fp-pro-spa.d.ts"
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/fingerprintjs/fingerprintjs-spa-js.git"
+		"url": "git+https://github.com/fingerprintjs/fingerprintjs-pro-spa.git"
 	},
 	"author": "FingerprintJS, Inc (https://fingerprintjs.com)",
 	"license": "MIT",
 	"bugs": {
-		"url": "https://github.com/fingerprintjs/fingerprintjs-spa-js/issues"
+		"url": "https://github.com/fingerprintjs/fingerprintjs-pro-spa/issues"
 	},
-	"homepage": "https://github.com/fingerprintjs/fingerprintjs-spa-js#readme",
+	"homepage": "https://github.com/fingerprintjs/fingerprintjs-pro-spa#readme",
 	"dependencies": {
 		"@fingerprintjs/fingerprintjs-pro": "^3.5.5",
 		"tslib": "^2.2.0"
