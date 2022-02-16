@@ -1,5 +1,8 @@
 # @fingerprintjs/fingerprintjs-pro-spa
 
+[![npm](https://img.shields.io/npm/v/@fingerprintjs/fingerprintjs-pro-spa.svg?style=flat)](https://www.npmjs.com/package/@fingerprintjs/fingerprintjs-pro-spa)
+[![License](https://img.shields.io/:license-mit-blue.svg?style=flat)](https://opensource.org/licenses/MIT)
+
 This SDK was designed to be used in SPA framework wrappers for the FingerprintJS Pro Javascript Agent. 
 It also has several built-in caching mechanism that are optimized according to the official recommendations. 
 If just need the [JS agent](https://github.com/fingerprintjs/fingerprintjs), you can use it directly, without this wrapper.
