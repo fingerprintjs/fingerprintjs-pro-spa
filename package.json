@@ -12,6 +12,9 @@
 		"test": "jest",
 		"test:dts": "tsc --noEmit dist/fp-pro-spa.d.ts"
 	},
+	"files": [
+		"dist"
+	],
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/fingerprintjs/fingerprintjs-pro-spa.git"

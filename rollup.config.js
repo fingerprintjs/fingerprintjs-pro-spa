@@ -22,7 +22,6 @@ const commonInput = {
 }
 
 const commonOutput = {
-  name: 'FingerprintJS-Pro-SPA',
   exports: 'named',
 }
 
