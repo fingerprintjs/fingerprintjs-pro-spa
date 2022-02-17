@@ -22,8 +22,6 @@ If just need the [JS agent](https://github.com/fingerprintjs/fingerprintjs), you
 
 ## Installation
 
-From the CDN:
-
 Using [npm](https://npmjs.org):
 
 ```sh
