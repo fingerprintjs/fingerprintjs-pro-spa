@@ -6,7 +6,7 @@ import {
   InMemoryCache,
   LocalStorageCache,
   SessionStorageCache,
-} from '../cache'
+} from '../src/cache'
 import { GetResult, GetOptions } from '@fingerprintjs/fingerprintjs-pro'
 
 const defaultKey = new CacheKey({

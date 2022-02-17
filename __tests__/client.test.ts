@@ -1,7 +1,6 @@
-import { FpjsClient } from '../client'
 import * as FingerprintJS from '@fingerprintjs/fingerprintjs-pro'
-import { CacheKey, getKeyWithPrefix, MAX_CACHE_LIFE } from '../cache'
-import { CacheLocation } from '../global'
+import { CacheLocation, FpjsClient } from '../src'
+import { CacheKey, getKeyWithPrefix, MAX_CACHE_LIFE } from '../src/cache'
 
 const getDefaultLoadOptions = () => ({
   token: 'test_token',
