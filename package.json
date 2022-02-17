@@ -5,6 +5,18 @@
 	"main": "dist/fp-pro-spa.cjs.js",
 	"module": "dist/fp-pro-spa.esm.js",
 	"types": "dist/fp-pro-spa.d.ts",
+	"keywords": [
+		"fraud",
+		"fraud detection",
+		"fraud prevention",
+		"browser",
+		"identification",
+		"fingerprint",
+		"fingerprinting",
+		"browser fingerprint",
+		"device fingerprint",
+		"privacy"
+	],
 	"scripts": {
 		"build": "rimraf dist && rollup -c rollup.config.js",
 		"lint": "eslint --ext .js,.ts --ignore-path .gitignore --max-warnings 0 .",
