@@ -7,6 +7,10 @@ This SDK was designed to be used in SPA framework wrappers for the FingerprintJS
 It also has several built-in caching mechanism that are optimized according to the official recommendations. 
 If just need the [JS agent](https://github.com/fingerprintjs/fingerprintjs), you can use it directly, without this wrapper.
 
+**This SDK works with FingerprintJS Pro, it will not work with the OSS version!** 
+Learn more about the [difference between Pro and OSS](https://dev.fingerprintjs.com/docs/pro-vs-open-source). 
+If you'd like to have a similar SPA wrapper for the OSS version of FingerprintJS, consider [raising and issue on our issue tracker](https://github.com/fingerprintjs/fingerprintjs-pro-spa/issues).
+
 ## Table of Contents
 
 - [Documentation](#documentation)
