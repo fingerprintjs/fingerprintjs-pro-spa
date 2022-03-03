@@ -56,10 +56,10 @@ Create an `FpjsClient` instance before rendering or initializing your applicatio
 ```js
 import { FpjsClient } from '@fingerprintjs/fingerprintjs-pro-spa';
 
-// It can receive mulptiple parameters but the only required one is `loadOptions`, which contains the token
+// It can receive mulptiple parameters but the only required one is `loadOptions`, which contains the public API key
 const fpjsClient = new FpjsClient({
   loadOptions: {
-    token: "your-fpjs-public-api-key" // insert your public api key from the dashboard here
+    apiKey: "your-fpjs-public-api-key" // insert your public api key from the dashboard here
   }
 });
 ```
@@ -107,7 +107,7 @@ To use the session storage mode, no additional options need are required as this
 ```js
 const fpjsClient = new FpjsClient({
   loadOptions: {
-    token: "your-fpjs-public-api-key"
+    apiKey: "your-fpjs-public-api-key"
   },
   cacheLocation: 'localstorage'
 });
@@ -117,7 +117,7 @@ Or if you are using TypeScript:
 ```ts
 const fpjsClient = new FpjsClient({
   loadOptions: {
-    token: "your-fpjs-public-api-key"
+    apiKey: "your-fpjs-public-api-key"
   },
   cacheLocation: CacheLocation.LocalStorage
 });
