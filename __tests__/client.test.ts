@@ -3,7 +3,7 @@ import { CacheLocation, FpjsClient } from '../src'
 import { CacheKey, getKeyWithPrefix, MAX_CACHE_LIFE } from '../src/cache'
 
 const getDefaultLoadOptions = () => ({
-  token: 'test_token',
+  apiKey: 'test_api_key',
 })
 
 describe(`SPA client`, () => {
