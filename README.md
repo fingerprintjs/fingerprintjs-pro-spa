@@ -6,6 +6,7 @@
 This library was designed to be used in SPA framework wrappers for the FingerprintJS Pro Javascript Agent. 
 It also has several built-in caching mechanism that are optimized according to the official recommendations. 
 If just need the [JS agent](https://github.com/fingerprintjs/fingerprintjs), you can use it directly, without this wrapper.
+If you're looking for a dedicated React integration, you can find it [here](https://github.com/fingerprintjs/fingerprintjs-pro-react).
 
 **This SDK works with FingerprintJS Pro, it will not work with the OSS version!** 
 Learn more about the [difference between Pro and OSS](https://dev.fingerprintjs.com/docs/pro-vs-open-source). 
