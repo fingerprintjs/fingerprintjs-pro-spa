@@ -12,6 +12,7 @@ import {
 } from './cache'
 import { CacheLocation, FpjsClientOptions, VisitorData } from './global'
 import { GetOptions } from '@fingerprintjs/fingerprintjs-pro'
+import * as packageInfo from '../package.json'
 
 const cacheLocationBuilders: Record<CacheLocation, (prefix?: string) => ICache> = {
   [CacheLocation.Memory]: () => new InMemoryCache().enclosedCache,
@@ -44,7 +45,10 @@ export class FpjsClient {
       },
     }
 
-    this.loadOptions = options.loadOptions
+    this.loadOptions = {
+      ...options.loadOptions,
+      integrationInfo: [...(options.loadOptions.integrationInfo || []), `fingerprintjs-pro-spa/${packageInfo.version}`],
+    }
 
     if (options.cache && options.cacheLocation) {
       console.warn(
