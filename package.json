@@ -22,7 +22,7 @@
 		"lint": "eslint --ext .js,.ts --ignore-path .gitignore --max-warnings 0 .",
 		"lint:fix": "yarn lint --fix",
 		"test": "jest",
-		"test:dts": "tsc --noEmit dist/fp-pro-spa.d.ts",
+		"test:dts": "tsc --noEmit --isolatedModules dist/fp-pro-spa.d.ts",
 		"release:major": "changelog -M && git add CHANGELOG.md && yarn version --major",
 		"release:minor": "changelog -m && git add CHANGELOG.md && yarn version --minor",
 		"release:patch": "changelog -p && git add CHANGELOG.md && yarn version --patch"
@@ -41,7 +41,7 @@
 	},
 	"homepage": "https://github.com/fingerprintjs/fingerprintjs-pro-spa#readme",
 	"dependencies": {
-		"@fingerprintjs/fingerprintjs-pro": "^3.5.6",
+		"@fingerprintjs/fingerprintjs-pro": "^3.6.0",
 		"tslib": "^2.2.0"
 	},
 	"devDependencies": {

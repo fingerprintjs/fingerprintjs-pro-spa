@@ -1,6 +1,7 @@
 import * as FingerprintJS from '@fingerprintjs/fingerprintjs-pro'
 import { CacheLocation, FpjsClient } from '../src'
 import { CacheKey, getKeyWithPrefix, MAX_CACHE_LIFE } from '../src/cache'
+import * as packageInfo from '../package.json'
 
 const getDefaultLoadOptions = () => ({
   apiKey: 'test_api_key',
@@ -165,6 +166,41 @@ describe(`SPA client`, () => {
 
       expect(agentGetMock).toHaveBeenCalledTimes(1)
       expect(result?.visitorId).toBe(mockVisitorId)
+    })
+  })
+
+  describe('add integrationInfo', () => {
+    const agentGetMock = jest.fn()
+
+    beforeEach(() => {
+      jest.spyOn(FingerprintJS, 'load').mockImplementation(async () => {
+        return {
+          get: agentGetMock,
+        }
+      })
+    })
+
+    it('when field empty', async () => {
+      const client = new FpjsClient({ loadOptions: getDefaultLoadOptions() })
+      await client.init()
+      expect(FingerprintJS.load).toBeCalledWith({
+        ...getDefaultLoadOptions(),
+        integrationInfo: [`fingerprintjs-pro-spa/${packageInfo.version}`],
+      })
+    })
+
+    it('when field contains other integration info', async () => {
+      const client = new FpjsClient({
+        loadOptions: {
+          ...getDefaultLoadOptions(),
+          integrationInfo: ['fingerprintjs-pro-react/0.0.1'],
+        },
+      })
+      await client.init()
+      expect(FingerprintJS.load).toBeCalledWith({
+        ...getDefaultLoadOptions(),
+        integrationInfo: ['fingerprintjs-pro-react/0.0.1', `fingerprintjs-pro-spa/${packageInfo.version}`],
+      })
     })
   })
 })
