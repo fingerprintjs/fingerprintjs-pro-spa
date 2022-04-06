@@ -1,3 +1,10 @@
+#### 0.3.1 (2022-04-06)
+
+##### Chores
+
+*  fix npm publish action, fix commit_pattern ([4a615677](https://github.com/fingerprintjs/fingerprintjs-pro-spa/commit/4a615677ca5c4bc05c20f63e45cd3ab403604d96))
+* **deps:**  bump minimist from 1.2.5 to 1.2.6 ([46b93e5e](https://github.com/fingerprintjs/fingerprintjs-pro-spa/commit/46b93e5ef619f1af56a7c233585677a13a45aba8))
+
 ### 0.3.0 (2022-04-06)
 
 ##### Chores
