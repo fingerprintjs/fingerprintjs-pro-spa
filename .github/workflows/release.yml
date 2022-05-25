@@ -29,7 +29,7 @@ jobs:
       - name: Run tests
         run: yarn test
       - name: Publish if version has been updated
-        uses: pascalgn/npm-publish-action@e05dd3cd13412801d978714d8eac1cb922826da1
+        uses: pascalgn/npm-publish-action@374314eadce0ca5353387666469a949f69414752
         with:
           tag_name: "v%s"
           tag_message: "v%s"
