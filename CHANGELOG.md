@@ -1,3 +1,16 @@
+### 0.4.0 (2022-05-25)
+
+##### Chores
+
+*  update fingerprintjs-pro version ([6f3787ae](https://github.com/fingerprintjs/fingerprintjs-pro-spa/commit/6f3787ae72f34a4c0a54b09727014d31b98f2da1))
+*  add production environment for publish task ([c4c4d5c3](https://github.com/fingerprintjs/fingerprintjs-pro-spa/commit/c4c4d5c3794e407b72180cd699dc969fadb0890c))
+*  don't create tag on release command ([797ac6ba](https://github.com/fingerprintjs/fingerprintjs-pro-spa/commit/797ac6ba106b254d297ba0e0b461438dc4bbe15c))
+* **deps:**  bump rollup-plugin-license ([920ed97c](https://github.com/fingerprintjs/fingerprintjs-pro-spa/commit/920ed97c0d3ccc93d5a49179b0220f59259f016a))
+
+##### New Features
+
+*  add reexport `GetResult` and `ExtendedGetResult` types from agent ([8ced12b0](https://github.com/fingerprintjs/fingerprintjs-pro-spa/commit/8ced12b0d28b3cc65c2392e79dcb91831091384e))
+
 #### 0.3.1 (2022-04-06)
 
 ##### Chores
