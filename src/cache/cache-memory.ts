@@ -1,5 +1,8 @@
 import { Cacheable, ICache } from './shared'
 
+/**
+ * Implementation of caching that uses in-memory storage
+ * */
 export class InMemoryCache {
   public enclosedCache: ICache = (function () {
     const cache: Record<string, unknown> = {}
