@@ -1,3 +1,9 @@
+#### 0.4.1 (2022-06-29)
+
+##### Documentation Changes
+
+*  add more jsdoc comments ([3100b989](https://github.com/fingerprintjs/fingerprintjs-pro-spa/commit/3100b989bb7c90de179ae87865caeafe0c7688ad))
+
 ### 0.4.0 (2022-05-25)
 
 ##### Chores
