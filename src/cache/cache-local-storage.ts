@@ -1,5 +1,8 @@
 import { ICache, Cacheable, CACHE_KEY_PREFIX, getKeyWithPrefix, removePrefixFromKey } from './shared'
 
+/**
+ * Implementation of caching that uses local storage
+ * */
 export class LocalStorageCache implements ICache {
   constructor(public prefix: string = CACHE_KEY_PREFIX) {}
 
