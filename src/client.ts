@@ -80,7 +80,7 @@ export class FpjsClient {
 
   /**
    * Loads FPJS JS agent with certain settings and stores the instance in memory
-   * [https://dev.fingerprintjs.com/docs/js-agent#agent-initialization]
+   * [https://dev.fingerprint.com/docs/js-agent#agent-initialization]
    */
   public async init() {
     if (!this.agentPromise) {
@@ -95,7 +95,7 @@ export class FpjsClient {
 
   /**
    * Returns visitor identification data based on the request options
-   * [https://dev.fingerprintjs.com/docs/js-agent#visitor-identification]
+   * [https://dev.fingerprint.com/docs/js-agent#visitor-identification]
    *
    * @param options
    * @param ignoreCache if set to true a request to the API will be made even if the data is present in cache
