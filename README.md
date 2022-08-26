@@ -84,7 +84,7 @@ const visitorData = fpjsClient.init().then(() => {
 ```
 
 ### 2 - Calling an API
-The `getVisitorData` method returns visitor identification data based on the request options [https://dev.fingerprintjs.com/docs/js-agent#visitor-identification].
+The `getVisitorData` method returns visitor identification data based on the request [options](https://dev.fingerprintjs.com/docs/js-agent#visitor-identification).
 The second parameter `ignoreCache` will make sure that a request to the API  be made even if the data is present in cache.
 
 ```js
