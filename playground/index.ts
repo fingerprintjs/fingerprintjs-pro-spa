@@ -1,4 +1,4 @@
-import * as FingerprintJS from '../src'
+import * as FingerprintJS from '../dist/fp-pro-spa.esm'
 
 type Text = string | { html: string }
 

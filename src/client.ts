@@ -12,7 +12,7 @@ import {
 } from './cache'
 import { CacheLocation, FpjsClientOptions, VisitorData } from './global'
 import { GetOptions } from '@fingerprintjs/fingerprintjs-pro'
-import packageInfo from '../package.json'
+import * as packageInfo from '../package.json'
 
 const cacheLocationBuilders: Record<CacheLocation, (prefix?: string) => ICache> = {
   [CacheLocation.Memory]: () => new InMemoryCache().enclosedCache,
