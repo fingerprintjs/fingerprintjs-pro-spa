@@ -9,7 +9,7 @@ If just need the [JS agent](https://github.com/fingerprintjs/fingerprintjs), you
 If you're looking for a dedicated React integration, you can find it [here](https://github.com/fingerprintjs/fingerprintjs-pro-react).
 
 **This SDK works with FingerprintJS Pro, it will not work with the OSS version!** 
-Learn more about the [difference between Pro and OSS](https://dev.fingerprintjs.com/docs/pro-vs-open-source). 
+Learn more about the [difference between Pro and OSS](https://dev.fingerprint.com/docs/pro-vs-open-source). 
 If you'd like to have a similar SPA wrapper for the OSS version of FingerprintJS, consider [raising and issue on our issue tracker](https://github.com/fingerprintjs/fingerprintjs-pro-spa/issues).
 
 ## Table of Contents
@@ -23,8 +23,8 @@ If you'd like to have a similar SPA wrapper for the OSS version of FingerprintJS
 
 ## Documentation
 
-This library uses [FingerprintJS Pro](https://fingerprintjs.com/github/) under the hood, you can view the document for the core technology.
-- [Documentation](https://dev.fingerprintjs.com/docs)
+This library uses [FingerprintJS Pro](https://fingerprint.com/github/) under the hood, you can view the document for the core technology.
+- [Documentation](https://dev.fingerprint.com/docs)
 
 ## Installation
 
@@ -44,9 +44,9 @@ yarn add @fingerprintjs/fingerprintjs-pro-spa
 
 ### FingerprintJS public API key
 
-In order to identify visitors you'll need a FingerprintJS Pro account (you can [sign up for free](https://dashboard.fingerprintjs.com/signup/)).
+In order to identify visitors you'll need a FingerprintJS Pro account (you can [sign up for free](https://dashboard.fingerprint.com/signup/)).
 
-- Go to [FingerprintJS Dashboard](https://dashboard.fingerprintjs.com/)
+- Go to [FingerprintJS Dashboard](https://dashboard.fingerprint.com/)
 - Open the _API keys_ page from the sidebar
 - Find your _Public_ API key
 
@@ -64,7 +64,7 @@ const fpjsClient = new FpjsClient({
   }
 });
 ```
-You can learn more about different load options here: https://dev.fingerprintjs.com/docs/js-agent#agent-initialization
+You can learn more about different load options here: https://dev.fingerprint.com/docs/js-agent#agent-initialization
 
 ### 1 - Init the JS agent
 
@@ -84,7 +84,7 @@ const visitorData = fpjsClient.init().then(() => {
 ```
 
 ### 2 - Calling an API
-The `getVisitorData` method returns visitor identification data based on the request [options](https://dev.fingerprintjs.com/docs/js-agent#visitor-identification).
+The `getVisitorData` method returns visitor identification data based on the request [options][https://dev.fingerprint.com/docs/js-agent#visitor-identification].
 The second parameter `ignoreCache` will make sure that a request to the API  be made even if the data is present in cache.
 
 ```js
@@ -169,7 +169,7 @@ This helps prevent reverse engineering and spoofing of an identifier by advanced
 Server-side identification system provides a platform that processes and stores page views and events to identify your website visitors. 
 It also provides many helpful features that are explained in more detail on dedicated documentation pages.
 
-Learn more on our [official documentation page](https://dev.fingerprintjs.com/docs/introduction)
+Learn more on our [official documentation page](https://dev.fingerprint.com/docs/introduction)
 
 ## License
 
