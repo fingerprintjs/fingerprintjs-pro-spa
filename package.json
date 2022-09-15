@@ -41,7 +41,7 @@
 	},
 	"homepage": "https://github.com/fingerprintjs/fingerprintjs-pro-spa#readme",
 	"dependencies": {
-		"@fingerprintjs/fingerprintjs-pro": "^3.6.2",
+		"@fingerprintjs/fingerprintjs-pro": "^3.7.1",
 		"tslib": "^2.2.0"
 	},
 	"devDependencies": {
