@@ -1,9 +1,9 @@
-import * as FingerprintJS from '../dist/fp-pro-spa.esm'
+import { FpjsClient } from '@fingerprintjs/fingerprintjs-pro-spa'
 
 type Text = string | { html: string }
 
 async function getVisitorData() {
-  const fp = new FingerprintJS.FpjsClient({
+  const fp = new FpjsClient({
     loadOptions: {
       apiKey: process.env.API_KEY as string,
     },

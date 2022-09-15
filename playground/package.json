@@ -5,6 +5,9 @@
     "build": "webpack --mode production",
     "start": "webpack-dev-server --mode development"
   },
+  "dependencies": {
+    "@fingerprintjs/fingerprintjs-pro-spa": "link:../"
+  },
   "devDependencies": {
     "clean-webpack-plugin": "^4.0.0",
     "dotenv": "^16.0.2",
