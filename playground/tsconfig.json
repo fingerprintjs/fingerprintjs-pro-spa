@@ -1,0 +1,11 @@
+{
+  "extends": "../tsconfig.json",
+  "files": ["index.ts"],
+  "compilerOptions": {
+    "noEmit": false,
+    "resolveJsonModule": true
+  },
+  "exclude": [
+    "dist"
+  ]
+}
