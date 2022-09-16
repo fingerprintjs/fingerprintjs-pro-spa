@@ -146,6 +146,10 @@ The object should implement the following functions. Note that all of these func
 
 We also export the internal `InMemoryCache`, `LocalStorageCache`, `SessionStorageCache` and `CacheStub` implementations, so you can wrap your custom cache around these implementations if you wish.
 
+## Documentation
+
+You can find API reference [here](https://fingerprintjs.github.io/fingerprintjs-pro-spa/).
+
 #### Cache time
 Fpjs client receives `cacheTimeInSeconds` as one of the options. In order to ensure high identification accuracy we recommend that the visitor data is not cached for longer than 24 hours.
 For that reason, if you pass a value higher than 86400 (60 * 60 * 24), the FpjsClient constructor will throw an error.
