@@ -1,3 +1,15 @@
+## [0.5.0](https://github.com/fingerprintjs/fingerprintjs-pro-spa/compare/v0.4.1...v0.5.0) (2022-09-16)
+
+
+### Features
+
+* update fingerprintjs-pro agent version ([4555ada](https://github.com/fingerprintjs/fingerprintjs-pro-spa/commit/4555ada46dfdd24028be2d9b0691d898925dd6ad))
+
+
+### Bug Fixes
+
+* link in readme.md ([4c8f8dd](https://github.com/fingerprintjs/fingerprintjs-pro-spa/commit/4c8f8dd4e2102b03fb486b2db40c178a61af21a2))
+
 #### 0.4.1 (2022-06-29)
 
 ##### Documentation Changes
