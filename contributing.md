@@ -49,3 +49,15 @@ We follow [Conventional Commits](https://conventionalcommits.org/) for committin
 ### How to publish
 
 The library is automatically released and published to NPM on every push to the main branch if there are relevant changes. The workflow must be approved by one of the maintainers, first.
+
+### Generating docs
+
+We use [typedoc](https://typedoc.org/) to generate docs. To generate docs run:
+
+```shell
+yarn docs
+```
+
+The docs will be generated into [./docs](./docs) directory.
+
+The docs are automatically deployed to Github Pages on every push to the main branch.
