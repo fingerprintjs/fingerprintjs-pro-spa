@@ -2,6 +2,7 @@
 
 [![npm](https://img.shields.io/npm/v/@fingerprintjs/fingerprintjs-pro-spa.svg?style=flat)](https://www.npmjs.com/package/@fingerprintjs/fingerprintjs-pro-spa)
 [![License](https://img.shields.io/:license-mit-blue.svg?style=flat)](https://opensource.org/licenses/MIT)
+[![License](https://img.shields.io/badge/-Documentation-green)](https://fingerprintjs.github.io/fingerprintjs-pro-spa)
 
 This library was designed to be used in SPA framework wrappers for the FingerprintJS Pro Javascript Agent. 
 It also has several built-in caching mechanism that are optimized according to the official recommendations. 
