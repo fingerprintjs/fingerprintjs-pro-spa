@@ -1,3 +1,15 @@
+## [0.6.0](https://github.com/fingerprintjs/fingerprintjs-pro-spa/compare/v0.5.0...v0.6.0) (2022-11-10)
+
+
+### Features
+
+* bump JS Agent to 3.8.0 ([ac7e26b](https://github.com/fingerprintjs/fingerprintjs-pro-spa/commit/ac7e26b7ceb4bc924e12dba6bfc0b0d8113a4166))
+
+
+### Documentation
+
+* **README:** add documentation badge ([690065f](https://github.com/fingerprintjs/fingerprintjs-pro-spa/commit/690065f27ab1ce327f370c3e1ef4d7289dcd3897))
+
 ## [0.5.0](https://github.com/fingerprintjs/fingerprintjs-pro-spa/compare/v0.4.1...v0.5.0) (2022-09-16)
 
 
