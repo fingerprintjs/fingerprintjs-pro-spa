@@ -2,13 +2,13 @@ import { FpjsClient } from '@fingerprintjs/fingerprintjs-pro-spa'
 
 type Text = string | { html: string }
 
-async function getVisitorData() {
-  const fp = new FpjsClient({
-    loadOptions: {
-      apiKey: process.env.API_KEY as string,
-    },
-  })
+const fp = new FpjsClient({
+  loadOptions: {
+    apiKey: process.env.API_KEY as string,
+  },
+})
 
+async function getVisitorData() {
   await fp.init()
 
   return await fp.getVisitorData({
@@ -16,7 +16,7 @@ async function getVisitorData() {
   })
 }
 
-async function startPlayground() {
+async function getAndPrintData() {
   const output = document.querySelector('.output')
   if (!output) {
     throw new Error("The output element isn't found in the HTML code")
@@ -69,6 +69,18 @@ ${JSON.stringify(errorData, null, 2)}
 Time passed before the error: ${totalTime}ms
 User agent: \`${navigator.userAgent}\``)
     throw error
+  }
+}
+
+async function startPlayground() {
+  const getDataButton = document.querySelector('#getData')
+  if (getDataButton instanceof HTMLButtonElement) {
+    getDataButton.disabled = false
+    getDataButton.addEventListener('click', async (event) => {
+      event.preventDefault()
+
+      await getAndPrintData()
+    })
   }
 }
 
