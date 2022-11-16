@@ -21,8 +21,12 @@ describe(`SPA client`, () => {
   describe(`setup`, () => {
     const agentGetMock = jest.fn()
 
+    let loadSpy: jest.SpyInstance<ReturnType<typeof FingerprintJS['load']>>
+
     beforeEach(() => {
-      jest.spyOn(FingerprintJS, 'load').mockImplementation(async () => {
+      loadSpy = jest.spyOn(FingerprintJS, 'load')
+
+      loadSpy.mockImplementation(async () => {
         return {
           get: agentGetMock,
         }
@@ -47,6 +51,23 @@ describe(`SPA client`, () => {
         "FPJSAgent hasn't loaded yet. Make sure to call the init() method first."
       )
     })
+
+    it('should allow calling .init() again in case of errors thrown by agent', async () => {
+      const client = new FpjsClient({ loadOptions: getDefaultLoadOptions() })
+
+      loadSpy.mockClear()
+      loadSpy.mockRejectedValueOnce(new Error('Network error'))
+
+      await expect(client.init()).rejects.toThrow()
+
+      loadSpy.mockImplementation(async () => {
+        return {
+          get: agentGetMock,
+        }
+      })
+
+      await expect(client.init()).resolves.not.toThrow()
+    })
   })
 
   describe('getVisitorData', () => {
@@ -55,11 +76,11 @@ describe(`SPA client`, () => {
     let agentGetMock: jest.Mock
 
     beforeEach(() => {
-      agentGetMock = jest.fn(async () =>
-        Promise.resolve({
+      agentGetMock = jest.fn(async () => {
+        return {
           visitorId: mockVisitorId,
-        } as FingerprintJS.GetResult)
-      )
+        } as FingerprintJS.GetResult
+      })
       // @ts-ignore
       jest.spyOn(FingerprintJS, 'load').mockImplementation(async () => {
         return {
@@ -87,6 +108,27 @@ describe(`SPA client`, () => {
       expect(agentGetMock).toHaveBeenCalledTimes(1)
       expect(result1?.visitorId).toBe(mockVisitorId)
       expect(result2?.visitorId).toBe(mockVisitorId)
+    })
+
+    it('should remove in-flight request even if it throws', async () => {
+      agentGetMock.mockReset().mockRejectedValue(new Error())
+
+      const client = new FpjsClient({
+        loadOptions: getDefaultLoadOptions(),
+      })
+      await client.init()
+
+      await expect(client.getVisitorData({}, true)).rejects.toThrow()
+
+      agentGetMock.mockResolvedValue({
+        visitorId: mockVisitorId,
+      })
+
+      await expect(client.getVisitorData({}, true)).resolves.toEqual({
+        visitorId: mockVisitorId,
+      })
+
+      expect(agentGetMock).toHaveBeenCalledTimes(2)
     })
 
     it(`should get cached data if there is an in-flight request already`, async () => {
