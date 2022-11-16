@@ -1,3 +1,15 @@
+## [0.7.0](https://github.com/fingerprintjs/fingerprintjs-pro-spa/compare/v0.6.0...v0.7.0) (2022-11-16)
+
+
+### Features
+
+* update agent to 3.8.1 ([c429c95](https://github.com/fingerprintjs/fingerprintjs-pro-spa/commit/c429c956d2ed6f3f236fc6f3d7789b93c50a757f))
+
+
+### Bug Fixes
+
+* allow calling .init() multiple times in case if agent loading fails ([80e8af0](https://github.com/fingerprintjs/fingerprintjs-pro-spa/commit/80e8af0c28da993bfd1d37e23ff3f9200375d33b))
+
 ## [0.6.0](https://github.com/fingerprintjs/fingerprintjs-pro-spa/compare/v0.5.0...v0.6.0) (2022-11-10)
 
 
