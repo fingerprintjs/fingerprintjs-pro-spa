@@ -84,10 +84,16 @@ export class FpjsClient {
    */
   public async init() {
     if (!this.agentPromise) {
-      this.agentPromise = FingerprintJS.load(this.loadOptions).then((agent) => {
-        this.agent = agent
-        return agent
-      })
+      this.agentPromise = FingerprintJS.load(this.loadOptions)
+        .then((agent) => {
+          this.agent = agent
+          return agent
+        })
+        .catch((error) => {
+          this.agentPromise = null
+
+          throw error
+        })
     }
 
     return this.agentPromise
@@ -105,9 +111,8 @@ export class FpjsClient {
     const key = cacheKey.toKey()
 
     if (!this.inFlightRequests.has(key)) {
-      const promise = this._identify(options, ignoreCache).then((visitorData) => {
+      const promise = this._identify(options, ignoreCache).finally(() => {
         this.inFlightRequests.delete(key)
-        return visitorData
       })
       this.inFlightRequests.set(key, promise)
     }
