@@ -1,8 +1,30 @@
-# @fingerprintjs/fingerprintjs-pro-spa
+<p align="center">
+  <a href="https://fingerprint.com">
+    <picture>
+     <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/fingerprintjs/fingerprintjs-pro-react/main/resources/logo_light.svg" />
+     <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/fingerprintjs/fingerprintjs-pro-react/main/resources/logo_dark.svg" />
+     <img src="https://raw.githubusercontent.com/fingerprintjs/fingerprintjs-pro-react/main/resources/logo_dark.svg" alt="Fingerprint logo" width="312px" />
+   </picture>
+  </a>
+<p align="center">
+<a href="https://www.npmjs.com/package/@fingerprintjs/fingerprintjs-pro-spa">
+  <img src="https://img.shields.io/npm/v/@fingerprintjs/fingerprintjs-pro-spa.svg" alt="Current NPM version">
+</a>
+<a href="https://www.npmjs.com/package/@fingerprintjs/fingerprintjs-pro-spa">
+  <img src="https://img.shields.io/npm/dm/@fingerprintjs/fingerprintjs-pro-spa.svg" alt="Monthly downloads from NPM">
+</a>
+<a href="https://opensource.org/licenses/MIT">
+  <img src="https://img.shields.io/:license-mit-blue.svg" alt="MIT license">
+</a>
+<a href="https://discord.gg/39EpE2neBg">
+  <img src="https://img.shields.io/discord/852099967190433792?style=logo&label=Discord&logo=Discord&logoColor=white" alt="Discord server">
+</a>
+<a href="https://fingerprintjs.github.io/fingerprintjs-pro-spa">
+  <img src="https://img.shields.io/badge/-Documentation-green" alt="Documentation">
+</a>
 
-[![npm](https://img.shields.io/npm/v/@fingerprintjs/fingerprintjs-pro-spa.svg?style=flat)](https://www.npmjs.com/package/@fingerprintjs/fingerprintjs-pro-spa)
-[![License](https://img.shields.io/:license-mit-blue.svg?style=flat)](https://opensource.org/licenses/MIT)
-[![License](https://img.shields.io/badge/-Documentation-green)](https://fingerprintjs.github.io/fingerprintjs-pro-spa)
+
+# Fingerprint Pro SPA
 
 This library was designed to be used in SPA framework wrappers for the Fingerprint Pro JavaScript Agent. 
 It also has several built-in caching mechanisms that are optimized according to the official recommendations. 
