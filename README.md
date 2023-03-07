@@ -41,7 +41,6 @@ If you'd like to have a similar SPA wrapper for the OSS version of FingerprintJS
 - [Installation](#installation)
 - [Getting Started](#getting-started)
 - [Support + Feedback](#support--feedback)
-- [What is Fingerprint Pro](#what-is-fingerprint-pro)
 - [License](#license)
 
 ## Documentation
@@ -170,10 +169,6 @@ The object should implement the following functions. Note that all of these func
 
 We also export the internal `InMemoryCache`, `LocalStorageCache`, `SessionStorageCache`, and `CacheStub` implementations, so you can wrap your custom cache around these implementations if you wish.
 
-## Documentation
-
-You can find the [API reference here](https://fingerprintjs.github.io/fingerprintjs-pro-spa/).
-
 #### Cache time
 Fpjs client receives `cacheTimeInSeconds` as one of the options. To ensure high identification accuracy we recommend that the visitor data is not cached for longer than 24 hours.
 For that reason, if you pass a value higher than 86400 (60 * 60 * 24), the FpjsClient constructor will throw an error.
@@ -181,21 +176,6 @@ For that reason, if you pass a value higher than 86400 (60 * 60 * 24), the FpjsC
 ## Support + Feedback
 
 For support or to provide feedback, please [raise an issue on our issue tracker](https://github.com/fingerprintjs/fingerprintjs-pro-spa/issues).
-
-## What is Fingerprint Pro?
-
-### Fingerprint Pro is the fraud detection API for your business
-
-Fingerprint Pro is a combination of a JavaScript agent that runs in the browser and a server-side storage and API system 
-that securely identifies visitors and stores all the information you need to detect fraud.
-
-### JavaScript agent
-Fingerprint Pro does not calculate fingerprints in the browser. Instead, it uses a lightweight JavaScript agent that collects multiple device signals and sends them to our servers. 
-This helps prevent reverse engineering and spoofing of an identifier by advanced bots. The agent is hosted at edge locations around the world. It is only 12 KB in size and 20 ms away from your users.
-
-### Server-side identification system
-The server-side identification system provides a platform that processes and stores page views and events to identify your website visitors. 
-It also provides many helpful features that are explained in more detail [in our documentation](https://dev.fingerprint.com/docs/introduction).
 
 ## License
 
