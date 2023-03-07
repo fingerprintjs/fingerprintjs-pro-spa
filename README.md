@@ -7,6 +7,9 @@
    </picture>
   </a>
 <p align="center">
+<a href="https://fingerprintjs.github.io/fingerprintjs-pro-spa/coverage/">
+  <img src="https://fingerprintjs.github.io/fingerprintjs-pro-spa/coverage/badges.svg" alt="coverage">
+</a>
 <a href="https://www.npmjs.com/package/@fingerprintjs/fingerprintjs-pro-spa">
   <img src="https://img.shields.io/npm/v/@fingerprintjs/fingerprintjs-pro-spa.svg" alt="Current NPM version">
 </a>
