@@ -1,0 +1,230 @@
+<!DOCTYPE html><html class="default" lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>@fingerprintjs/fingerprintjs-pro-spa</title><meta name="description" content="Documentation for @fingerprintjs/fingerprintjs-pro-spa"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="assets/style.css"/><link rel="stylesheet" href="assets/highlight.css"/><script async src="assets/search.js" id="search-script"></script></head><body><script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os"</script><header class="tsd-page-toolbar">
+<div class="tsd-toolbar-contents container">
+<div class="table-cell" id="tsd-search" data-base=".">
+<div class="field"><label for="tsd-search-field" class="tsd-widget tsd-toolbar-icon search no-caption"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M15.7824 13.833L12.6666 10.7177C12.5259 10.5771 12.3353 10.499 12.1353 10.499H11.6259C12.4884 9.39596 13.001 8.00859 13.001 6.49937C13.001 2.90909 10.0914 0 6.50048 0C2.90959 0 0 2.90909 0 6.49937C0 10.0896 2.90959 12.9987 6.50048 12.9987C8.00996 12.9987 9.39756 12.4863 10.5008 11.6239V12.1332C10.5008 12.3332 10.5789 12.5238 10.7195 12.6644L13.8354 15.7797C14.1292 16.0734 14.6042 16.0734 14.8948 15.7797L15.7793 14.8954C16.0731 14.6017 16.0731 14.1267 15.7824 13.833ZM6.50048 10.499C4.29094 10.499 2.50018 8.71165 2.50018 6.49937C2.50018 4.29021 4.28781 2.49976 6.50048 2.49976C8.71001 2.49976 10.5008 4.28708 10.5008 6.49937C10.5008 8.70852 8.71314 10.499 6.50048 10.499Z" fill="var(--color-text)"></path></svg></label><input type="text" id="tsd-search-field" aria-label="Search"/></div>
+<div class="field">
+<div id="tsd-toolbar-links"></div></div>
+<ul class="results">
+<li class="state loading">Preparing search index...</li>
+<li class="state failure">The search index is not available</li></ul><a href="index.html" class="title">@fingerprintjs/fingerprintjs-pro-spa</a></div>
+<div class="table-cell" id="tsd-widgets"><a href="#" class="tsd-widget tsd-toolbar-icon menu no-caption" data-toggle="menu" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="3" width="14" height="2" fill="var(--color-text)"></rect><rect x="1" y="7" width="14" height="2" fill="var(--color-text)"></rect><rect x="1" y="11" width="14" height="2" fill="var(--color-text)"></rect></svg></a></div></div></header>
+<div class="container container-main">
+<div class="col-8 col-content">
+<div class="tsd-page-title">
+<h2>@fingerprintjs/fingerprintjs-pro-spa</h2></div>
+<div class="tsd-panel tsd-typography"><p align="center">
+  <a href="https://fingerprint.com">
+    <picture>
+     <source media="(prefers-color-scheme: dark)" srcset="https://fingerprintjs.github.io/home/resources/logo_light.svg" />
+     <source media="(prefers-color-scheme: light)" srcset="https://fingerprintjs.github.io/home/resources/logo_dark.svg" />
+     <img src="https://fingerprintjs.github.io/home/resources/logo_dark.svg" alt="Fingerprint logo" width="312px" />
+   </picture>
+  </a>
+<p align="center">
+<a href="https://fingerprintjs.github.io/fingerprintjs-pro-spa/coverage/">
+    <img src="https://fingerprintjs.github.io/fingerprintjs-pro-spa/coverage/badges.svg" alt="coverage">
+  </a>
+<a href="https://www.npmjs.com/package/@fingerprintjs/fingerprintjs-pro-spa">
+  <img src="https://img.shields.io/npm/v/@fingerprintjs/fingerprintjs-pro-spa.svg" alt="Current NPM version">
+</a>
+<a href="https://www.npmjs.com/package/@fingerprintjs/fingerprintjs-pro-spa">
+  <img src="https://img.shields.io/npm/dm/@fingerprintjs/fingerprintjs-pro-spa.svg" alt="Monthly downloads from NPM">
+</a>
+<a href="https://opensource.org/licenses/MIT">
+  <img src="https://img.shields.io/:license-mit-blue.svg" alt="MIT license">
+</a>
+<a href="https://discord.gg/39EpE2neBg">
+  <img src="https://img.shields.io/discord/852099967190433792?style=logo&label=Discord&logo=Discord&logoColor=white" alt="Discord server">
+</a>
+<a href="https://fingerprintjs.github.io/fingerprintjs-pro-spa">
+  <img src="https://img.shields.io/badge/-Documentation-green" alt="Documentation">
+</a>
+
+
+
+<a href="#fingerprint-pro-spa" id="fingerprint-pro-spa" style="color: inherit; text-decoration: none;">
+  <h1>Fingerprint Pro SPA</h1>
+</a>
+<p>This library was designed to be used in SPA framework wrappers for the Fingerprint Pro JavaScript Agent. 
+It also has several built-in caching mechanisms that are optimized according to the official recommendations. </p>
+<p>If you just need the Fingerprint Pro <a href="https://www.npmjs.com/package/@fingerprintjs/fingerprintjs-pro">JS agent</a>, you can use it directly, without this wrapper. If you&#39;re looking for a framework-specific integration, we have dedicated SDKs for <a href="https://github.com/fingerprintjs/fingerprintjs-pro-react">React (including Next, Preact)</a>, <a href="https://github.com/fingerprintjs/fingerprintjs-pro-vue">Vue</a>, <a href="https://github.com/fingerprintjs/fingerprintjs-pro-svelte">Svelte</a> and <a href="https://github.com/fingerprintjs/fingerprintjs-pro-angular">Angular</a>.</p>
+<p><strong>This SDK works with Fingerprint Pro, it will not work with the open-source FingerprintJS version!</strong> 
+Learn more about the <a href="https://dev.fingerprint.com/docs/pro-vs-open-source">difference between Pro and OSS</a>. 
+If you&#39;d like to have a similar SPA wrapper for the OSS version of FingerprintJS, consider <a href="https://github.com/fingerprintjs/fingerprintjs-pro-spa/issues">raising an issue in our issue tracker</a>.</p>
+
+<a href="#table-of-contents" id="table-of-contents" style="color: inherit; text-decoration: none;">
+  <h2>Table of Contents</h2>
+</a>
+<ul>
+<li><a href="#documentation">Documentation</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#getting-started">Getting Started</a></li>
+<li><a href="#support--feedback">Support + Feedback</a></li>
+<li><a href="#license">License</a></li>
+</ul>
+
+<a href="#documentation" id="documentation" style="color: inherit; text-decoration: none;">
+  <h2>Documentation</h2>
+</a>
+<p>This library uses <a href="https://fingerprint.com/github/">Fingerprint Pro</a> under the hood, you can view the document for the core technology.</p>
+<ul>
+<li>To learn more about the Fingerprint Pro read our <a href="https://dev.fingerprint.com/docs">product documentation</a>.</li>
+<li>To learn more about this SDK, there is <a href="https://fingerprintjs.github.io/fingerprintjs-pro-spa">Typedoc-generated SDK Reference</a> available.</li>
+</ul>
+
+<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
+  <h2>Installation</h2>
+</a>
+<p>Using <a href="https://npmjs.org">npm</a>:</p>
+<pre><code class="language-sh"><span class="hl-0">npm </span><span class="hl-1">install</span><span class="hl-0"> </span><span class="hl-1">@fingerprintjs/fingerprintjs-pro-spa</span>
+</code></pre>
+<p>Using <a href="https://yarnpkg.com">yarn</a>:</p>
+<pre><code class="language-sh"><span class="hl-0">yarn </span><span class="hl-1">add</span><span class="hl-0"> </span><span class="hl-1">@fingerprintjs/fingerprintjs-pro-spa</span>
+</code></pre>
+
+<a href="#getting-started" id="getting-started" style="color: inherit; text-decoration: none;">
+  <h2>Getting Started</h2>
+</a>
+
+<a href="#fingerprint-pro-public-api-key" id="fingerprint-pro-public-api-key" style="color: inherit; text-decoration: none;">
+  <h3>Fingerprint Pro public API key</h3>
+</a>
+<p>In order to identify visitors you&#39;ll need a Fingerprint Pro account (you can <a href="https://dashboard.fingerprint.com/signup/">sign up for free</a>).</p>
+<ul>
+<li>Go to <a href="https://dashboard.fingerprint.com/">Fingerprint Dashboard</a></li>
+<li>Open the <em>API keys</em> page from the sidebar</li>
+<li>Find your <em>Public</em> API key</li>
+</ul>
+
+<a href="#creating-the-client" id="creating-the-client" style="color: inherit; text-decoration: none;">
+  <h3>Creating the client</h3>
+</a>
+<p>Create a <code>FpjsClient</code> instance before rendering or initializing your application. You should only have one instance of the client.</p>
+<pre><code class="language-js"><span class="hl-2">import</span><span class="hl-0"> { </span><span class="hl-3">FpjsClient</span><span class="hl-0"> } </span><span class="hl-2">from</span><span class="hl-0"> </span><span class="hl-1">&#39;@fingerprintjs/fingerprintjs-pro-spa&#39;</span><span class="hl-0">;</span><br/><br/><span class="hl-4">// It can receive multiple parameters but the only required one is `loadOptions`, which contains the public API key</span><br/><span class="hl-5">const</span><span class="hl-0"> </span><span class="hl-6">fpjsClient</span><span class="hl-0"> = </span><span class="hl-5">new</span><span class="hl-0"> </span><span class="hl-7">FpjsClient</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-3">loadOptions:</span><span class="hl-0"> {</span><br/><span class="hl-0">    </span><span class="hl-3">apiKey:</span><span class="hl-0"> </span><span class="hl-1">&quot;your-fpjs-public-api-key&quot;</span><span class="hl-0"> </span><span class="hl-4">// insert your public api key from the dashboard here</span><br/><span class="hl-0">  }</span><br/><span class="hl-0">});</span>
+</code></pre>
+<p>You can learn more about different load options here: <a href="https://dev.fingerprint.com/docs/js-agent#agent-initialization">https://dev.fingerprint.com/docs/js-agent#agent-initialization</a></p>
+
+<a href="#1---init-the-js-agent" id="1---init-the-js-agent" style="color: inherit; text-decoration: none;">
+  <h3>1 - Init the JS agent</h3>
+</a>
+<p>Before you start making identification requests to the Fingerprint Pro API, you need to initialize the Agent 
+to allow it to gather browser signals. 
+Make sure the initialization has been completed before calling the <code>getVisitorData</code> method to avoid errors.</p>
+<pre><code class="language-js"><span class="hl-4">// with async/await</span><br/><span class="hl-2">await</span><span class="hl-0"> </span><span class="hl-3">fpjsClient</span><span class="hl-0">.</span><span class="hl-7">init</span><span class="hl-0">()</span><br/><span class="hl-5">const</span><span class="hl-0"> </span><span class="hl-6">visitorData</span><span class="hl-0"> = </span><span class="hl-2">await</span><span class="hl-0"> </span><span class="hl-3">fpjsClient</span><span class="hl-0">.</span><span class="hl-7">getVisitorData</span><span class="hl-0">()</span><br/><br/><span class="hl-4">// with promises</span><br/><span class="hl-5">const</span><span class="hl-0"> </span><span class="hl-6">visitorData</span><span class="hl-0"> = </span><span class="hl-3">fpjsClient</span><span class="hl-0">.</span><span class="hl-7">init</span><span class="hl-0">().</span><span class="hl-7">then</span><span class="hl-0">(() </span><span class="hl-5">=&gt;</span><span class="hl-0"> {</span><br/><span class="hl-0">  </span><span class="hl-2">return</span><span class="hl-0"> </span><span class="hl-3">fpjsClient</span><span class="hl-0">.</span><span class="hl-7">getVisitorData</span><span class="hl-0">()</span><br/><span class="hl-0">})</span>
+</code></pre>
+
+<a href="#2---calling-an-api" id="2---calling-an-api" style="color: inherit; text-decoration: none;">
+  <h3>2 - Calling an API</h3>
+</a>
+<p>The <code>getVisitorData</code> method returns visitor identification data based on the request <a href="https://dev.fingerprint.com/docs/js-agent#visitor-identification">options</a>.
+The second parameter <code>ignoreCache</code> will make sure that a request to the API  be made even if the data is present in cache.</p>
+<pre><code class="language-js"><span class="hl-4">// with async/await</span><br/><span class="hl-5">const</span><span class="hl-0"> </span><span class="hl-6">visitorData</span><span class="hl-0"> = </span><span class="hl-2">await</span><span class="hl-0"> </span><span class="hl-3">fpjsClient</span><span class="hl-0">.</span><span class="hl-7">getVisitorData</span><span class="hl-0">({ </span><span class="hl-3">extendedResult:</span><span class="hl-0"> </span><span class="hl-5">true</span><span class="hl-0"> })</span><br/><br/><span class="hl-4">// with promises</span><br/><span class="hl-5">const</span><span class="hl-0"> </span><span class="hl-6">visitorData</span><span class="hl-0"> = </span><span class="hl-3">fpjsClient</span><span class="hl-0">.</span><span class="hl-7">getVisitorData</span><span class="hl-0">({ </span><span class="hl-3">extendedResult:</span><span class="hl-0"> </span><span class="hl-5">true</span><span class="hl-0"> }).</span><span class="hl-7">then</span><span class="hl-0">((</span><span class="hl-3">visitorData</span><span class="hl-0">) </span><span class="hl-5">=&gt;</span><span class="hl-0"> {</span><br/><span class="hl-0">  </span><span class="hl-4">// use visitor data in your fraud prevention logic</span><br/><span class="hl-0">  </span><span class="hl-7">checkIfFingerprintIsFraudulent</span><span class="hl-0">(</span><span class="hl-3">visitorData</span><span class="hl-0">.</span><span class="hl-3">visitorId</span><span class="hl-0">) </span><span class="hl-4">// this method is just an example, this SDK doesn&#39;t actually supply it</span><br/><span class="hl-0">})</span>
+</code></pre>
+
+<a href="#caching" id="caching" style="color: inherit; text-decoration: none;">
+  <h3>Caching</h3>
+</a>
+<p>The SDK can be configured to cache the visitor data in memory, in session storage, or in local storage. 
+The default is in session storage. This setting can be controlled using the <code>cacheLocation</code> option when creating the Fpjs client.</p>
+<p>To use the session storage mode, no additional options need are required as this is the default setting. To configure the SDK to cache data using local storage, set <code>cacheLocation</code> as follows:</p>
+<pre><code class="language-js"><span class="hl-5">const</span><span class="hl-0"> </span><span class="hl-6">fpjsClient</span><span class="hl-0"> = </span><span class="hl-5">new</span><span class="hl-0"> </span><span class="hl-7">FpjsClient</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-3">loadOptions:</span><span class="hl-0"> {</span><br/><span class="hl-0">    </span><span class="hl-3">apiKey:</span><span class="hl-0"> </span><span class="hl-1">&quot;your-fpjs-public-api-key&quot;</span><br/><span class="hl-0">  },</span><br/><span class="hl-0">  </span><span class="hl-3">cacheLocation:</span><span class="hl-0"> </span><span class="hl-1">&#39;localstorage&#39;</span><br/><span class="hl-0">});</span>
+</code></pre>
+<p>Or if you are using TypeScript:</p>
+<pre><code class="language-ts"><span class="hl-5">const</span><span class="hl-0"> </span><span class="hl-6">fpjsClient</span><span class="hl-0"> = </span><span class="hl-5">new</span><span class="hl-0"> </span><span class="hl-7">FpjsClient</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-3">loadOptions:</span><span class="hl-0"> {</span><br/><span class="hl-0">    </span><span class="hl-3">apiKey:</span><span class="hl-0"> </span><span class="hl-1">&quot;your-fpjs-public-api-key&quot;</span><br/><span class="hl-0">  },</span><br/><span class="hl-0">  </span><span class="hl-3">cacheLocation:</span><span class="hl-0"> </span><span class="hl-3">CacheLocation</span><span class="hl-0">.</span><span class="hl-3">LocalStorage</span><br/><span class="hl-0">});</span>
+</code></pre>
+<p>Cache keys are formed based on the combination of the <em>GetOptions</em>, so, for example, API responses for calls with <code>extendedResult: true</code> and <code>extendedResult: false</code>
+will be stored independently.</p>
+
+<a href="#creating-a-custom-cache" id="creating-a-custom-cache" style="color: inherit; text-decoration: none;">
+  <h4>Creating a custom cache</h4>
+</a>
+<p>The SDK can be configured to use a custom cache store that is implemented by your application. This is useful if you are using this SDK in an environment where a different data store is more convenient, such as a hybrid mobile app.</p>
+<p>To do this, provide an object to the <code>cache</code> property of the SDK configuration.</p>
+<p>The object should implement the following functions. Note that all of these functions can optionally return a Promise or a static value.</p>
+<table>
+<thead>
+<tr>
+<th>Signature</th>
+<th>Return type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>get(key)</code></td>
+<td>Promise<object> or object</td>
+<td>Returns the item from the cache with the specified key, or <code>undefined</code> if it was not found</td>
+</tr>
+<tr>
+<td><code>set(key: string, object: any) </code></td>
+<td>Promise<void> or void</td>
+<td>Sets an item into the cache</td>
+</tr>
+<tr>
+<td><code>remove(key)</code></td>
+<td>Promise<void> or void</td>
+<td>Removes a single item from the cache at the specified key, or no-op if the item was not found</td>
+</tr>
+<tr>
+<td><code>allKeys()</code></td>
+<td>Promise&lt;string[]&gt; or string []</td>
+<td>Returns the list of all keys. By default, the keys we use are prefixed with <code>@fpjs@client@</code> but you can pass your own custom prefix as an option when you create the FpjsClient</td>
+</tr>
+</tbody></table>
+<p><strong>Note:</strong> The <code>cache</code> property takes precedence over the <code>cacheLocation</code> property if both are set. A warning is displayed in the console if this scenario occurs.</p>
+<p>We also export the internal <code>InMemoryCache</code>, <code>LocalStorageCache</code>, <code>SessionStorageCache</code>, and <code>CacheStub</code> implementations, so you can wrap your custom cache around these implementations if you wish.</p>
+
+<a href="#cache-time" id="cache-time" style="color: inherit; text-decoration: none;">
+  <h4>Cache time</h4>
+</a>
+<p>Fpjs client receives <code>cacheTimeInSeconds</code> as one of the options. To ensure high identification accuracy we recommend that the visitor data is not cached for longer than 24 hours.
+For that reason, if you pass a value higher than 86400 (60 * 60 * 24), the FpjsClient constructor will throw an error.</p>
+
+<a href="#support--feedback" id="support--feedback" style="color: inherit; text-decoration: none;">
+  <h2>Support + Feedback</h2>
+</a>
+<p>For support or to provide feedback, please <a href="https://github.com/fingerprintjs/fingerprintjs-pro-spa/issues">raise an issue on our issue tracker</a>.</p>
+
+<a href="#license" id="license" style="color: inherit; text-decoration: none;">
+  <h2>License</h2>
+</a>
+<p>This project is licensed under the MIT license. See the <a href="https://github.com/fingerprintjs/fingerprintjs-pro-spa/blob/master/LICENSE">LICENSE</a> file for more information.</p>
+</div></div>
+<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+<div class="tsd-navigation settings">
+<details class="tsd-index-accordion"><summary class="tsd-accordion-summary">
+<h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4.93896 8.531L12 15.591L19.061 8.531L16.939 6.409L12 11.349L7.06098 6.409L4.93896 8.531Z" fill="var(--color-text)"></path></svg> Settings</h3></summary>
+<div class="tsd-accordion-details">
+<div class="tsd-filter-visibility">
+<h4 class="uppercase">Member Visibility</h4><form>
+<ul id="tsd-filter-options">
+<li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-inherited" name="inherited" checked/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Inherited</span></label></li>
+<li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-external" name="external"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>External</span></label></li></ul></form></div>
+<div class="tsd-theme-toggle">
+<h4 class="uppercase">Theme</h4><select id="theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></div></div></details></div>
+<nav class="tsd-navigation primary">
+<details class="tsd-index-accordion" open><summary class="tsd-accordion-summary">
+<h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4.93896 8.531L12 15.591L19.061 8.531L16.939 6.409L12 11.349L7.06098 6.409L4.93896 8.531Z" fill="var(--color-text)"></path></svg> Modules</h3></summary>
+<div class="tsd-accordion-details">
+<ul>
+<li class="current selected"><a href="modules.html">@fingerprintjs/fingerprintjs-<wbr/>pro-<wbr/>spa</a>
+<ul></ul></li></ul></div></details></nav>
+<nav class="tsd-navigation secondary menu-sticky">
+<ul>
+<li class="tsd-kind-enum"><a href="enums/CacheLocation.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><rect fill="var(--color-icon-background)" stroke="var(--color-ts-enum)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6" id="icon-8-path"></rect><path d="M9.45 16V7.24H14.49V8.224H10.518V10.936H14.07V11.908H10.518V15.016H14.49V16H9.45Z" fill="var(--color-text)" id="icon-8-text"></path></svg>Cache<wbr/>Location</a></li>
+<li class="tsd-kind-class"><a href="classes/CacheStub.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><rect fill="var(--color-icon-background)" stroke="var(--color-ts-class)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6" id="icon-128-path"></rect><path d="M11.898 16.1201C11.098 16.1201 10.466 15.8961 10.002 15.4481C9.53803 15.0001 9.30603 14.3841 9.30603 13.6001V9.64012C9.30603 8.85612 9.53803 8.24012 10.002 7.79212C10.466 7.34412 11.098 7.12012 11.898 7.12012C12.682 7.12012 13.306 7.34812 13.77 7.80412C14.234 8.25212 14.466 8.86412 14.466 9.64012H13.386C13.386 9.14412 13.254 8.76412 12.99 8.50012C12.734 8.22812 12.37 8.09212 11.898 8.09212C11.426 8.09212 11.054 8.22412 10.782 8.48812C10.518 8.75212 10.386 9.13212 10.386 9.62812V13.6001C10.386 14.0961 10.518 14.4801 10.782 14.7521C11.054 15.0161 11.426 15.1481 11.898 15.1481C12.37 15.1481 12.734 15.0161 12.99 14.7521C13.254 14.4801 13.386 14.0961 13.386 13.6001H14.466C14.466 14.3761 14.234 14.9921 13.77 15.4481C13.306 15.8961 12.682 16.1201 11.898 16.1201Z" fill="var(--color-text)" id="icon-128-text"></path></svg>Cache<wbr/>Stub</a></li>
+<li class="tsd-kind-class"><a href="classes/FpjsClient.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-128-path"></use><use href="#icon-128-text"></use></svg>Fpjs<wbr/>Client</a></li>
+<li class="tsd-kind-class"><a href="classes/InMemoryCache.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-128-path"></use><use href="#icon-128-text"></use></svg>In<wbr/>Memory<wbr/>Cache</a></li>
+<li class="tsd-kind-class"><a href="classes/LocalStorageCache.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-128-path"></use><use href="#icon-128-text"></use></svg>Local<wbr/>Storage<wbr/>Cache</a></li>
+<li class="tsd-kind-class"><a href="classes/SessionStorageCache.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-128-path"></use><use href="#icon-128-text"></use></svg>Session<wbr/>Storage<wbr/>Cache</a></li>
+<li class="tsd-kind-interface tsd-is-external"><a href="interfaces/Agent.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><rect fill="var(--color-icon-background)" stroke="var(--color-ts-interface)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6" id="icon-256-path"></rect><path d="M9.51 16V15.016H11.298V8.224H9.51V7.24H14.19V8.224H12.402V15.016H14.19V16H9.51Z" fill="var(--color-text)" id="icon-256-text"></path></svg>Agent</a></li>
+<li class="tsd-kind-interface"><a href="interfaces/FpjsClientOptions.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-256-path"></use><use href="#icon-256-text"></use></svg>Fpjs<wbr/>Client<wbr/>Options</a></li>
+<li class="tsd-kind-interface tsd-is-external"><a href="interfaces/GetOptions.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-256-path"></use><use href="#icon-256-text"></use></svg>Get<wbr/>Options</a></li>
+<li class="tsd-kind-interface"><a href="interfaces/ICache.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-256-path"></use><use href="#icon-256-text"></use></svg>ICache</a></li>
+<li class="tsd-kind-type-alias"><a href="types/Cacheable.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><rect fill="var(--color-icon-background)" stroke="var(--color-ts)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6" id="icon-4194304-path"></rect><path d="M11.31 16V8.224H8.91V7.24H14.79V8.224H12.39V16H11.31Z" fill="var(--color-text)" id="icon-4194304-text"></path></svg>Cacheable</a></li>
+<li class="tsd-kind-type-alias tsd-is-external"><a href="types/ExtendedGetResult.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-4194304-path"></use><use href="#icon-4194304-text"></use></svg>Extended<wbr/>Get<wbr/>Result</a></li>
+<li class="tsd-kind-type-alias tsd-is-external"><a href="types/GetResult.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-4194304-path"></use><use href="#icon-4194304-text"></use></svg>Get<wbr/>Result</a></li>
+<li class="tsd-kind-type-alias tsd-is-external"><a href="types/LoadOptions.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-4194304-path"></use><use href="#icon-4194304-text"></use></svg>Load<wbr/>Options</a></li>
+<li class="tsd-kind-type-alias"><a href="types/VisitorData.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-4194304-path"></use><use href="#icon-4194304-text"></use></svg>Visitor<wbr/>Data</a></li></ul></nav></div></div>
+<div class="container tsd-generator">
+<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></div>
+<div class="overlay"></div><script src="assets/main.js"></script></body></html>
