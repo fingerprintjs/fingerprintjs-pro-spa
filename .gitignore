@@ -1,6 +1,7 @@
 # Project artifacts
 dist/
 node_modules/
+docs/
 
 # misc
 .DS_Store
