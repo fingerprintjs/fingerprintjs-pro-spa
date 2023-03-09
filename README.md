@@ -50,7 +50,7 @@ If you'd like to have a similar SPA wrapper for the OSS version of FingerprintJS
 
 This library uses [Fingerprint Pro](https://fingerprint.com/github/) under the hood, you can view the document for the core technology.
 - To learn more about Fingerprint Pro read our [product documentation](https://dev.fingerprint.com/docs).
-- To learn more about this SDK, there is [Typedoc-generated SDK Reference](https://fingerprintjs.github.io/fingerprintjs-pro-spa) available.
+- To learn more about this SDK, there is a [Typedoc-generated SDK Reference](https://fingerprintjs.github.io/fingerprintjs-pro-spa) available.
 
 ## Installation
 
