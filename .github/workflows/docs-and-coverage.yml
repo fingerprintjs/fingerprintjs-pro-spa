@@ -28,13 +28,10 @@ jobs:
           output: coverage/lcov-report/badges.svg
 
       - name: Prepare folder for gh-pages
-        run: |
-          mkdir gh-pages
-          mv docs ./gh-pages
-          mv coverage/lcov-report ./gh-pages/coverage
+        run: mv coverage/lcov-report ./docs/coverage
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@8817a56e5bfec6e2b08345c81f4d422db53a2cdc
         with:
           branch: gh-pages
-          folder: gh-pages
+          folder: docs
