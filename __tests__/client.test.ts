@@ -1,11 +1,18 @@
 import * as FingerprintJS from '@fingerprintjs/fingerprintjs-pro'
-import { CacheLocation, FpjsClient } from '../src'
+import { CacheLocation, FpjsClient, ICache } from '../src'
 import { CacheKey, getKeyWithPrefix, MAX_CACHE_LIFE } from '../src/cache'
 import * as packageInfo from '../package.json'
 
 const getDefaultLoadOptions = () => ({
   apiKey: 'test_api_key',
 })
+
+const cacheMock: ICache = {
+  set: jest.fn(),
+  get: jest.fn(),
+  remove: jest.fn(),
+  allKeys: jest.fn().mockImplementation(() => ['key1', 'key2']),
+}
 
 describe(`SPA client`, () => {
   afterEach(() => {
@@ -67,6 +74,44 @@ describe(`SPA client`, () => {
       })
 
       await expect(client.init()).resolves.not.toThrow()
+    })
+
+    it('should use `cache` in case if `cache` and `cacheLocation` both passed', async () => {
+      const client = new FpjsClient({
+        loadOptions: getDefaultLoadOptions(),
+        cacheLocation: CacheLocation.LocalStorage,
+        cache: cacheMock,
+      })
+
+      loadSpy.mockClear()
+      await client.init()
+
+      await client.getVisitorData()
+      expect(cacheMock.get).toBeCalledTimes(1)
+      expect(cacheMock.set).toBeCalledTimes(1)
+    })
+
+    it('should throw error in case of wrong cacheLocation', async () => {
+      expect(
+        () =>
+          new FpjsClient({
+            loadOptions: getDefaultLoadOptions(),
+            // @ts-ignore
+            cacheLocation: 'WrongCacheLocation',
+          })
+      ).toThrow('Invalid cache location "WrongCacheLocation"')
+    })
+
+    it('clearCache should call allKeys and remove methods', async () => {
+      const client = new FpjsClient({
+        loadOptions: getDefaultLoadOptions(),
+        cache: cacheMock,
+      })
+
+      await client.clearCache()
+
+      expect(cacheMock.allKeys).toBeCalledTimes(1)
+      expect(cacheMock.remove).toBeCalledTimes(2)
     })
   })
 
