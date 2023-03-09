@@ -1,3 +1,21 @@
+## [1.0.0-test.1](https://github.com/fingerprintjs/fingerprintjs-pro-spa/compare/v0.7.0...v1.0.0-test.1) (2023-03-09)
+
+
+### ⚠ BREAKING CHANGES
+
+* first major release
+
+### Documentation
+
+* **README:** add logo and relevant badges, title ([52f1b6d](https://github.com/fingerprintjs/fingerprintjs-pro-spa/commit/52f1b6d7dd04464bb95c5099759235ae2cfeaa3f))
+* **README:** polish, link to all client SDKs ([11d7820](https://github.com/fingerprintjs/fingerprintjs-pro-spa/commit/11d78203c88a06054d9ffd63935ab7f2e4c76073))
+* **README:** update logo image source ([6e1d51c](https://github.com/fingerprintjs/fingerprintjs-pro-spa/commit/6e1d51c0cb25b98b5b0ad53528a17440cce96c21))
+
+
+### Tests
+
+* check custom `cache` object, check `clearCache` method ([c0605ad](https://github.com/fingerprintjs/fingerprintjs-pro-spa/commit/c0605add0559bb7e975e8e770d7bebf39968a2b3))
+
 ## [0.7.0](https://github.com/fingerprintjs/fingerprintjs-pro-spa/compare/v0.6.0...v0.7.0) (2022-11-16)
 
 
