@@ -1,6 +1,9 @@
 # Project artifacts
 dist/
 node_modules/
+docs/
+coverage/
+gh-pages/
 
 # misc
 .DS_Store
