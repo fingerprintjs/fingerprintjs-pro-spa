@@ -1,4 +1,5 @@
 import * as FingerprintJS from '@fingerprintjs/fingerprintjs-pro'
+import { GetOptions } from '@fingerprintjs/fingerprintjs-pro'
 import {
   CacheKey,
   CacheManager,
@@ -11,7 +12,6 @@ import {
   SessionStorageCache,
 } from './cache'
 import { CacheLocation, FpjsClientOptions, VisitorData } from './global'
-import { GetOptions } from '@fingerprintjs/fingerprintjs-pro'
 import * as packageInfo from '../package.json'
 
 const cacheLocationBuilders: Record<CacheLocation, (prefix?: string) => ICache> = {
@@ -19,6 +19,27 @@ const cacheLocationBuilders: Record<CacheLocation, (prefix?: string) => ICache> 
   [CacheLocation.LocalStorage]: (prefix) => new LocalStorageCache(prefix),
   [CacheLocation.SessionStorage]: (prefix) => new SessionStorageCache(prefix),
   [CacheLocation.NoCache]: () => new CacheStub(),
+}
+
+const isBrowserSupportsCacheLocation = (cacheLocation: CacheLocation) => {
+  switch (cacheLocation) {
+    case CacheLocation.SessionStorage:
+      try {
+        window.sessionStorage.getItem('item')
+      } catch (e) {
+        return false
+      }
+      return true
+    case CacheLocation.LocalStorage:
+      try {
+        window.sessionStorage.getItem('item')
+      } catch (e) {
+        return false
+      }
+      return true
+    default:
+      return true
+  }
 }
 
 const cacheFactory = (location: CacheLocation) => {
@@ -65,6 +86,9 @@ export class FpjsClient {
 
       if (!cacheFactory(this.cacheLocation)) {
         throw new Error(`Invalid cache location "${this.cacheLocation}"`)
+      }
+      if (!isBrowserSupportsCacheLocation(this.cacheLocation)) {
+        this.cacheLocation = CacheLocation.Memory
       }
 
       cache = cacheFactory(this.cacheLocation)(options.cachePrefix)
