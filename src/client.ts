@@ -21,7 +21,7 @@ const cacheLocationBuilders: Record<CacheLocation, (prefix?: string) => ICache> 
   [CacheLocation.NoCache]: () => new CacheStub(),
 }
 
-const isBrowserSupportsCacheLocation = (cacheLocation: CacheLocation) => {
+const doesBrowserSupportCacheLocation = (cacheLocation: CacheLocation) => {
   switch (cacheLocation) {
     case CacheLocation.SessionStorage:
       try {
@@ -32,7 +32,7 @@ const isBrowserSupportsCacheLocation = (cacheLocation: CacheLocation) => {
       return true
     case CacheLocation.LocalStorage:
       try {
-        window.sessionStorage.getItem('item')
+        window.localStorage.getItem('item')
       } catch (e) {
         return false
       }
@@ -87,7 +87,7 @@ export class FpjsClient {
       if (!cacheFactory(this.cacheLocation)) {
         throw new Error(`Invalid cache location "${this.cacheLocation}"`)
       }
-      if (!isBrowserSupportsCacheLocation(this.cacheLocation)) {
+      if (!doesBrowserSupportCacheLocation(this.cacheLocation)) {
         this.cacheLocation = CacheLocation.Memory
       }
 
