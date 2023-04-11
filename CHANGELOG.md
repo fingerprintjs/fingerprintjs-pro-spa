@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/fingerprintjs/fingerprintjs-pro-spa/compare/v1.0.0...v1.0.1) (2023-04-11)
+
+
+### Bug Fixes
+
+* if `sessionStorage` or `localStorage` isn't supported in browser, use `Memory` cache location ([1b702f6](https://github.com/fingerprintjs/fingerprintjs-pro-spa/commit/1b702f641c5bcf5a10ae1fb0048e4e63f4beac32))
+
 ## [1.0.0](https://github.com/fingerprintjs/fingerprintjs-pro-spa/compare/v0.7.0...v1.0.0) (2023-03-10)
 
 
