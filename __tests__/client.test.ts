@@ -114,7 +114,7 @@ describe(`SPA client`, () => {
       expect(cacheMock.remove).toBeCalledTimes(2)
     })
 
-    it("should use Memory strategy if browser hasn't SessionStorage", () => {
+    it('should use Memory strategy if browser does not support SessionStorage', () => {
       jest.spyOn(Object.getPrototypeOf(sessionStorage), 'getItem').mockImplementation(() => {
         throw new Error('Browser blocked access to sessionStorage')
       })
@@ -123,9 +123,9 @@ describe(`SPA client`, () => {
       expect(client.cacheLocation).toBe(CacheLocation.Memory)
     })
 
-    it("should use Memory strategy if browser hasn't LocalStorage", () => {
+    it('should use Memory strategy if browser does not support LocalStorage', () => {
       jest.spyOn(Object.getPrototypeOf(localStorage), 'getItem').mockImplementation(() => {
-        throw new Error('Browser blocked access to sessionStorage')
+        throw new Error('Browser blocked access to localStorage')
       })
       const client = new FpjsClient({ loadOptions: getDefaultLoadOptions(), cacheLocation: CacheLocation.LocalStorage })
 
