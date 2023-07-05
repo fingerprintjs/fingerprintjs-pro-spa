@@ -1,3 +1,15 @@
+## [1.1.0](https://github.com/fingerprintjs/fingerprintjs-pro-spa/compare/v1.0.2...v1.1.0) (2023-07-05)
+
+
+### Features
+
+* add reexports for `defaultEndpoint`, `defaultTlsEndpoint`, `defaultScriptUrlPattern` ([91dafd0](https://github.com/fingerprintjs/fingerprintjs-pro-spa/commit/91dafd07c66281f64bab715a956730ecbb307f45))
+
+
+### Bug Fixes
+
+* update JS Agent with fixed `subdivisions` type ([6cd5fca](https://github.com/fingerprintjs/fingerprintjs-pro-spa/commit/6cd5fcad002339ca537e926d4686d50826237cb3))
+
 ## [1.0.2](https://github.com/fingerprintjs/fingerprintjs-pro-spa/compare/v1.0.1...v1.0.2) (2023-04-14)
 
 
