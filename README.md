@@ -29,8 +29,8 @@
 
 # Fingerprint Pro SPA
 
-This library was designed to be used in SPA framework wrappers for the Fingerprint Pro JavaScript Agent. 
-It also has several built-in caching mechanisms that are optimized according to the official recommendations. 
+This library is designed to be used in single-page-application framework wrappers for the Fingerprint Pro JavaScript Agent. 
+It has multiple built-in caching mechanisms with recommended default settings. 
 
 If you just need the Fingerprint Pro [JS agent](https://www.npmjs.com/package/@fingerprintjs/fingerprintjs-pro), you can use it directly, without this wrapper. If you're looking for a framework-specific integration, we have dedicated SDKs for [React (including Next, Preact)](https://github.com/fingerprintjs/fingerprintjs-pro-react), [Vue](https://github.com/fingerprintjs/fingerprintjs-pro-vue), [Svelte](https://github.com/fingerprintjs/fingerprintjs-pro-svelte) and [Angular](https://github.com/fingerprintjs/fingerprintjs-pro-angular).
 
@@ -48,7 +48,7 @@ If you'd like to have a similar SPA wrapper for the OSS version of FingerprintJS
 
 ## Documentation
 
-This library uses [Fingerprint Pro](https://fingerprint.com/github/) under the hood, you can view the document for the core technology.
+This library uses [Fingerprint Pro](https://fingerprint.com/github/) under the hood.
 - To learn more about Fingerprint Pro read our [product documentation](https://dev.fingerprint.com/docs).
 - To learn more about this SDK, there is a [Typedoc-generated SDK Reference](https://fingerprintjs.github.io/fingerprintjs-pro-spa) available.
 
@@ -73,30 +73,36 @@ yarn add @fingerprintjs/fingerprintjs-pro-spa
 In order to identify visitors you'll need a Fingerprint Pro account (you can [sign up for free](https://dashboard.fingerprint.com/signup/)).
 
 - Go to [Fingerprint Dashboard](https://dashboard.fingerprint.com/)
-- Open the _API keys_ page from the sidebar
+- Go to _App settings_ -> _API Keys_.
 - Find your _Public_ API key
 
 ### Creating the client
 
-Create a `FpjsClient` instance before rendering or initializing your application. You should only have one instance of the client.
+Create a `FpjsClient` instance before rendering or initializing your application. You should only have one instance of the client. You need to specify your public API key and other configuration options based on your chosen region and active integration.
 
 ```js
-import { FpjsClient } from '@fingerprintjs/fingerprintjs-pro-spa';
+import { 
+  FpjsClient,
+  // defaultEndpoint,
+  // defaultScriptUrlPattern
+} from '@fingerprintjs/fingerprintjs-pro-spa';
 
-// It can receive multiple parameters but the only required one is `loadOptions`, which contains the public API key
+// It can receive multiple parameters but the only required one is `loadOptions`, 
+// which contains the public API key
 const fpjsClient = new FpjsClient({
   loadOptions: {
-    apiKey: "your-fpjs-public-api-key" // insert your public api key from the dashboard here
+    apiKey: "<PUBLIC_API_KEY>",
+    // endpoint: ["<CUSTOM_ENDPOINT>", defaultEndpoint],
+    // scriptUrlPattern: ["<CUSTOM_SCRIPT_URL>", defaultScriptUrlPattern],
+    // region: "eu"
   }
 });
 ```
-You can learn more about different load options here: https://dev.fingerprint.com/docs/js-agent#agent-initialization
+You can learn more about different load options here in the [JS Agent documentation](https://dev.fingerprint.com/docs/js-agent#initializing-the-agent).
 
 ### 1 - Init the JS agent
 
-Before you start making identification requests to the Fingerprint Pro API, you need to initialize the Agent 
-to allow it to gather browser signals. 
-Make sure the initialization has been completed before calling the `getVisitorData` method to avoid errors.
+Before you start making identification requests to the Fingerprint Pro API, you need to initialize the JS Agent to allow it to gather browser signals.  Make sure the initialization has been completed before calling the `getVisitorData` method to avoid errors.
 
 ```js
 // with async/await
@@ -111,7 +117,7 @@ const visitorData = fpjsClient.init().then(() => {
 
 ### 2 - Calling an API
 The `getVisitorData` method returns visitor identification data based on the request [options](https://dev.fingerprint.com/docs/js-agent#visitor-identification).
-The second parameter `ignoreCache` will make sure that a request to the API  be made even if the data is present in cache.
+Set `ignoreCache` to `true` to make a request to the API even if the data is present in the cache.
 
 ```js
 // with async/await
@@ -126,10 +132,8 @@ const visitorData = fpjsClient.getVisitorData({ extendedResult: true }).then((vi
 
 ### Caching
 
-The SDK can be configured to cache the visitor data in memory, in session storage, or in local storage. 
-The default is in session storage. This setting can be controlled using the `cacheLocation` option when creating the Fpjs client.
-
-To use the session storage mode, no additional options need are required as this is the default setting. To configure the SDK to cache data using local storage, set `cacheLocation` as follows:
+The SDK can cache the visitor data in session storage (default), in local storage, or in memory. 
+You can specify the `cacheLocation` option when creating the Fpjs client.
 
 ```js
 const fpjsClient = new FpjsClient({
@@ -150,16 +154,13 @@ const fpjsClient = new FpjsClient({
 });
 ```
 
-Cache keys are formed based on the combination of the _GetOptions_, so, for example, API responses for calls with `extendedResult: true` and `extendedResult: false`
-will be stored independently.
+Cache keys are based on the combination of _GetOptions_. For example, API responses for calls with `extendedResult: true` and `extendedResult: false` are stored independently.
 
 #### Creating a custom cache
 
-The SDK can be configured to use a custom cache store that is implemented by your application. This is useful if you are using this SDK in an environment where a different data store is more convenient, such as a hybrid mobile app.
+The SDK can use a custom cache store implemented inside your application. This is useful when a different data store is more convenient in your environment, such as a hybrid mobile app.
 
-To do this, provide an object to the `cache` property of the SDK configuration.
-
-The object should implement the following functions. Note that all of these functions can optionally return a Promise or a static value.
+You can provide an object to the `cache` property of the SDK configuration that implements the following functions. All the functions can return a Promise or a static value.
 
 | Signature                        | Return type                    | Description                                                                                                                                                                    |
 | -------------------------------- | ------------------------------ |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -168,17 +169,16 @@ The object should implement the following functions. Note that all of these func
 | `remove(key)`                    | Promise<void> or void          | Removes a single item from the cache at the specified key, or no-op if the item was not found                                                                                  |
 | `allKeys()`                      | Promise<string[]> or string [] | Returns the list of all keys. By default, the keys we use are prefixed with `@fpjs@client@` but you can pass your own custom prefix as an option when you create the FpjsClient |
 
-**Note:** The `cache` property takes precedence over the `cacheLocation` property if both are set. A warning is displayed in the console if this scenario occurs.
+**Note:** The `cache` property takes priority over `cacheLocation` if both are set. A warning is displayed in the console if that happens.
 
-We also export the internal `InMemoryCache`, `LocalStorageCache`, `SessionStorageCache`, and `CacheStub` implementations, so you can wrap your custom cache around these implementations if you wish.
+We export the internal `InMemoryCache`, `LocalStorageCache`, `SessionStorageCache`, and `CacheStub` implementations, so you can wrap your custom cache around these implementations if you wish.
 
 #### Cache time
-Fpjs client receives `cacheTimeInSeconds` as one of the options. To ensure high identification accuracy we recommend that the visitor data is not cached for longer than 24 hours.
-For that reason, if you pass a value higher than 86400 (60 * 60 * 24), the FpjsClient constructor will throw an error.
+Use the `cacheTimeInSeconds` client constructor option to set a custom cache time. To ensure high identification accuracy we recommend not to cache visitors data for longer than 24 hours. If you pass a value higher than 86400 (60 * 60 * 24), the `FpjsClient` constructor will throw an error.
 
 ## Support + Feedback
 
-For support or to provide feedback, please [raise an issue on our issue tracker](https://github.com/fingerprintjs/fingerprintjs-pro-spa/issues).
+For support or to provide feedback, please use [Issues](https://github.com/fingerprintjs/fingerprintjs-pro-spa/issues).
 
 ## License
 
