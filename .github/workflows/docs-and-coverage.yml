@@ -8,4 +8,4 @@ on:
 jobs:
   generate-docs-and-coverage:
     name: Generate docs and coverage report
-    uses: fingerprintjs/dx-team-toolkit/.github/workflows/docs-and-coverage.yml@main
+    uses: fingerprintjs/dx-team-toolkit/.github/workflows/docs-and-coverage.yml@v1

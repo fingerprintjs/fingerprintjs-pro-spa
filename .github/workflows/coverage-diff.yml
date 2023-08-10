@@ -9,4 +9,4 @@ jobs:
     permissions:
       checks: write
       pull-requests: write
-    uses: fingerprintjs/dx-team-toolkit/.github/workflows/coverage-diff.yml@main
+    uses: fingerprintjs/dx-team-toolkit/.github/workflows/coverage-diff.yml@v1
