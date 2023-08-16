@@ -11,9 +11,6 @@ jobs:
     uses: fingerprintjs/dx-team-toolkit/.github/workflows/build-typescript-project.yml@v1
     with:
       artifactName: 'fingerprintjs-pro-spa-artifact'
-      artifactPath: |
-        ./dist
-        ./node_modules
 
   release:
     name: 'Release'
@@ -30,6 +27,20 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: 'fingerprintjs-pro-spa-artifact'
+
+      # We need install the node modules only for the release (I hope).
+      # Should be useless after migrating to the release action.
+      - name: 'Cache'
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: nodemodules-${{ hashFiles('yarn.lock') }}
+          restore-keys: nodemodules-
+
+      - name: 'Install Dependencies and prepare packages'
+        run: yarn install
+        env:
+          CI: true
 
       - name: 'Release'
         run: yarn release
