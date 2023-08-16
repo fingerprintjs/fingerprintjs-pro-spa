@@ -11,7 +11,7 @@ jobs:
     uses: fingerprintjs/dx-team-toolkit/.github/workflows/build-typescript-project.yml@v1
     with:
       artifactName: 'fingerprintjs-pro-spa-artifact'
-      path: |
+      artifactPath: |
         ./dist
         ./node_modules
 
