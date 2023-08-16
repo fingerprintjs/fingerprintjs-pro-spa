@@ -10,7 +10,6 @@ jobs:
     name: 'Build project and run CI checks'
     uses: fingerprintjs/dx-team-toolkit/.github/workflows/build-typescript-project.yml@v1
     with:
-      checkoutPersistCredentials: false
       artifactName: 'fingerprintjs-pro-spa-artifact'
       path: |
         ./dist
