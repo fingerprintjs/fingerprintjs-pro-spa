@@ -6,41 +6,9 @@ on:
       - test
 
 jobs:
-  build-and-check:
-    name: 'Build project and run CI checks'
-    uses: fingerprintjs/dx-team-toolkit/.github/workflows/build-typescript-project.yml@v1
-
-  release:
-    name: 'Release'
-    needs: build-and-check
-    runs-on: ubuntu-latest
-    environment: production
-    steps:
-      - name: 'Checkout'
-        uses: actions/checkout@v3
-        with:
-          persist-credentials: false
-
-      - name: 'Cache'
-        uses: actions/cache@v3
-        with:
-          path: node_modules
-          key: nodemodules-${{ hashFiles('yarn.lock') }}
-          restore-keys: nodemodules-
-
-      - name: 'Install Dependencies and prepare packages'
-        run: yarn install
-        env:
-          CI: true
-
-      - name: 'Semantic Release'
-        uses: cycjimmy/semantic-release-action@91ab76a4a393a8d0c4739e9aea1818b56bc953ea
-        with:
-          extra_plugins: |
-            @semantic-release/exec@6.0.3
-            conventional-changelog-conventionalcommits@5.0.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_RELEASE_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-          HUSKY: 0
-
+  build-and-release:
+    name: 'Build project, run CI checks and publish new release'
+    uses: fingerprintjs/dx-team-toolkit/.github/workflows/release-typescript-project.yml@v1
+    secrets:
+      GH_RELEASE_TOKEN: ${{ secrets.GH_RELEASE_TOKEN }}
+      NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
