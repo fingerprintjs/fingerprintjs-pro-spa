@@ -8,4 +8,4 @@ on:
 jobs:
   build-and-release:
     name: 'Build project, run CI checks and publish new release'
-    uses: fingerprintjs/dx-team-toolkit/.github/workflows/release-typescript-project.yml@e009aa03af01a3c69f95d41fcd63d92f4c8f6bf1
+    uses: fingerprintjs/dx-team-toolkit/.github/workflows/release-typescript-project.yml@test
