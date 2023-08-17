@@ -3,38 +3,46 @@ on:
   push:
     branches:
       - main
+      - test
 
 jobs:
+  build-and-check:
+    name: 'Build project and run CI checks'
+    uses: fingerprintjs/dx-team-toolkit/.github/workflows/build-typescript-project.yml@v1
+    with:
+      artifactName: 'fingerprintjs-pro-spa-artifact'
+
   release:
-    name: Release
+    name: 'Release'
+    needs: build-and-check
     runs-on: ubuntu-latest
     environment: production
     steps:
-      - name: Checkout
+      - name: 'Checkout'
         uses: actions/checkout@v3
         with:
           persist-credentials: false
 
-      - name: Cache
-        uses: actions/cache@v2
+      - name: 'Download artifacts'
+        uses: actions/download-artifact@v3
+        with:
+          name: 'fingerprintjs-pro-spa-artifact'
+
+      # We need install the node modules only for the release (I hope).
+      # Should be useless after migrating to the release action.
+      - name: 'Cache'
+        uses: actions/cache@v3
         with:
           path: node_modules
           key: nodemodules-${{ hashFiles('yarn.lock') }}
           restore-keys: nodemodules-
 
-      - name: Install dependencies
+      - name: 'Install Dependencies and prepare packages'
         run: yarn install
+        env:
+          CI: true
 
-      - name: Build library
-        run: yarn build
-
-      - name: Check the distributive TypeScript declarations
-        run: yarn test:dts
-
-      - name: Run tests
-        run: yarn test
-
-      - name: Release
+      - name: 'Release'
         run: yarn release
         env:
           GITHUB_TOKEN: ${{ secrets.GH_RELEASE_TOKEN }}
