@@ -1,3 +1,10 @@
+## [1.1.1-test.1](https://github.com/fingerprintjs/fingerprintjs-pro-spa/compare/v1.1.0...v1.1.1-test.1) (2023-08-17)
+
+
+### Documentation
+
+* **README:** add fallback endpoints and polish readme ([1bd0cbf](https://github.com/fingerprintjs/fingerprintjs-pro-spa/commit/1bd0cbf6c16a64fd778bc802c5c3536c2a627312))
+
 ## [1.1.0](https://github.com/fingerprintjs/fingerprintjs-pro-spa/compare/v1.0.2...v1.1.0) (2023-07-05)
 
 
