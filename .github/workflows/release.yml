@@ -9,8 +9,6 @@ jobs:
   build-and-check:
     name: 'Build project and run CI checks'
     uses: fingerprintjs/dx-team-toolkit/.github/workflows/build-typescript-project.yml@v1
-    with:
-      artifactName: 'fingerprintjs-pro-spa-artifact'
 
   release:
     name: 'Release'
@@ -23,10 +21,17 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: 'Download artifacts'
-        uses: actions/download-artifact@v3
+      - name: 'Cache'
+        uses: actions/cache@v3
         with:
-          name: 'fingerprintjs-pro-spa-artifact'
+          path: node_modules
+          key: nodemodules-${{ hashFiles('yarn.lock') }}
+          restore-keys: nodemodules-
+
+      - name: 'Install Dependencies and prepare packages'
+        run: yarn install
+        env:
+          CI: true
 
       - name: 'Semantic Release'
         uses: cycjimmy/semantic-release-action@91ab76a4a393a8d0c4739e9aea1818b56bc953ea
