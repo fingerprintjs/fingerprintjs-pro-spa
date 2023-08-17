@@ -3,6 +3,19 @@
 
 ### Bug Fixes
 
+* trigger one more prerelease ([265c6d1](https://github.com/fingerprintjs/fingerprintjs-pro-spa/commit/265c6d114ed183371fccc4d09204a2a50b672dbf))
+* trigger one more prerelease ([838765e](https://github.com/fingerprintjs/fingerprintjs-pro-spa/commit/838765ec1f9f69feb2e535aaa07079195abd915c))
+
+
+### Documentation
+
+* **README:** add fallback endpoints and polish readme ([1bd0cbf](https://github.com/fingerprintjs/fingerprintjs-pro-spa/commit/1bd0cbf6c16a64fd778bc802c5c3536c2a627312))
+
+## [1.1.1-test.1](https://github.com/fingerprintjs/fingerprintjs-pro-spa/compare/v1.1.0...v1.1.1-test.1) (2023-08-17)
+
+
+### Bug Fixes
+
 * trigger one more prerelease ([838765e](https://github.com/fingerprintjs/fingerprintjs-pro-spa/commit/838765ec1f9f69feb2e535aaa07079195abd915c))
 
 
