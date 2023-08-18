@@ -9,3 +9,6 @@ jobs:
   build-and-release:
     name: 'Build project, run CI checks and publish new release'
     uses: fingerprintjs/dx-team-toolkit/.github/workflows/release-typescript-project.yml@test
+    secrets:
+      GH_RELEASE_TOKEN: ${{ secrets.GH_RELEASE_TOKEN }}
+      NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
