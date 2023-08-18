@@ -1,3 +1,12 @@
+## [1.2.0-test.2](https://github.com/fingerprintjs/fingerprintjs-pro-spa/compare/v1.2.0-test.1...v1.2.0-test.2) (2023-08-18)
+
+
+### Features
+
+* trigger one more prerelease ([fec7cb2](https://github.com/fingerprintjs/fingerprintjs-pro-spa/commit/fec7cb2a5096a4a9b4f37f6f564ff7e828a9c392))
+* trigger one more prerelease ([d2fd815](https://github.com/fingerprintjs/fingerprintjs-pro-spa/commit/d2fd815d6a3549127acaad0c74640e49d915d0ee))
+* try reusable worflow for the release pipeline ([98e7c35](https://github.com/fingerprintjs/fingerprintjs-pro-spa/commit/98e7c3564d6dbd9ca96b129a243eb4aa4dffe15c))
+
 ## [1.2.0-test.1](https://github.com/fingerprintjs/fingerprintjs-pro-spa/compare/v1.1.0...v1.2.0-test.1) (2023-08-17)
 
 
