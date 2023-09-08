@@ -46,6 +46,10 @@ const cacheFactory = (location: CacheLocation) => {
   return cacheLocationBuilders[location]
 }
 
+interface CustomAgent {
+  load: (options: FingerprintJS.LoadOptions) => Promise<FingerprintJS.Agent>
+}
+
 /**
  * FingerprintJS SDK for Single Page Applications
  */
@@ -54,12 +58,15 @@ export class FpjsClient {
   private loadOptions: FingerprintJS.LoadOptions
   private agent: FingerprintJS.Agent
   private agentPromise: Promise<FingerprintJS.Agent> | null
+  private customAgent?: CustomAgent
   readonly cacheLocation?: CacheLocation
 
   private inFlightRequests = new Map<string, Promise<VisitorData>>()
 
-  constructor(private options: FpjsClientOptions) {
+  constructor(private options: FpjsClientOptions & { customAgent?: CustomAgent }) {
     this.agentPromise = null
+    this.customAgent = options.customAgent
+
     this.agent = {
       get: () => {
         throw new Error("FPJSAgent hasn't loaded yet. Make sure to call the init() method first.")
@@ -108,7 +115,9 @@ export class FpjsClient {
    */
   public async init() {
     if (!this.agentPromise) {
-      this.agentPromise = FingerprintJS.load(this.loadOptions)
+      const agentLoader = this.customAgent ? this.customAgent : FingerprintJS
+      this.agentPromise = agentLoader
+        .load(this.loadOptions)
         .then((agent) => {
           this.agent = agent
           return agent
