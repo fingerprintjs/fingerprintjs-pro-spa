@@ -131,6 +131,37 @@ describe(`SPA client`, () => {
 
       expect(client.cacheLocation).toBe(CacheLocation.Memory)
     })
+
+    it('should use custom agent if passed', async () => {
+      const CustomJsAgent = {
+        load() {
+          return Promise.resolve({
+            get() {
+              return Promise.resolve({})
+            },
+          })
+        },
+      }
+
+      const mockedCustomGet = jest.fn().mockReturnValue(Promise.resolve({}))
+      const mockedCustomLoad = jest.spyOn(CustomJsAgent, 'load').mockReturnValue(
+        Promise.resolve({
+          get: mockedCustomGet,
+        })
+      )
+      const client = new FpjsClient({
+        loadOptions: getDefaultLoadOptions(),
+        cacheLocation: CacheLocation.Memory,
+        // @ts-ignore
+        customAgent: CustomJsAgent,
+      })
+
+      await client.init()
+      expect(mockedCustomLoad).toBeCalledTimes(1)
+      expect(loadSpy).toBeCalledTimes(0)
+      await client.getVisitorData()
+      expect(mockedCustomGet).toBeCalledTimes(1)
+    })
   })
 
   describe('getVisitorData', () => {
