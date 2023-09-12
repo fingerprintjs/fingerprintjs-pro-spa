@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/fingerprintjs/fingerprintjs-pro-spa/compare/v1.1.1...v1.1.2) (2023-09-12)
+
+
+### Bug Fixes
+
+* bump js agent loader version ([addee9e](https://github.com/fingerprintjs/fingerprintjs-pro-spa/commit/addee9ee7122128678d78f9de0e63e24982ad042))
+
 ## [1.1.1](https://github.com/fingerprintjs/fingerprintjs-pro-spa/compare/v1.1.0...v1.1.1) (2023-09-12)
 
 
