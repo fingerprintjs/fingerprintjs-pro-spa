@@ -1,3 +1,15 @@
+## [1.1.1](https://github.com/fingerprintjs/fingerprintjs-pro-spa/compare/v1.1.0...v1.1.1) (2023-09-12)
+
+
+### Bug Fixes
+
+* we can pass custom JS Agent to the SPA package now ([24cc153](https://github.com/fingerprintjs/fingerprintjs-pro-spa/commit/24cc153a8ce102cdc14eed259f839d6b57f64963))
+
+
+### Documentation
+
+* **README:** add fallback endpoints and polish readme ([1bd0cbf](https://github.com/fingerprintjs/fingerprintjs-pro-spa/commit/1bd0cbf6c16a64fd778bc802c5c3536c2a627312))
+
 ## [1.1.0](https://github.com/fingerprintjs/fingerprintjs-pro-spa/compare/v1.0.2...v1.1.0) (2023-07-05)
 
 
