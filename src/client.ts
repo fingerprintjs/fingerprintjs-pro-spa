@@ -115,7 +115,7 @@ export class FpjsClient {
    */
   public async init() {
     if (!this.agentPromise) {
-      const agentLoader = this.customAgent ? this.customAgent : FingerprintJS
+      const agentLoader = this.customAgent ?? FingerprintJS
       this.agentPromise = agentLoader
         .load(this.loadOptions)
         .then((agent) => {
