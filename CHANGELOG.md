@@ -1,3 +1,10 @@
+## [1.1.3](https://github.com/fingerprintjs/fingerprintjs-pro-spa/compare/v1.1.2...v1.1.3) (2023-09-19)
+
+
+### Bug Fixes
+
+* introduce FpjsSpaOptions type ([9312a62](https://github.com/fingerprintjs/fingerprintjs-pro-spa/commit/9312a62b8b6ec29adf830c3b1658f45caece940b))
+
 ## [1.1.2](https://github.com/fingerprintjs/fingerprintjs-pro-spa/compare/v1.1.1...v1.1.2) (2023-09-12)
 
 
