@@ -46,8 +46,12 @@ const cacheFactory = (location: CacheLocation) => {
   return cacheLocationBuilders[location]
 }
 
-interface CustomAgent {
+export interface CustomAgent {
   load: (options: FingerprintJS.LoadOptions) => Promise<FingerprintJS.Agent>
+}
+
+export interface FpjsSpaOptions extends FpjsClientOptions {
+  customAgent?: CustomAgent
 }
 
 /**
@@ -58,12 +62,12 @@ export class FpjsClient {
   private loadOptions: FingerprintJS.LoadOptions
   private agent: FingerprintJS.Agent
   private agentPromise: Promise<FingerprintJS.Agent> | null
-  private customAgent?: CustomAgent
+  private readonly customAgent?: CustomAgent
   readonly cacheLocation?: CacheLocation
 
   private inFlightRequests = new Map<string, Promise<VisitorData>>()
 
-  constructor(private options: FpjsClientOptions & { customAgent?: CustomAgent }) {
+  constructor(options: FpjsSpaOptions) {
     this.agentPromise = null
     this.customAgent = options.customAgent
 
