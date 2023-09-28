@@ -29,6 +29,8 @@
 
 # Fingerprint Pro SPA
 
+[Fingerprint](https://fingerprint.com/) is a device intelligence platform offering 99.5% accurate visitor identification
+
 This library is designed to be used in single-page-application framework wrappers for the Fingerprint Pro JavaScript Agent. 
 It has multiple built-in caching mechanisms with recommended default settings. 
 
@@ -42,6 +44,7 @@ If you'd like to have a similar SPA wrapper for the OSS version of FingerprintJS
 
 - [Documentation](#documentation)
 - [Installation](#installation)
+- [Requirements](#requirements)
 - [Getting Started](#getting-started)
 - [Support + Feedback](#support--feedback)
 - [License](#license)
@@ -65,6 +68,16 @@ Using [yarn](https://yarnpkg.com):
 ```sh
 yarn add @fingerprintjs/fingerprintjs-pro-spa
 ```
+
+Using [pnpm](https://pnpm.js.org):
+
+```sh
+pnpm add @fingerprintjs/fingerprintjs-pro-spa
+```
+
+## Requirements
+
+- For TypeScript users: Typescript 4.5 or higher
 
 ## Getting Started
 
