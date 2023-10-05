@@ -45,7 +45,7 @@ If you'd like to have a similar SPA wrapper for the OSS version of FingerprintJS
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [Getting Started](#getting-started)
-- [Support + Feedback](#support--feedback)
+- [Support and Feedback](#support-and-feedback)
 - [Documentation](#documentation)
 - [License](#license)
 
@@ -183,9 +183,9 @@ We export the internal `InMemoryCache`, `LocalStorageCache`, `SessionStorageCach
 #### Cache time
 Use the `cacheTimeInSeconds` client constructor option to set a custom cache time. To ensure high identification accuracy we recommend not to cache visitors data for longer than 24 hours. If you pass a value higher than 86400 (60 * 60 * 24), the `FpjsClient` constructor will throw an error.
 
-## Support + Feedback
+## Support and feedback
 
-For support or to provide feedback, please use [Issues](https://github.com/fingerprintjs/fingerprintjs-pro-spa/issues).
+To report problems, ask questions or provide feedback, please use [Issues](https://github.com/fingerprintjs/fingerprintjs-pro-spa/issues). If you need private support, you can email us at [oss-support@fingerprint.com](mailto:oss-support@fingerprint.com).
 
 ## Documentation
 
