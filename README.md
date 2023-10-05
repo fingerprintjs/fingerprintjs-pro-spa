@@ -42,18 +42,16 @@ If you'd like to have a similar SPA wrapper for the OSS version of FingerprintJS
 
 ## Table of Contents
 
-- [Documentation](#documentation)
-- [Installation](#installation)
 - [Requirements](#requirements)
+- [Installation](#installation)
 - [Getting Started](#getting-started)
 - [Support + Feedback](#support--feedback)
+- [Documentation](#documentation)
 - [License](#license)
 
-## Documentation
+## Requirements
 
-This library uses [Fingerprint Pro](https://fingerprint.com/github/) under the hood.
-- To learn more about Fingerprint Pro read our [product documentation](https://dev.fingerprint.com/docs).
-- To learn more about this SDK, there is a [Typedoc-generated SDK Reference](https://fingerprintjs.github.io/fingerprintjs-pro-spa) available.
+- For TypeScript users: Typescript 4.5 or higher
 
 ## Installation
 
@@ -74,10 +72,6 @@ Using [pnpm](https://pnpm.js.org):
 ```sh
 pnpm add @fingerprintjs/fingerprintjs-pro-spa
 ```
-
-## Requirements
-
-- For TypeScript users: Typescript 4.5 or higher
 
 ## Getting Started
 
@@ -192,6 +186,12 @@ Use the `cacheTimeInSeconds` client constructor option to set a custom cache tim
 ## Support + Feedback
 
 For support or to provide feedback, please use [Issues](https://github.com/fingerprintjs/fingerprintjs-pro-spa/issues).
+
+## Documentation
+
+This library uses [Fingerprint Pro](https://fingerprint.com/github/) under the hood.
+- To learn more about Fingerprint Pro read our [product documentation](https://dev.fingerprint.com/docs).
+- To learn more about this SDK, there is a [Typedoc-generated SDK Reference](https://fingerprintjs.github.io/fingerprintjs-pro-spa) available.
 
 ## License
 
