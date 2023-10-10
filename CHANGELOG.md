@@ -1,3 +1,10 @@
+## [1.2.0](https://github.com/fingerprintjs/fingerprintjs-pro-spa/compare/v1.1.3...v1.2.0) (2023-10-10)
+
+
+### Features
+
+* export `fingerprintjs-pro` as `FingerprintJSPro`, deprecate other exports from this library ([735e302](https://github.com/fingerprintjs/fingerprintjs-pro-spa/commit/735e302f0280950122de8ab8983828e35db676a2))
+
 ## [1.1.3](https://github.com/fingerprintjs/fingerprintjs-pro-spa/compare/v1.1.2...v1.1.3) (2023-09-19)
 
 
