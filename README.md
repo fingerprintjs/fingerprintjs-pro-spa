@@ -83,8 +83,7 @@ Create a `FpjsClient` instance before rendering or initializing your application
 ```js
 import { 
   FpjsClient,
-  // defaultEndpoint,
-  // defaultScriptUrlPattern
+  FingerprintJSPro
 } from '@fingerprintjs/fingerprintjs-pro-spa';
 
 // It can receive multiple parameters but the only required one is `loadOptions`, 
@@ -92,8 +91,8 @@ import {
 const fpjsClient = new FpjsClient({
   loadOptions: {
     apiKey: "<PUBLIC_API_KEY>",
-    // endpoint: ["<CUSTOM_ENDPOINT>", defaultEndpoint],
-    // scriptUrlPattern: ["<CUSTOM_SCRIPT_URL>", defaultScriptUrlPattern],
+    // endpoint: ["<CUSTOM_ENDPOINT>", FingerprintJSPro.defaultEndpoint],
+    // scriptUrlPattern: ["<CUSTOM_SCRIPT_URL>", FingerprintJSPro.defaultScriptUrlPattern],
     // region: "eu"
   }
 });
