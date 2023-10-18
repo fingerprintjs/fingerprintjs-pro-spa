@@ -45,6 +45,7 @@
 <a href="#fingerprint-pro-spa" id="fingerprint-pro-spa" style="color: inherit; text-decoration: none;">
   <h1>Fingerprint Pro SPA</h1>
 </a>
+<p><a href="https://fingerprint.com/">Fingerprint</a> is a device intelligence platform offering 99.5% accurate visitor identification</p>
 <p>This library is designed to be used in single-page-application framework wrappers for the Fingerprint Pro JavaScript Agent. 
 It has multiple built-in caching mechanisms with recommended default settings. </p>
 <p>If you just need the Fingerprint Pro <a href="https://www.npmjs.com/package/@fingerprintjs/fingerprintjs-pro">JS agent</a>, you can use it directly, without this wrapper. If you&#39;re looking for a framework-specific integration, we have dedicated SDKs for <a href="https://github.com/fingerprintjs/fingerprintjs-pro-react">React (including Next, Preact)</a>, <a href="https://github.com/fingerprintjs/fingerprintjs-pro-vue">Vue</a>, <a href="https://github.com/fingerprintjs/fingerprintjs-pro-svelte">Svelte</a> and <a href="https://github.com/fingerprintjs/fingerprintjs-pro-angular">Angular</a>.</p>
@@ -56,20 +57,19 @@ If you&#39;d like to have a similar SPA wrapper for the OSS version of Fingerpri
   <h2>Table of Contents</h2>
 </a>
 <ul>
-<li><a href="#documentation">Documentation</a></li>
+<li><a href="#requirements">Requirements</a></li>
 <li><a href="#installation">Installation</a></li>
 <li><a href="#getting-started">Getting Started</a></li>
-<li><a href="#support--feedback">Support + Feedback</a></li>
+<li><a href="#support-and-feedback">Support and Feedback</a></li>
+<li><a href="#documentation">Documentation</a></li>
 <li><a href="#license">License</a></li>
 </ul>
 
-<a href="#documentation" id="documentation" style="color: inherit; text-decoration: none;">
-  <h2>Documentation</h2>
+<a href="#requirements" id="requirements" style="color: inherit; text-decoration: none;">
+  <h2>Requirements</h2>
 </a>
-<p>This library uses <a href="https://fingerprint.com/github/">Fingerprint Pro</a> under the hood.</p>
 <ul>
-<li>To learn more about Fingerprint Pro read our <a href="https://dev.fingerprint.com/docs">product documentation</a>.</li>
-<li>To learn more about this SDK, there is a <a href="https://fingerprintjs.github.io/fingerprintjs-pro-spa">Typedoc-generated SDK Reference</a> available.</li>
+<li>For TypeScript users: Typescript 4.5 or higher</li>
 </ul>
 
 <a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
@@ -80,6 +80,9 @@ If you&#39;d like to have a similar SPA wrapper for the OSS version of Fingerpri
 </code></pre>
 <p>Using <a href="https://yarnpkg.com">yarn</a>:</p>
 <pre><code class="language-sh"><span class="hl-0">yarn </span><span class="hl-1">add</span><span class="hl-0"> </span><span class="hl-1">@fingerprintjs/fingerprintjs-pro-spa</span>
+</code></pre>
+<p>Using <a href="https://pnpm.js.org">pnpm</a>:</p>
+<pre><code class="language-sh"><span class="hl-0">pnpm </span><span class="hl-1">add</span><span class="hl-0"> </span><span class="hl-1">@fingerprintjs/fingerprintjs-pro-spa</span>
 </code></pre>
 
 <a href="#getting-started" id="getting-started" style="color: inherit; text-decoration: none;">
@@ -173,10 +176,19 @@ You can specify the <code>cacheLocation</code> option when creating the Fpjs cli
 </a>
 <p>Use the <code>cacheTimeInSeconds</code> client constructor option to set a custom cache time. To ensure high identification accuracy we recommend not to cache visitors data for longer than 24 hours. If you pass a value higher than 86400 (60 * 60 * 24), the <code>FpjsClient</code> constructor will throw an error.</p>
 
-<a href="#support--feedback" id="support--feedback" style="color: inherit; text-decoration: none;">
-  <h2>Support + Feedback</h2>
+<a href="#support-and-feedback" id="support-and-feedback" style="color: inherit; text-decoration: none;">
+  <h2>Support and feedback</h2>
 </a>
-<p>For support or to provide feedback, please use <a href="https://github.com/fingerprintjs/fingerprintjs-pro-spa/issues">Issues</a>.</p>
+<p>To report problems, ask questions or provide feedback, please use <a href="https://github.com/fingerprintjs/fingerprintjs-pro-spa/issues">Issues</a>. If you need private support, you can email us at <a href="mailto:oss-support@fingerprint.com">oss-support@fingerprint.com</a>.</p>
+
+<a href="#documentation" id="documentation" style="color: inherit; text-decoration: none;">
+  <h2>Documentation</h2>
+</a>
+<p>This library uses <a href="https://fingerprint.com/github/">Fingerprint Pro</a> under the hood.</p>
+<ul>
+<li>To learn more about Fingerprint Pro read our <a href="https://dev.fingerprint.com/docs">product documentation</a>.</li>
+<li>To learn more about this SDK, there is a <a href="https://fingerprintjs.github.io/fingerprintjs-pro-spa">Typedoc-generated SDK Reference</a> available.</li>
+</ul>
 
 <a href="#license" id="license" style="color: inherit; text-decoration: none;">
   <h2>License</h2>
