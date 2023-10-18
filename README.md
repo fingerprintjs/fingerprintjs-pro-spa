@@ -29,6 +29,8 @@
 
 # Fingerprint Pro SPA
 
+[Fingerprint](https://fingerprint.com/) is a device intelligence platform offering 99.5% accurate visitor identification
+
 This library is designed to be used in single-page-application framework wrappers for the Fingerprint Pro JavaScript Agent. 
 It has multiple built-in caching mechanisms with recommended default settings. 
 
@@ -40,17 +42,16 @@ If you'd like to have a similar SPA wrapper for the OSS version of FingerprintJS
 
 ## Table of Contents
 
-- [Documentation](#documentation)
+- [Requirements](#requirements)
 - [Installation](#installation)
 - [Getting Started](#getting-started)
-- [Support + Feedback](#support--feedback)
+- [Support and Feedback](#support-and-feedback)
+- [Documentation](#documentation)
 - [License](#license)
 
-## Documentation
+## Requirements
 
-This library uses [Fingerprint Pro](https://fingerprint.com/github/) under the hood.
-- To learn more about Fingerprint Pro read our [product documentation](https://dev.fingerprint.com/docs).
-- To learn more about this SDK, there is a [Typedoc-generated SDK Reference](https://fingerprintjs.github.io/fingerprintjs-pro-spa) available.
+- For TypeScript users: Typescript 4.5 or higher
 
 ## Installation
 
@@ -64,6 +65,12 @@ Using [yarn](https://yarnpkg.com):
 
 ```sh
 yarn add @fingerprintjs/fingerprintjs-pro-spa
+```
+
+Using [pnpm](https://pnpm.js.org):
+
+```sh
+pnpm add @fingerprintjs/fingerprintjs-pro-spa
 ```
 
 ## Getting Started
@@ -175,9 +182,15 @@ We export the internal `InMemoryCache`, `LocalStorageCache`, `SessionStorageCach
 #### Cache time
 Use the `cacheTimeInSeconds` client constructor option to set a custom cache time. To ensure high identification accuracy we recommend not to cache visitors data for longer than 24 hours. If you pass a value higher than 86400 (60 * 60 * 24), the `FpjsClient` constructor will throw an error.
 
-## Support + Feedback
+## Support and feedback
 
-For support or to provide feedback, please use [Issues](https://github.com/fingerprintjs/fingerprintjs-pro-spa/issues).
+To report problems, ask questions or provide feedback, please use [Issues](https://github.com/fingerprintjs/fingerprintjs-pro-spa/issues). If you need private support, you can email us at [oss-support@fingerprint.com](mailto:oss-support@fingerprint.com).
+
+## Documentation
+
+This library uses [Fingerprint Pro](https://fingerprint.com/github/) under the hood.
+- To learn more about Fingerprint Pro read our [product documentation](https://dev.fingerprint.com/docs).
+- To learn more about this SDK, there is a [Typedoc-generated SDK Reference](https://fingerprintjs.github.io/fingerprintjs-pro-spa) available.
 
 ## License
 
