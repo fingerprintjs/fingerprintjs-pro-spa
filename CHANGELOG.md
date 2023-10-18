@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/fingerprintjs/fingerprintjs-pro-spa/compare/v1.2.0...v1.2.1) (2023-10-18)
+
+
+### Documentation
+
+* **README:** add requirements section ([274427a](https://github.com/fingerprintjs/fingerprintjs-pro-spa/commit/274427a54f159183a179d24ba007160bd9e9567f))
+
 ## [1.2.0](https://github.com/fingerprintjs/fingerprintjs-pro-spa/compare/v1.1.3...v1.2.0) (2023-10-10)
 
 
