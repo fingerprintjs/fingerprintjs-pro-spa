@@ -59,6 +59,37 @@ describe(`SPA client`, () => {
       )
     })
 
+    it('should support passing loadOptions in .init()', async () => {
+      const client = new FpjsClient()
+
+      await client.init(getDefaultLoadOptions())
+
+      await expect(client.getVisitorData()).resolves.not.toThrow()
+
+      expect(loadSpy).toBeCalledTimes(1)
+    })
+
+    it('should merge loadOptions passed in .init() and in constructor', async () => {
+      const client = new FpjsClient({
+        loadOptions: {
+          ...getDefaultLoadOptions(),
+          integrationInfo: ['integrationInfo1'],
+        },
+      })
+
+      await client.init({
+        integrationInfo: ['integrationInfo2'],
+        region: 'eu',
+      })
+
+      expect(loadSpy).toBeCalledTimes(1)
+      expect(loadSpy).toHaveBeenCalledWith({
+        ...getDefaultLoadOptions(),
+        region: 'eu',
+        integrationInfo: ['integrationInfo1', 'integrationInfo2', `fingerprintjs-pro-spa/${packageInfo.version}`],
+      })
+    })
+
     it('should allow calling .init() again in case of errors thrown by agent', async () => {
       const client = new FpjsClient({ loadOptions: getDefaultLoadOptions() })
 

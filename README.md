@@ -93,9 +93,8 @@ import {
   FingerprintJSPro
 } from '@fingerprintjs/fingerprintjs-pro-spa';
 
-// It can receive multiple parameters but the only required one is `loadOptions`, 
-// which contains the public API key
 const fpjsClient = new FpjsClient({
+  // You can also pass these options later in `.init()` method
   loadOptions: {
     apiKey: "<PUBLIC_API_KEY>",
     // endpoint: ["<CUSTOM_ENDPOINT>", FingerprintJSPro.defaultEndpoint],
@@ -104,7 +103,8 @@ const fpjsClient = new FpjsClient({
   }
 });
 ```
-You can learn more about different load options here in the [JS Agent documentation](https://dev.fingerprint.com/docs/js-agent#initializing-the-agent).
+
+> ⚠️ You must provide `loadOptions` which contain your public API key either in the constructor or in the `init` method. If you don't, the SDK will throw an error. You can learn more about different load options here in the [JS Agent documentation](https://dev.fingerprint.com/docs/js-agent#initializing-the-agent).
 
 ### 1 - Init the JS agent
 
@@ -113,6 +113,7 @@ Before you start making identification requests to the Fingerprint Pro API, you 
 ```js
 // with async/await
 await fpjsClient.init()
+
 const visitorData = await fpjsClient.getVisitorData()
 
 // with promises
@@ -120,7 +121,16 @@ const visitorData = fpjsClient.init().then(() => {
   return fpjsClient.getVisitorData()
 })
 ```
-
+:You can also pass the load options here
+```js
+await fpjsClient.init({
+      apiKey: "<PUBLIC_API_KEY>",
+      // endpoint: ["<CUSTOM_ENDPOINT>", FingerprintJSPro.defaultEndpoint],
+      // scriptUrlPattern: ["<CUSTOM_SCRIPT_URL>", FingerprintJSPro.defaultScriptUrlPattern],
+      // region: "eu"
+    }
+)
+```
 ### 2 - Calling an API
 The `getVisitorData` method returns visitor identification data based on the request [options](https://dev.fingerprint.com/docs/js-agent#visitor-identification).
 Set `ignoreCache` to `true` to make a request to the API even if the data is present in the cache.

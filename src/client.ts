@@ -1,5 +1,5 @@
 import * as FingerprintJS from '@fingerprintjs/fingerprintjs-pro'
-import { GetOptions } from '@fingerprintjs/fingerprintjs-pro'
+import { GetOptions, LoadOptions } from '@fingerprintjs/fingerprintjs-pro'
 import {
   CacheKey,
   CacheManager,
@@ -50,7 +50,9 @@ export interface CustomAgent {
   load: (options: FingerprintJS.LoadOptions) => Promise<FingerprintJS.Agent>
 }
 
-export interface FpjsSpaOptions extends FpjsClientOptions {
+export interface FpjsSpaOptions
+  extends Omit<FpjsClientOptions, 'loadOptions'>,
+    Pick<Partial<FpjsClientOptions>, 'loadOptions'> {
   customAgent?: CustomAgent
 }
 
@@ -59,7 +61,7 @@ export interface FpjsSpaOptions extends FpjsClientOptions {
  */
 export class FpjsClient {
   private cacheManager: CacheManager
-  private loadOptions: FingerprintJS.LoadOptions
+  private readonly loadOptions?: FingerprintJS.LoadOptions
   private agent: FingerprintJS.Agent
   private agentPromise: Promise<FingerprintJS.Agent> | null
   private readonly customAgent?: CustomAgent
@@ -67,9 +69,9 @@ export class FpjsClient {
 
   private inFlightRequests = new Map<string, Promise<VisitorData>>()
 
-  constructor(options: FpjsSpaOptions) {
+  constructor(options?: FpjsSpaOptions) {
     this.agentPromise = null
-    this.customAgent = options.customAgent
+    this.customAgent = options?.customAgent
 
     this.agent = {
       get: () => {
@@ -77,12 +79,9 @@ export class FpjsClient {
       },
     }
 
-    this.loadOptions = {
-      ...options.loadOptions,
-      integrationInfo: [...(options.loadOptions.integrationInfo || []), `fingerprintjs-pro-spa/${packageInfo.version}`],
-    }
+    this.loadOptions = options?.loadOptions
 
-    if (options.cache && options.cacheLocation) {
+    if (options?.cache && options?.cacheLocation) {
       console.warn(
         'Both `cache` and `cacheLocation` options have been specified in the FpjsClient configuration; ignoring `cacheLocation` and using `cache`.'
       )
@@ -90,10 +89,10 @@ export class FpjsClient {
 
     let cache: ICache
 
-    if (options.cache) {
+    if (options?.cache) {
       cache = options.cache
     } else {
-      this.cacheLocation = options.cacheLocation || CacheLocation.SessionStorage
+      this.cacheLocation = options?.cacheLocation || CacheLocation.SessionStorage
 
       if (!cacheFactory(this.cacheLocation)) {
         throw new Error(`Invalid cache location "${this.cacheLocation}"`)
@@ -102,26 +101,42 @@ export class FpjsClient {
         this.cacheLocation = CacheLocation.Memory
       }
 
-      cache = cacheFactory(this.cacheLocation)(options.cachePrefix)
+      cache = cacheFactory(this.cacheLocation)(options?.cachePrefix)
     }
 
-    if (options.cacheTimeInSeconds && options.cacheTimeInSeconds > MAX_CACHE_LIFE) {
+    if (options?.cacheTimeInSeconds && options.cacheTimeInSeconds > MAX_CACHE_LIFE) {
       throw new Error(`Cache time cannot exceed 86400 seconds (24 hours)`)
     }
 
-    const cacheTime = options.cacheTimeInSeconds ?? DEFAULT_CACHE_LIFE
+    const cacheTime = options?.cacheTimeInSeconds ?? DEFAULT_CACHE_LIFE
     this.cacheManager = new CacheManager(cache, cacheTime)
   }
 
   /**
    * Loads FPJS JS agent with certain settings and stores the instance in memory
    * [https://dev.fingerprint.com/docs/js-agent#agent-initialization]
+   *
+   * @param passedLoadOptions Additional load options to be passed to the agent, they will be merged with load options provided in the constructor.
    */
-  public async init() {
+  public async init(passedLoadOptions?: Partial<LoadOptions>) {
+    if (!this.loadOptions && !passedLoadOptions) {
+      throw new TypeError('No load options provided')
+    }
+
+    const loadOptions: FingerprintJS.LoadOptions = {
+      ...this.loadOptions!,
+      ...passedLoadOptions!,
+      integrationInfo: [
+        ...(this.loadOptions?.integrationInfo || []),
+        ...(passedLoadOptions?.integrationInfo || []),
+        `fingerprintjs-pro-spa/${packageInfo.version}`,
+      ],
+    }
+
     if (!this.agentPromise) {
       const agentLoader = this.customAgent ?? FingerprintJS
       this.agentPromise = agentLoader
-        .load(this.loadOptions)
+        .load(loadOptions)
         .then((agent) => {
           this.agent = agent
           return agent
