@@ -235,6 +235,29 @@ describe(`SPA client`, () => {
       expect(result2?.visitorId).toBe(mockVisitorId)
     })
 
+    it('should return cached response on second call if it exists', async () => {
+      const client = new FpjsClient({
+        loadOptions: getDefaultLoadOptions(),
+        cacheLocation: CacheLocation.LocalStorage,
+      })
+      await client.init()
+
+      const result1 = await client.getVisitorData()
+      expect(result1).toEqual({
+        visitorId: mockVisitorId,
+        cacheHit: false,
+      })
+
+      const result2 = await client.getVisitorData()
+
+      expect(result2).toEqual({
+        visitorId: mockVisitorId,
+        cacheHit: true,
+      })
+
+      expect(agentGetMock).toHaveBeenCalledTimes(1)
+    })
+
     it('should remove in-flight request even if it throws', async () => {
       agentGetMock.mockReset().mockRejectedValue(new Error())
 
@@ -251,6 +274,7 @@ describe(`SPA client`, () => {
 
       await expect(client.getVisitorData({}, true)).resolves.toEqual({
         visitorId: mockVisitorId,
+        cacheHit: false,
       })
 
       expect(agentGetMock).toHaveBeenCalledTimes(2)
@@ -280,8 +304,14 @@ describe(`SPA client`, () => {
       const result2 = await getCall2
 
       expect(agentGetMock).toHaveBeenCalledTimes(0)
-      expect(result1?.visitorId).toBe(mockVisitorId)
-      expect(result2?.visitorId).toBe(mockVisitorId)
+      expect(result1).toEqual({
+        visitorId: mockVisitorId,
+        cacheHit: true,
+      })
+      expect(result2).toEqual({
+        visitorId: mockVisitorId,
+        cacheHit: true,
+      })
     })
 
     it(`shouldn't get cached data if there is an in-flight request already if options are different`, async () => {
@@ -308,8 +338,14 @@ describe(`SPA client`, () => {
       const result2 = await getCall2
 
       expect(agentGetMock).toHaveBeenCalledTimes(1)
-      expect(result1?.visitorId).toBe(mockVisitorId)
-      expect(result2?.visitorId).toBe(mockVisitorId)
+      expect(result1).toEqual({
+        visitorId: mockVisitorId,
+        cacheHit: true,
+      })
+      expect(result2).toEqual({
+        visitorId: mockVisitorId,
+        cacheHit: false,
+      })
     })
 
     it(`shouldn't get cached data if a flag to ignore cache is set to true`, async () => {
@@ -332,7 +368,10 @@ describe(`SPA client`, () => {
       const result = await client.getVisitorData(options, true)
 
       expect(agentGetMock).toHaveBeenCalledTimes(1)
-      expect(result?.visitorId).toBe(mockVisitorId)
+      expect(result).toEqual({
+        visitorId: mockVisitorId,
+        cacheHit: false,
+      })
     })
   })
 

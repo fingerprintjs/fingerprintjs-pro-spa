@@ -172,6 +172,16 @@ const fpjsClient = new FpjsClient({
 
 Cache keys are based on the combination of _GetOptions_. For example, API responses for calls with `extendedResult: true` and `extendedResult: false` are stored independently.
 
+You can check if your response was retrieved from cache like this:
+```js
+
+const result = await fpjsClient.getVisitorData({ extendedResult: true })
+
+// true if cache was hit
+console.log(result.cacheHit)
+
+```
+
 #### Creating a custom cache
 
 The SDK can use a custom cache store implemented inside your application. This is useful when a different data store is more convenient in your environment, such as a hybrid mobile app.

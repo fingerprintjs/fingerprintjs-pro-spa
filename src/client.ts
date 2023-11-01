@@ -11,7 +11,7 @@ import {
   MAX_CACHE_LIFE,
   SessionStorageCache,
 } from './cache'
-import { CacheLocation, FpjsClientOptions, VisitorData } from './global'
+import { CacheLocation, FpjsClientOptions, FpjsSpaResponse, VisitorData } from './global'
 import * as packageInfo from '../package.json'
 
 const cacheLocationBuilders: Record<CacheLocation, (prefix?: string) => ICache> = {
@@ -158,7 +158,10 @@ export class FpjsClient {
    * @param options
    * @param ignoreCache if set to true a request to the API will be made even if the data is present in cache
    */
-  public async getVisitorData<TExtended extends boolean>(options: GetOptions<TExtended> = {}, ignoreCache = false) {
+  public async getVisitorData<TExtended extends boolean>(
+    options: GetOptions<TExtended> = {},
+    ignoreCache = false
+  ): Promise<FpjsSpaResponse<VisitorData<TExtended>>> {
     const cacheKey = FpjsClient.makeCacheKey(options)
     const key = cacheKey.toKey()
 
@@ -169,7 +172,7 @@ export class FpjsClient {
       this.inFlightRequests.set(key, promise)
     }
 
-    return (await this.inFlightRequests.get(key)) as VisitorData<TExtended>
+    return (await this.inFlightRequests.get(key)) as FpjsSpaResponse<VisitorData<TExtended>>
   }
 
   /**
@@ -186,19 +189,28 @@ export class FpjsClient {
     return new CacheKey<TExtended>(options)
   }
 
-  private async _identify<TExtended extends boolean>(options: GetOptions<TExtended>, ignoreCache = false) {
+  private async _identify<TExtended extends boolean>(
+    options: GetOptions<TExtended>,
+    ignoreCache = false
+  ): Promise<FpjsSpaResponse<VisitorData<TExtended>>> {
     const key = FpjsClient.makeCacheKey(options)
 
     if (!ignoreCache) {
       const cacheResult = await this.cacheManager.get(key)
 
       if (cacheResult) {
-        return cacheResult
+        return {
+          ...cacheResult,
+          cacheHit: true,
+        }
       }
     }
 
-    const agentResult = await this.agent.get(options)
+    const agentResult = (await this.agent.get(options)) as VisitorData<TExtended>
     await this.cacheManager.set(key, agentResult)
-    return agentResult
+    return {
+      ...agentResult,
+      cacheHit: false,
+    }
   }
 }
