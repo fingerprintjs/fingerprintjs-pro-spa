@@ -195,6 +195,95 @@ describe(`SPA client`, () => {
     })
   })
 
+  describe('getVisitorDataFromCache', () => {
+    const mockVisitorId = 'abc123'
+    const cachePrefix = 'get_visitor_data_from_cache_test'
+    let agentGetMock: jest.Mock
+
+    beforeEach(() => {
+      agentGetMock = jest.fn(async () => {
+        return {
+          visitorId: mockVisitorId,
+        } as FingerprintJS.GetResult
+      })
+      // @ts-ignore
+      jest.spyOn(FingerprintJS, 'load').mockImplementation(async () => {
+        return {
+          get: agentGetMock,
+        }
+      })
+    })
+
+    afterEach(() => {
+      localStorage.clear()
+    })
+
+    it('should return response if it is cached, and undefined if it is not', async () => {
+      const client = new FpjsClient({
+        loadOptions: getDefaultLoadOptions(),
+        cacheLocation: CacheLocation.LocalStorage,
+        cachePrefix,
+      })
+      await client.init()
+
+      const response = await client.getVisitorData()
+
+      const cachedResponse = await client.getVisitorDataFromCache()
+
+      expect(cachedResponse).toEqual({
+        ...response,
+        cacheHit: true,
+      })
+
+      expect(agentGetMock).toHaveBeenCalledTimes(1)
+
+      const notCachedResponse = await client.getVisitorDataFromCache({ extendedResult: true })
+
+      expect(notCachedResponse).toBeUndefined()
+    })
+  })
+
+  describe('isInCache', () => {
+    const mockVisitorId = 'abc123'
+    const cachePrefix = 'is_in_cache_test'
+    let agentGetMock: jest.Mock
+
+    beforeEach(() => {
+      agentGetMock = jest.fn(async () => {
+        return {
+          visitorId: mockVisitorId,
+        } as FingerprintJS.GetResult
+      })
+      // @ts-ignore
+      jest.spyOn(FingerprintJS, 'load').mockImplementation(async () => {
+        return {
+          get: agentGetMock,
+        }
+      })
+    })
+
+    afterEach(() => {
+      localStorage.clear()
+    })
+
+    it('should return true if response is cached', async () => {
+      const client = new FpjsClient({
+        loadOptions: getDefaultLoadOptions(),
+        cacheLocation: CacheLocation.LocalStorage,
+        cachePrefix,
+      })
+      await client.init()
+
+      await client.getVisitorData()
+      await client.getVisitorData()
+
+      expect(agentGetMock).toHaveBeenCalledTimes(1)
+      await expect(client.isInCache()).resolves.toEqual(true)
+      await expect(client.isInCache({ extendedResult: true })).resolves.toEqual(false)
+      await expect(client.isInCache({ tag: 'tag' })).resolves.toEqual(false)
+    })
+  })
+
   describe('getVisitorData', () => {
     const mockVisitorId = 'abc123'
     const cachePrefix = 'cache_test'

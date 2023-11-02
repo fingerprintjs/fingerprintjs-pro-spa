@@ -176,6 +176,24 @@ export class FpjsClient {
   }
 
   /**
+   * Returns cached visitor data based on the request options, or undefined if the data is not present in cache
+   * */
+  public async getVisitorDataFromCache<TExtended extends boolean>(
+    options: GetOptions<TExtended> = {}
+  ): Promise<FpjsSpaResponse<VisitorData<TExtended>> | undefined> {
+    const cacheKey = FpjsClient.makeCacheKey(options)
+    const cacheResult = await this.cacheManager.get(cacheKey)
+    return cacheResult ? { ...cacheResult, cacheHit: true } : undefined
+  }
+
+  /**
+   * Checks if request matching given options is present in cache
+   * */
+  public async isInCache(options: GetOptions<boolean> = {}) {
+    return Boolean(await this.getVisitorDataFromCache(options))
+  }
+
+  /**
    * Clears visitor data from cache regardless of the cache implementation
    */
   public async clearCache() {

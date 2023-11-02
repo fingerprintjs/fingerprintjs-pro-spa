@@ -179,7 +179,15 @@ const result = await fpjsClient.getVisitorData({ extendedResult: true })
 
 // true if cache was hit
 console.log(result.cacheHit)
+```
 
+You can also use the following API to retrieve responses from cache:
+```js
+// Checks if request matching given options is present in cache
+await fpjsClient.isInCache({ extendedResult: true })
+
+// Returns cached visitor data based on the request options, or undefined if the data is not present in cache
+const cachedResult = await fpjsClient.getVisitorDataFromCache({ extendedResult: true })
 ```
 
 #### Creating a custom cache
