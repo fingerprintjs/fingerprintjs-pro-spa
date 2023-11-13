@@ -79,8 +79,7 @@ pnpm add @fingerprintjs/fingerprintjs-pro-spa
 
 In order to identify visitors you'll need a Fingerprint Pro account (you can [sign up for free](https://dashboard.fingerprint.com/signup/)).
 
-- Go to [Fingerprint Dashboard](https://dashboard.fingerprint.com/)
-- Go to **App settings** -> [**API Keys**]([url](https://dashboard.fingerprint.com/api-keys)).
+- Go to **Fingerprint Dashboard** > **App settings** > [**API Keys**](https://dashboard.fingerprint.com/api-keys).
 - Find your Public API key.
 
 ### 2. Create the client
@@ -106,7 +105,7 @@ const fpjsClient = new FpjsClient({
 ```
 You can learn more about different load options in the [JS Agent API Reference](https://dev.fingerprint.com/docs/js-agent#initializing-the-agent).
 
-### 3. Initialise the JS agent
+### 3. Initialize the JS Agent
 
 Before you start making identification requests to the Fingerprint Pro API, you need to initialize the JS Agent. This downloads the latest client-side logic from Fingerprint CDN. Call `init()` before the `getVisitorData()` method to avoid errors.
 
@@ -123,7 +122,7 @@ const visitorData = fpjsClient.init().then(() => {
 
 ### 4. Identify visitors
 
-The `getVisitorData` method returns visitor identification data based on the request [options](https://dev.fingerprint.com/docs/js-agent#visitor-identification).
+The `getVisitorData` method returns visitor identification data based on the request [options](https://dev.fingerprint.com/docs/js-agent#get-options).
 Set `ignoreCache` to `true` to make a request to the API even if the data is present in the cache.
 
 ```js
@@ -137,7 +136,7 @@ const visitorData = fpjsClient.getVisitorData({ extendedResult: true }).then((vi
 })
 ```
 
-See the [JS Agent API reference]([url](https://dev.fingerprint.com/docs/js-agent)) for more details. 
+See the [JS Agent API reference](https://dev.fingerprint.com/docs/js-agent) for more details. 
 
 ### Caching
 
@@ -163,9 +162,8 @@ const fpjsClient = new FpjsClient({
 
 Cache keys are based on the combination of _GetOptions_. For example, API responses for calls with `extendedResult: true` and `extendedResult: false` are stored independently.
 
-* You disable ignore the cached result for a specific API call by passing `{ ignoreCache: true }` to the `getVisitorData()` method.
+* You can ignore the cached result for a specific API call by passing `{ ignoreCache: true }` to the `getVisitorData()` method.
 * You can also use your custom cache implementation as described below.
-
 
 > [!WARNING]
 > If you use data from `extendedResult`, pay additional attention to your caching strategy. Some fields from the extended result (IP address, lastSeenAt, etc.) might change over time for the same visitor. If you need to get the latest results, pass `{ignoreCache: true}` to the `getVisitorData()` function.
@@ -183,7 +181,8 @@ You can provide an object to the `cache` property of the SDK configuration that 
 | `remove(key)`                    | Promise<void> or void          | Removes a single item from the cache at the specified key, or no-op if the item was not found                                                                                  |
 | `allKeys()`                      | Promise<string[]> or string [] | Returns the list of all keys. By default, the keys we use are prefixed with `@fpjs@client@` but you can pass your own custom prefix as an option when you create the FpjsClient |
 
-**Note:** The `cache` property takes priority over `cacheLocation` if both are set. A warning is displayed in the console if that happens.
+> [!NOTE]
+> The `cache` property takes priority over `cacheLocation` if both are set. A warning is displayed in the console if that happens.
 
 We export the internal `InMemoryCache`, `LocalStorageCache`, `SessionStorageCache`, and `CacheStub` implementations, so you can wrap your custom cache around these implementations if you wish.
 
