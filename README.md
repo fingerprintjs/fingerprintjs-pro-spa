@@ -123,7 +123,7 @@ const visitorData = fpjsClient.init().then(() => {
 ### 4. Identify visitors
 
 The `getVisitorData` method returns visitor identification data based on the request [options](https://dev.fingerprint.com/docs/js-agent#get-options).
-Set `ignoreCache` to `true` to make a request to the API even if the data is present in the cache.
+Set `ignoreCache` to `true` to call the API even if the data is present in the cache.
 
 ```js
 // with async/await
@@ -140,7 +140,7 @@ See the [JS Agent API reference](https://dev.fingerprint.com/docs/js-agent) for 
 
 ### Caching
 
-Fingerprint Pro usage is billed per API call. To avoid unnecessarry API calls, it is a good practice cache identification results. The SDK provides three ways to cache visitor data out of the box:
+Fingerprint Pro usage is billed per API call. To avoid unnecessary API calls, it is a good practice to cache identification results. The SDK provides three ways to cache visitor data out of the box:
 
 * Session storage (default) - `sessionStorage`
 * Local storage - `localStorage`
@@ -165,8 +165,9 @@ Cache keys are based on the combination of _GetOptions_. For example, API respon
 * You can ignore the cached result for a specific API call by passing `{ ignoreCache: true }` to the `getVisitorData()` method.
 * You can also use your custom cache implementation as described below.
 
-> [!WARNING]
-> If you use data from `extendedResult`, pay additional attention to your caching strategy. Some fields from the extended result (IP address, lastSeenAt, etc.) might change over time for the same visitor. If you need to get the latest results, pass `{ignoreCache: true}` to the `getVisitorData()` function.
+> [!NOTE]
+> If you use data from [`extendedResult`](https://dev.fingerprint.com/docs/js-agent#extendedresult), pay additional attention to your caching strategy.
+> Some fields, for example, `ip` or `lastSeenAt`, might change over time for the same visitor. Use `getVisitorData({ ignoreCache: true })` to fetch the latest identification results.
 
 #### Creating a custom cache
 
@@ -191,7 +192,7 @@ Use the `cacheTimeInSeconds` client constructor option to set a custom cache tim
 
 ## Support and feedback
 
-To report problems, ask questions or provide feedback, please use [Issues](https://github.com/fingerprintjs/fingerprintjs-pro-spa/issues). If you need private support, you can email us at [oss-support@fingerprint.com](mailto:oss-support@fingerprint.com).
+To report problems, ask questions, or provide feedback, please use [Issues](https://github.com/fingerprintjs/fingerprintjs-pro-spa/issues). If you need private support, you can email us at [oss-support@fingerprint.com](mailto:oss-support@fingerprint.com).
 
 ## Documentation
 
