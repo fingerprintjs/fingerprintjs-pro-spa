@@ -6,25 +6,15 @@
      <img src="https://fingerprintjs.github.io/home/resources/logo_dark.svg" alt="Fingerprint logo" width="312px" />
    </picture>
   </a>
+</p>
 <p align="center">
-<a href="https://www.npmjs.com/package/@fingerprintjs/fingerprintjs-pro-spa">
-  <img src="https://img.shields.io/npm/v/@fingerprintjs/fingerprintjs-pro-spa.svg" alt="Current NPM version">
-</a>
-<a href="https://fingerprintjs.github.io/fingerprintjs-pro-spa/coverage/">
-  <img src="https://fingerprintjs.github.io/fingerprintjs-pro-spa/coverage/badges.svg" alt="coverage">
-</a>
-<a href="https://www.npmjs.com/package/@fingerprintjs/fingerprintjs-pro-spa">
-  <img src="https://img.shields.io/npm/dm/@fingerprintjs/fingerprintjs-pro-spa.svg" alt="Monthly downloads from NPM">
-</a>
-<a href="https://opensource.org/licenses/MIT">
-  <img src="https://img.shields.io/:license-mit-blue.svg" alt="MIT license">
-</a>
-<a href="https://discord.gg/39EpE2neBg">
-  <img src="https://img.shields.io/discord/852099967190433792?style=logo&label=Discord&logo=Discord&logoColor=white" alt="Discord server">
-</a>
-<a href="https://fingerprintjs.github.io/fingerprintjs-pro-spa">
-  <img src="https://img.shields.io/badge/-Documentation-green" alt="Documentation">
-</a>
+<a href="https://www.npmjs.com/package/@fingerprintjs/fingerprintjs-pro-spa" style="text-decoration: none;"><img src="https://img.shields.io/npm/v/@fingerprintjs/fingerprintjs-pro-spa.svg" alt="Current NPM version"></a>
+<a href="https://fingerprintjs.github.io/fingerprintjs-pro-spa/coverage/" style="text-decoration: none;"><img src="https://fingerprintjs.github.io/fingerprintjs-pro-spa/coverage/badges.svg" alt="coverage"></a>
+<a href="https://www.npmjs.com/package/@fingerprintjs/fingerprintjs-pro-spa"><img src="https://img.shields.io/npm/dm/@fingerprintjs/fingerprintjs-pro-spa.svg" alt="Monthly downloads from NPM"></a>
+<a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/:license-mit-blue.svg" alt="MIT license"></a>
+<a href="https://discord.gg/39EpE2neBg"><img src="https://img.shields.io/discord/852099967190433792?style=logo&label=Discord&logo=Discord&logoColor=white" alt="Discord server"></a>
+<a href="https://fingerprintjs.github.io/fingerprintjs-pro-spa"><img src="https://img.shields.io/badge/-Documentation-green" alt="Documentation"></a>
+</p>
 
 
 # Fingerprint Pro SPA
