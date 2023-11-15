@@ -20,25 +20,15 @@
      <img src="https://fingerprintjs.github.io/home/resources/logo_dark.svg" alt="Fingerprint logo" width="312px" />
    </picture>
   </a>
+</p>
 <p align="center">
-<a href="https://www.npmjs.com/package/@fingerprintjs/fingerprintjs-pro-spa">
-  <img src="https://img.shields.io/npm/v/@fingerprintjs/fingerprintjs-pro-spa.svg" alt="Current NPM version">
-</a>
-<a href="https://fingerprintjs.github.io/fingerprintjs-pro-spa/coverage/">
-  <img src="https://fingerprintjs.github.io/fingerprintjs-pro-spa/coverage/badges.svg" alt="coverage">
-</a>
-<a href="https://www.npmjs.com/package/@fingerprintjs/fingerprintjs-pro-spa">
-  <img src="https://img.shields.io/npm/dm/@fingerprintjs/fingerprintjs-pro-spa.svg" alt="Monthly downloads from NPM">
-</a>
-<a href="https://opensource.org/licenses/MIT">
-  <img src="https://img.shields.io/:license-mit-blue.svg" alt="MIT license">
-</a>
-<a href="https://discord.gg/39EpE2neBg">
-  <img src="https://img.shields.io/discord/852099967190433792?style=logo&label=Discord&logo=Discord&logoColor=white" alt="Discord server">
-</a>
-<a href="https://fingerprintjs.github.io/fingerprintjs-pro-spa">
-  <img src="https://img.shields.io/badge/-Documentation-green" alt="Documentation">
-</a>
+<a href="https://www.npmjs.com/package/@fingerprintjs/fingerprintjs-pro-spa" style="text-decoration: none;"><img src="https://img.shields.io/npm/v/@fingerprintjs/fingerprintjs-pro-spa.svg" alt="Current NPM version"></a>
+<a href="https://fingerprintjs.github.io/fingerprintjs-pro-spa/coverage/" style="text-decoration: none;"><img src="https://fingerprintjs.github.io/fingerprintjs-pro-spa/coverage/badges.svg" alt="coverage"></a>
+<a href="https://www.npmjs.com/package/@fingerprintjs/fingerprintjs-pro-spa"><img src="https://img.shields.io/npm/dm/@fingerprintjs/fingerprintjs-pro-spa.svg" alt="Monthly downloads from NPM"></a>
+<a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/:license-mit-blue.svg" alt="MIT license"></a>
+<a href="https://discord.gg/39EpE2neBg"><img src="https://img.shields.io/discord/852099967190433792?style=logo&label=Discord&logo=Discord&logoColor=white" alt="Discord server"></a>
+<a href="https://fingerprintjs.github.io/fingerprintjs-pro-spa"><img src="https://img.shields.io/badge/-Documentation-green" alt="Documentation"></a>
+</p>
 
 
 
@@ -89,50 +79,62 @@ If you&#39;d like to have a similar SPA wrapper for the OSS version of Fingerpri
   <h2>Getting Started</h2>
 </a>
 
-<a href="#fingerprint-pro-public-api-key" id="fingerprint-pro-public-api-key" style="color: inherit; text-decoration: none;">
-  <h3>Fingerprint Pro public API key</h3>
+<a href="#1-get-your-fingerprint-pro-public-api-key" id="1-get-your-fingerprint-pro-public-api-key" style="color: inherit; text-decoration: none;">
+  <h3>1. Get your Fingerprint Pro Public API key</h3>
 </a>
 <p>In order to identify visitors you&#39;ll need a Fingerprint Pro account (you can <a href="https://dashboard.fingerprint.com/signup/">sign up for free</a>).</p>
 <ul>
-<li>Go to <a href="https://dashboard.fingerprint.com/">Fingerprint Dashboard</a></li>
-<li>Go to <em>App settings</em> -&gt; <em>API Keys</em>.</li>
-<li>Find your <em>Public</em> API key</li>
+<li>Go to <strong>Fingerprint Dashboard</strong> &gt; <strong>App settings</strong> &gt; <a href="https://dashboard.fingerprint.com/api-keys"><strong>API Keys</strong></a>.</li>
+<li>Find your Public API key.</li>
 </ul>
 
-<a href="#creating-the-client" id="creating-the-client" style="color: inherit; text-decoration: none;">
-  <h3>Creating the client</h3>
+<a href="#2-create-the-client" id="2-create-the-client" style="color: inherit; text-decoration: none;">
+  <h3>2. Create the client</h3>
 </a>
 <p>Create a <code>FpjsClient</code> instance before rendering or initializing your application. You should only have one instance of the client. You need to specify your public API key and other configuration options based on your chosen region and active integration.</p>
 <pre><code class="language-js"><span class="hl-2">import</span><span class="hl-0"> { </span><br/><span class="hl-0">  </span><span class="hl-3">FpjsClient</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-3">FingerprintJSPro</span><br/><span class="hl-0">} </span><span class="hl-2">from</span><span class="hl-0"> </span><span class="hl-1">&#39;@fingerprintjs/fingerprintjs-pro-spa&#39;</span><span class="hl-0">;</span><br/><br/><span class="hl-4">// It can receive multiple parameters but the only required one is `loadOptions`, </span><br/><span class="hl-4">// which contains the public API key</span><br/><span class="hl-5">const</span><span class="hl-0"> </span><span class="hl-6">fpjsClient</span><span class="hl-0"> = </span><span class="hl-5">new</span><span class="hl-0"> </span><span class="hl-7">FpjsClient</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-3">loadOptions:</span><span class="hl-0"> {</span><br/><span class="hl-0">    </span><span class="hl-3">apiKey:</span><span class="hl-0"> </span><span class="hl-1">&quot;&lt;PUBLIC_API_KEY&gt;&quot;</span><span class="hl-0">,</span><br/><span class="hl-0">    </span><span class="hl-4">// endpoint: [&quot;&lt;CUSTOM_ENDPOINT&gt;&quot;, FingerprintJSPro.defaultEndpoint],</span><br/><span class="hl-0">    </span><span class="hl-4">// scriptUrlPattern: [&quot;&lt;CUSTOM_SCRIPT_URL&gt;&quot;, FingerprintJSPro.defaultScriptUrlPattern],</span><br/><span class="hl-0">    </span><span class="hl-4">// region: &quot;eu&quot;</span><br/><span class="hl-0">  }</span><br/><span class="hl-0">});</span>
 </code></pre>
-<p>You can learn more about different load options here in the <a href="https://dev.fingerprint.com/docs/js-agent#initializing-the-agent">JS Agent documentation</a>.</p>
+<p>You can learn more about different load options in the <a href="https://dev.fingerprint.com/docs/js-agent#initializing-the-agent">JS Agent API Reference</a>.</p>
 
-<a href="#1---init-the-js-agent" id="1---init-the-js-agent" style="color: inherit; text-decoration: none;">
-  <h3>1 - Init the JS agent</h3>
+<a href="#3-initialize-the-js-agent" id="3-initialize-the-js-agent" style="color: inherit; text-decoration: none;">
+  <h3>3. Initialize the JS Agent</h3>
 </a>
-<p>Before you start making identification requests to the Fingerprint Pro API, you need to initialize the JS Agent to allow it to gather browser signals.  Make sure the initialization has been completed before calling the <code>getVisitorData</code> method to avoid errors.</p>
+<p>Before you start making identification requests to the Fingerprint Pro API, you need to initialize the JS Agent. This downloads the latest client-side logic from Fingerprint CDN. Call <code>init()</code> before the <code>getVisitorData()</code> method to avoid errors.</p>
 <pre><code class="language-js"><span class="hl-4">// with async/await</span><br/><span class="hl-2">await</span><span class="hl-0"> </span><span class="hl-3">fpjsClient</span><span class="hl-0">.</span><span class="hl-7">init</span><span class="hl-0">()</span><br/><span class="hl-5">const</span><span class="hl-0"> </span><span class="hl-6">visitorData</span><span class="hl-0"> = </span><span class="hl-2">await</span><span class="hl-0"> </span><span class="hl-3">fpjsClient</span><span class="hl-0">.</span><span class="hl-7">getVisitorData</span><span class="hl-0">()</span><br/><br/><span class="hl-4">// with promises</span><br/><span class="hl-5">const</span><span class="hl-0"> </span><span class="hl-6">visitorData</span><span class="hl-0"> = </span><span class="hl-3">fpjsClient</span><span class="hl-0">.</span><span class="hl-7">init</span><span class="hl-0">().</span><span class="hl-7">then</span><span class="hl-0">(() </span><span class="hl-5">=&gt;</span><span class="hl-0"> {</span><br/><span class="hl-0">  </span><span class="hl-2">return</span><span class="hl-0"> </span><span class="hl-3">fpjsClient</span><span class="hl-0">.</span><span class="hl-7">getVisitorData</span><span class="hl-0">()</span><br/><span class="hl-0">})</span>
 </code></pre>
 
-<a href="#2---calling-an-api" id="2---calling-an-api" style="color: inherit; text-decoration: none;">
-  <h3>2 - Calling an API</h3>
+<a href="#4-identify-visitors" id="4-identify-visitors" style="color: inherit; text-decoration: none;">
+  <h3>4. Identify visitors</h3>
 </a>
-<p>The <code>getVisitorData</code> method returns visitor identification data based on the request <a href="https://dev.fingerprint.com/docs/js-agent#visitor-identification">options</a>.
-Set <code>ignoreCache</code> to <code>true</code> to make a request to the API even if the data is present in the cache.</p>
-<pre><code class="language-js"><span class="hl-4">// with async/await</span><br/><span class="hl-5">const</span><span class="hl-0"> </span><span class="hl-6">visitorData</span><span class="hl-0"> = </span><span class="hl-2">await</span><span class="hl-0"> </span><span class="hl-3">fpjsClient</span><span class="hl-0">.</span><span class="hl-7">getVisitorData</span><span class="hl-0">({ </span><span class="hl-3">extendedResult:</span><span class="hl-0"> </span><span class="hl-5">true</span><span class="hl-0"> })</span><br/><br/><span class="hl-4">// with promises</span><br/><span class="hl-5">const</span><span class="hl-0"> </span><span class="hl-6">visitorData</span><span class="hl-0"> = </span><span class="hl-3">fpjsClient</span><span class="hl-0">.</span><span class="hl-7">getVisitorData</span><span class="hl-0">({ </span><span class="hl-3">extendedResult:</span><span class="hl-0"> </span><span class="hl-5">true</span><span class="hl-0"> }).</span><span class="hl-7">then</span><span class="hl-0">((</span><span class="hl-3">visitorData</span><span class="hl-0">) </span><span class="hl-5">=&gt;</span><span class="hl-0"> {</span><br/><span class="hl-0">  </span><span class="hl-4">// use visitor data in your fraud prevention logic</span><br/><span class="hl-0">  </span><span class="hl-7">checkIfFingerprintIsFraudulent</span><span class="hl-0">(</span><span class="hl-3">visitorData</span><span class="hl-0">.</span><span class="hl-3">visitorId</span><span class="hl-0">) </span><span class="hl-4">// this method is just an example, this SDK doesn&#39;t actually supply it</span><br/><span class="hl-0">})</span>
+<p>The <code>getVisitorData</code> method returns visitor identification data based on the request <a href="https://dev.fingerprint.com/docs/js-agent#get-options">options</a>.
+Set <code>ignoreCache</code> to <code>true</code> to call the API even if the data is present in the cache.</p>
+<pre><code class="language-js"><span class="hl-4">// with async/await</span><br/><span class="hl-5">const</span><span class="hl-0"> </span><span class="hl-6">visitorData</span><span class="hl-0"> = </span><span class="hl-2">await</span><span class="hl-0"> </span><span class="hl-3">fpjsClient</span><span class="hl-0">.</span><span class="hl-7">getVisitorData</span><span class="hl-0">({ </span><span class="hl-3">extendedResult:</span><span class="hl-0"> </span><span class="hl-5">true</span><span class="hl-0">, </span><span class="hl-3">ignoreCache:</span><span class="hl-0"> </span><span class="hl-5">false</span><span class="hl-0"> })</span><br/><br/><span class="hl-4">// with promises</span><br/><span class="hl-5">const</span><span class="hl-0"> </span><span class="hl-6">visitorData</span><span class="hl-0"> = </span><span class="hl-3">fpjsClient</span><span class="hl-0">.</span><span class="hl-7">getVisitorData</span><span class="hl-0">({ </span><span class="hl-3">extendedResult:</span><span class="hl-0"> </span><span class="hl-5">true</span><span class="hl-0"> }).</span><span class="hl-7">then</span><span class="hl-0">((</span><span class="hl-3">visitorData</span><span class="hl-0">) </span><span class="hl-5">=&gt;</span><span class="hl-0"> {</span><br/><span class="hl-0">  </span><span class="hl-4">// use visitor data in your fraud prevention logic</span><br/><span class="hl-0">  </span><span class="hl-7">checkIfFingerprintIsFraudulent</span><span class="hl-0">(</span><span class="hl-3">visitorData</span><span class="hl-0">.</span><span class="hl-3">visitorId</span><span class="hl-0">) </span><span class="hl-4">// this method is just an example, this SDK doesn&#39;t actually supply it</span><br/><span class="hl-0">})</span>
 </code></pre>
+<p>See the <a href="https://dev.fingerprint.com/docs/js-agent">JS Agent API reference</a> for more details. </p>
 
 <a href="#caching" id="caching" style="color: inherit; text-decoration: none;">
   <h3>Caching</h3>
 </a>
-<p>The SDK can cache the visitor data in session storage (default), in local storage, or in memory. 
-You can specify the <code>cacheLocation</code> option when creating the Fpjs client.</p>
-<pre><code class="language-js"><span class="hl-5">const</span><span class="hl-0"> </span><span class="hl-6">fpjsClient</span><span class="hl-0"> = </span><span class="hl-5">new</span><span class="hl-0"> </span><span class="hl-7">FpjsClient</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-3">loadOptions:</span><span class="hl-0"> {</span><br/><span class="hl-0">    </span><span class="hl-3">apiKey:</span><span class="hl-0"> </span><span class="hl-1">&quot;your-fpjs-public-api-key&quot;</span><br/><span class="hl-0">  },</span><br/><span class="hl-0">  </span><span class="hl-3">cacheLocation:</span><span class="hl-0"> </span><span class="hl-1">&#39;localstorage&#39;</span><br/><span class="hl-0">});</span>
-</code></pre>
-<p>Or if you are using TypeScript:</p>
-<pre><code class="language-ts"><span class="hl-5">const</span><span class="hl-0"> </span><span class="hl-6">fpjsClient</span><span class="hl-0"> = </span><span class="hl-5">new</span><span class="hl-0"> </span><span class="hl-7">FpjsClient</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-3">loadOptions:</span><span class="hl-0"> {</span><br/><span class="hl-0">    </span><span class="hl-3">apiKey:</span><span class="hl-0"> </span><span class="hl-1">&quot;your-fpjs-public-api-key&quot;</span><br/><span class="hl-0">  },</span><br/><span class="hl-0">  </span><span class="hl-3">cacheLocation:</span><span class="hl-0"> </span><span class="hl-3">CacheLocation</span><span class="hl-0">.</span><span class="hl-3">LocalStorage</span><br/><span class="hl-0">});</span>
+<p>Fingerprint Pro usage is billed per API call. To avoid unnecessary API calls, it is a good practice to cache identification results. The SDK provides three ways to cache visitor data out of the box:</p>
+<ul>
+<li>Session storage (default) - <code>sessionStorage</code></li>
+<li>Local storage - <code>localStorage</code></li>
+<li>Memory - <code>memory</code></li>
+<li>No cache - <code>nocache</code></li>
+</ul>
+<p>You can specify the <code>cacheLocation</code> option when creating the <code>FpjsClient</code>:</p>
+<pre><code class="language-js"><span class="hl-5">const</span><span class="hl-0"> </span><span class="hl-6">fpjsClient</span><span class="hl-0"> = </span><span class="hl-5">new</span><span class="hl-0"> </span><span class="hl-7">FpjsClient</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-3">loadOptions:</span><span class="hl-0"> {</span><br/><span class="hl-0">    </span><span class="hl-3">apiKey:</span><span class="hl-0"> </span><span class="hl-1">&quot;your-fpjs-public-api-key&quot;</span><br/><span class="hl-0">  },</span><br/><span class="hl-0">  </span><span class="hl-3">cacheLocation:</span><span class="hl-0"> </span><span class="hl-1">&#39;localstorage&#39;</span><br/><span class="hl-0">  </span><span class="hl-4">// You can also use the provided TypeScript enum</span><br/><span class="hl-0">  </span><span class="hl-4">// cacheLocation: CacheLocation.LocalStorage</span><br/><span class="hl-0">});</span>
 </code></pre>
 <p>Cache keys are based on the combination of <em>GetOptions</em>. For example, API responses for calls with <code>extendedResult: true</code> and <code>extendedResult: false</code> are stored independently.</p>
+<ul>
+<li>You can ignore the cached result for a specific API call by passing <code>{ ignoreCache: true }</code> to the <code>getVisitorData()</code> method.</li>
+<li>You can also use your custom cache implementation as described below.</li>
+</ul>
+<blockquote>
+<p>[!NOTE]
+If you use data from <a href="https://dev.fingerprint.com/docs/js-agent#extendedresult"><code>extendedResult</code></a>, pay additional attention to your caching strategy.
+Some fields, for example, <code>ip</code> or <code>lastSeenAt</code>, might change over time for the same visitor. Use <code>getVisitorData({ ignoreCache: true })</code> to fetch the latest identification results.</p>
+</blockquote>
 
 <a href="#creating-a-custom-cache" id="creating-a-custom-cache" style="color: inherit; text-decoration: none;">
   <h4>Creating a custom cache</h4>
@@ -168,7 +170,10 @@ You can specify the <code>cacheLocation</code> option when creating the Fpjs cli
 <td>Returns the list of all keys. By default, the keys we use are prefixed with <code>@fpjs@client@</code> but you can pass your own custom prefix as an option when you create the FpjsClient</td>
 </tr>
 </tbody></table>
-<p><strong>Note:</strong> The <code>cache</code> property takes priority over <code>cacheLocation</code> if both are set. A warning is displayed in the console if that happens.</p>
+<blockquote>
+<p>[!NOTE]
+The <code>cache</code> property takes priority over <code>cacheLocation</code> if both are set. A warning is displayed in the console if that happens.</p>
+</blockquote>
 <p>We export the internal <code>InMemoryCache</code>, <code>LocalStorageCache</code>, <code>SessionStorageCache</code>, and <code>CacheStub</code> implementations, so you can wrap your custom cache around these implementations if you wish.</p>
 
 <a href="#cache-time" id="cache-time" style="color: inherit; text-decoration: none;">
@@ -179,7 +184,7 @@ You can specify the <code>cacheLocation</code> option when creating the Fpjs cli
 <a href="#support-and-feedback" id="support-and-feedback" style="color: inherit; text-decoration: none;">
   <h2>Support and feedback</h2>
 </a>
-<p>To report problems, ask questions or provide feedback, please use <a href="https://github.com/fingerprintjs/fingerprintjs-pro-spa/issues">Issues</a>. If you need private support, you can email us at <a href="mailto:oss-support@fingerprint.com">oss-support@fingerprint.com</a>.</p>
+<p>To report problems, ask questions, or provide feedback, please use <a href="https://github.com/fingerprintjs/fingerprintjs-pro-spa/issues">Issues</a>. If you need private support, you can email us at <a href="mailto:oss-support@fingerprint.com">oss-support@fingerprint.com</a>.</p>
 
 <a href="#documentation" id="documentation" style="color: inherit; text-decoration: none;">
   <h2>Documentation</h2>
