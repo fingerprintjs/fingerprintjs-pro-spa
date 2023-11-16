@@ -121,7 +121,7 @@ const visitorData = fpjsClient.init().then(() => {
   return fpjsClient.getVisitorData()
 })
 ```
-:You can also pass the load options here
+You can also pass the `loadOptions` into the `init` method here. They will be merged with the options passed to the constructor.  
 ```js
 await fpjsClient.init({
       apiKey: "<PUBLIC_API_KEY>",
