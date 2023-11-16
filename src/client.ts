@@ -50,10 +50,9 @@ export interface CustomAgent {
   load: (options: FingerprintJS.LoadOptions) => Promise<FingerprintJS.Agent>
 }
 
-export interface FpjsSpaOptions
-  extends Omit<FpjsClientOptions, 'loadOptions'>,
-    Pick<Partial<FpjsClientOptions>, 'loadOptions'> {
+export interface FpjsSpaOptions extends Omit<FpjsClientOptions, 'loadOptions'> {
   customAgent?: CustomAgent
+  loadOptions?: FpjsClientOptions['loadOptions']
 }
 
 /**
