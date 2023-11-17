@@ -34,6 +34,7 @@ If you'd like to have a similar SPA wrapper for the OSS version of FingerprintJS
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [Getting Started](#getting-started)
+- [Caching](#caching)
 - [Support and Feedback](#support-and-feedback)
 - [Documentation](#documentation)
 - [License](#license)
@@ -137,7 +138,7 @@ const visitorData = fpjsClient.getVisitorData({ extendedResult: true }).then((vi
 
 See the [JS Agent API reference](https://dev.fingerprint.com/docs/js-agent) for more details.
 
-### Caching
+## Caching
 
 Fingerprint Pro usage is billed per API call. To avoid unnecessary API calls, it is a good practice to cache identification results. The SDK provides three ways to cache visitor data out of the box:
 
@@ -188,7 +189,7 @@ const cachedResult = await fpjsClient.getVisitorDataFromCache({ extendedResult: 
 
 You can also use your custom cache implementation as described below.
 
-#### Creating a custom cache
+### Creating a custom cache
 
 The SDK can use a custom cache store implemented inside your application. This is useful when a different data store is more convenient in your environment, such as a hybrid mobile app.
 
@@ -206,7 +207,7 @@ You can provide an object to the `cache` property of the SDK configuration that 
 
 We export the internal `InMemoryCache`, `LocalStorageCache`, `SessionStorageCache`, and `CacheStub` implementations, so you can wrap your custom cache around these implementations if you wish.
 
-#### Cache time
+### Cache time
 
 Use the `cacheTimeInSeconds` client constructor option to set a custom cache time. To ensure high identification accuracy we recommend not to cache visitors data for longer than 24 hours. If you pass a value higher than 86400 (60 _ 60 _ 24), the `FpjsClient` constructor will throw an error.
 
