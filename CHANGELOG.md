@@ -1,3 +1,10 @@
+## [1.2.2](https://github.com/fingerprintjs/fingerprintjs-pro-spa/compare/v1.2.1...v1.2.2) (2023-11-15)
+
+
+### Documentation
+
+* **README:** improve caching explanation DOC-8 ([#78](https://github.com/fingerprintjs/fingerprintjs-pro-spa/issues/78)) ([1728ece](https://github.com/fingerprintjs/fingerprintjs-pro-spa/commit/1728ecec605bb19443af0ed8f00e42feebbb3c5a))
+
 ## [1.2.1](https://github.com/fingerprintjs/fingerprintjs-pro-spa/compare/v1.2.0...v1.2.1) (2023-10-18)
 
 

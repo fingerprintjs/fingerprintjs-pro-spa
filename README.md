@@ -6,38 +6,27 @@
      <img src="https://fingerprintjs.github.io/home/resources/logo_dark.svg" alt="Fingerprint logo" width="312px" />
    </picture>
   </a>
+</p>
 <p align="center">
-<a href="https://www.npmjs.com/package/@fingerprintjs/fingerprintjs-pro-spa">
-  <img src="https://img.shields.io/npm/v/@fingerprintjs/fingerprintjs-pro-spa.svg" alt="Current NPM version">
-</a>
-<a href="https://fingerprintjs.github.io/fingerprintjs-pro-spa/coverage/">
-  <img src="https://fingerprintjs.github.io/fingerprintjs-pro-spa/coverage/badges.svg" alt="coverage">
-</a>
-<a href="https://www.npmjs.com/package/@fingerprintjs/fingerprintjs-pro-spa">
-  <img src="https://img.shields.io/npm/dm/@fingerprintjs/fingerprintjs-pro-spa.svg" alt="Monthly downloads from NPM">
-</a>
-<a href="https://opensource.org/licenses/MIT">
-  <img src="https://img.shields.io/:license-mit-blue.svg" alt="MIT license">
-</a>
-<a href="https://discord.gg/39EpE2neBg">
-  <img src="https://img.shields.io/discord/852099967190433792?style=logo&label=Discord&logo=Discord&logoColor=white" alt="Discord server">
-</a>
-<a href="https://fingerprintjs.github.io/fingerprintjs-pro-spa">
-  <img src="https://img.shields.io/badge/-Documentation-green" alt="Documentation">
-</a>
-
+<a href="https://www.npmjs.com/package/@fingerprintjs/fingerprintjs-pro-spa" style="text-decoration: none;"><img src="https://img.shields.io/npm/v/@fingerprintjs/fingerprintjs-pro-spa.svg" alt="Current NPM version"></a>
+<a href="https://fingerprintjs.github.io/fingerprintjs-pro-spa/coverage/" style="text-decoration: none;"><img src="https://fingerprintjs.github.io/fingerprintjs-pro-spa/coverage/badges.svg" alt="coverage"></a>
+<a href="https://www.npmjs.com/package/@fingerprintjs/fingerprintjs-pro-spa"><img src="https://img.shields.io/npm/dm/@fingerprintjs/fingerprintjs-pro-spa.svg" alt="Monthly downloads from NPM"></a>
+<a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/:license-mit-blue.svg" alt="MIT license"></a>
+<a href="https://discord.gg/39EpE2neBg"><img src="https://img.shields.io/discord/852099967190433792?style=logo&label=Discord&logo=Discord&logoColor=white" alt="Discord server"></a>
+<a href="https://fingerprintjs.github.io/fingerprintjs-pro-spa"><img src="https://img.shields.io/badge/-Documentation-green" alt="Documentation"></a>
+</p>
 
 # Fingerprint Pro SPA
 
 [Fingerprint](https://fingerprint.com/) is a device intelligence platform offering 99.5% accurate visitor identification
 
-This library is designed to be used in single-page-application framework wrappers for the Fingerprint Pro JavaScript Agent. 
-It has multiple built-in caching mechanisms with recommended default settings. 
+This library is designed to be used in single-page-application framework wrappers for the Fingerprint Pro JavaScript Agent.
+It has multiple built-in caching mechanisms with recommended default settings.
 
 If you just need the Fingerprint Pro [JS agent](https://www.npmjs.com/package/@fingerprintjs/fingerprintjs-pro), you can use it directly, without this wrapper. If you're looking for a framework-specific integration, we have dedicated SDKs for [React (including Next, Preact)](https://github.com/fingerprintjs/fingerprintjs-pro-react), [Vue](https://github.com/fingerprintjs/fingerprintjs-pro-vue), [Svelte](https://github.com/fingerprintjs/fingerprintjs-pro-svelte) and [Angular](https://github.com/fingerprintjs/fingerprintjs-pro-angular).
 
-**This SDK works with Fingerprint Pro, it will not work with the open-source FingerprintJS version!** 
-Learn more about the [difference between Pro and OSS](https://dev.fingerprint.com/docs/pro-vs-open-source). 
+**This SDK works with Fingerprint Pro, it will not work with the open-source FingerprintJS version!**
+Learn more about the [difference between Pro and OSS](https://dev.fingerprint.com/docs/pro-vs-open-source).
 If you'd like to have a similar SPA wrapper for the OSS version of FingerprintJS, consider [raising an issue in our issue tracker](https://github.com/fingerprintjs/fingerprintjs-pro-spa/issues).
 
 ## Table of Contents
@@ -75,40 +64,37 @@ pnpm add @fingerprintjs/fingerprintjs-pro-spa
 
 ## Getting Started
 
-### Fingerprint Pro public API key
+### 1. Get your Fingerprint Pro Public API key
 
 In order to identify visitors you'll need a Fingerprint Pro account (you can [sign up for free](https://dashboard.fingerprint.com/signup/)).
 
-- Go to [Fingerprint Dashboard](https://dashboard.fingerprint.com/)
-- Go to _App settings_ -> _API Keys_.
-- Find your _Public_ API key
+- Go to **Fingerprint Dashboard** > **App settings** > [**API Keys**](https://dashboard.fingerprint.com/api-keys).
+- Find your Public API key.
 
-### Creating the client
+### 2. Create the client
 
 Create a `FpjsClient` instance before rendering or initializing your application. You should only have one instance of the client. You need to specify your public API key and other configuration options based on your chosen region and active integration.
 
 ```js
-import { 
-  FpjsClient,
-  FingerprintJSPro
-} from '@fingerprintjs/fingerprintjs-pro-spa';
+import { FpjsClient, FingerprintJSPro } from '@fingerprintjs/fingerprintjs-pro-spa'
 
 const fpjsClient = new FpjsClient({
   // You can also pass these options later in `.init()` method
   loadOptions: {
-    apiKey: "<PUBLIC_API_KEY>",
+    apiKey: '<PUBLIC_API_KEY>',
     // endpoint: ["<CUSTOM_ENDPOINT>", FingerprintJSPro.defaultEndpoint],
     // scriptUrlPattern: ["<CUSTOM_SCRIPT_URL>", FingerprintJSPro.defaultScriptUrlPattern],
     // region: "eu"
-  }
-});
+  },
+})
 ```
 
-> ⚠️ You must provide `loadOptions` which contain your public API key either in the constructor or in the `init` method. If you don't, the SDK will throw an error. You can learn more about different load options here in the [JS Agent documentation](https://dev.fingerprint.com/docs/js-agent#initializing-the-agent).
+> [!INFO]
+> You must provide `loadOptions` containing your public API key either in the constructor or in the `init` method. If you don't, the SDK will throw an error. You can learn more about different load options here in the [JS Agent documentation](https://dev.fingerprint.com/docs/js-agent#initializing-the-agent).
 
-### 1 - Init the JS agent
+### 3. Initialize the JS Agent
 
-Before you start making identification requests to the Fingerprint Pro API, you need to initialize the JS Agent to allow it to gather browser signals.  Make sure the initialization has been completed before calling the `getVisitorData` method to avoid errors.
+Before you start making identification requests to the Fingerprint Pro API, you need to initialize the JS Agent. This downloads the latest client-side logic from Fingerprint CDN. Call `init()` before the `getVisitorData()` method to avoid errors.
 
 ```js
 // with async/await
@@ -121,23 +107,26 @@ const visitorData = fpjsClient.init().then(() => {
   return fpjsClient.getVisitorData()
 })
 ```
-You can also pass the `loadOptions` into the `init` method here. They will be merged with the options passed to the constructor.  
+
+You can also pass the `loadOptions` into the `init` method here. They will be merged with the options passed to the constructor.
+
 ```js
 await fpjsClient.init({
-      apiKey: "<PUBLIC_API_KEY>",
-      // endpoint: ["<CUSTOM_ENDPOINT>", FingerprintJSPro.defaultEndpoint],
-      // scriptUrlPattern: ["<CUSTOM_SCRIPT_URL>", FingerprintJSPro.defaultScriptUrlPattern],
-      // region: "eu"
-    }
-)
+  apiKey: '<PUBLIC_API_KEY>',
+  // endpoint: ["<CUSTOM_ENDPOINT>", FingerprintJSPro.defaultEndpoint],
+  // scriptUrlPattern: ["<CUSTOM_SCRIPT_URL>", FingerprintJSPro.defaultScriptUrlPattern],
+  // region: "eu"
+})
 ```
-### 2 - Calling an API
-The `getVisitorData` method returns visitor identification data based on the request [options](https://dev.fingerprint.com/docs/js-agent#visitor-identification).
-Set `ignoreCache` to `true` to make a request to the API even if the data is present in the cache.
+
+### 4. Identify visitors
+
+The `getVisitorData` method returns visitor identification data based on the request [options](https://dev.fingerprint.com/docs/js-agent#get-options).
+Set `ignoreCache` to `true` to call the API even if the data is present in the cache.
 
 ```js
 // with async/await
-const visitorData = await fpjsClient.getVisitorData({ extendedResult: true })
+const visitorData = await fpjsClient.getVisitorData({ extendedResult: true, ignoreCache: false })
 
 // with promises
 const visitorData = fpjsClient.getVisitorData({ extendedResult: true }).then((visitorData) => {
@@ -146,42 +135,49 @@ const visitorData = fpjsClient.getVisitorData({ extendedResult: true }).then((vi
 })
 ```
 
+See the [JS Agent API reference](https://dev.fingerprint.com/docs/js-agent) for more details.
+
 ### Caching
 
-The SDK can cache the visitor data in session storage (default), in local storage, or in memory. 
-You can specify the `cacheLocation` option when creating the Fpjs client.
+Fingerprint Pro usage is billed per API call. To avoid unnecessary API calls, it is a good practice to cache identification results. The SDK provides three ways to cache visitor data out of the box:
+
+- Session storage (default) - `sessionStorage`
+- Local storage - `localStorage`
+- Memory - `memory`
+- No cache - `nocache`
+
+You can specify the `cacheLocation` option when creating the `FpjsClient`:
 
 ```js
 const fpjsClient = new FpjsClient({
   loadOptions: {
-    apiKey: "your-fpjs-public-api-key"
+    apiKey: 'your-fpjs-public-api-key',
   },
-  cacheLocation: 'localstorage'
-});
-```
-
-Or if you are using TypeScript:
-```ts
-const fpjsClient = new FpjsClient({
-  loadOptions: {
-    apiKey: "your-fpjs-public-api-key"
-  },
-  cacheLocation: CacheLocation.LocalStorage
-});
+  cacheLocation: 'localstorage',
+  // You can also use the provided TypeScript enum
+  // cacheLocation: CacheLocation.LocalStorage
+})
 ```
 
 Cache keys are based on the combination of _GetOptions_. For example, API responses for calls with `extendedResult: true` and `extendedResult: false` are stored independently.
 
-You can check if your response was retrieved from cache like this:
+> [!NOTE]
+> If you use data from [`extendedResult`](https://dev.fingerprint.com/docs/js-agent#extendedresult), pay additional attention to your caching strategy. Some fields, for example, `ip` or `lastSeenAt`, might change over time for the same visitor.
+
+You can ignore the cached result for a specific API call and using `{ ignoreCache: true }`:
+
 ```js
-
-const result = await fpjsClient.getVisitorData({ extendedResult: true })
-
-// true if cache was hit
-console.log(result.cacheHit)
+const visitorData = await fpjsClient.getVisitorData({ ignoreCache: true })
 ```
 
-You can also use the following API to retrieve responses from cache:
+Check if your response was retrieved from cache using the returned `cacheHit` flag:
+
+```js
+const { cacheHit, ...visitorData } = await fpjsClient.getVisitorData()
+```
+
+Use `getVisitorDataFromCache` to directly retrieve responses from cache:
+
 ```js
 // Checks if request matching given options is present in cache
 await fpjsClient.isInCache({ extendedResult: true })
@@ -190,33 +186,38 @@ await fpjsClient.isInCache({ extendedResult: true })
 const cachedResult = await fpjsClient.getVisitorDataFromCache({ extendedResult: true })
 ```
 
+You can also use your custom cache implementation as described below.
+
 #### Creating a custom cache
 
 The SDK can use a custom cache store implemented inside your application. This is useful when a different data store is more convenient in your environment, such as a hybrid mobile app.
 
 You can provide an object to the `cache` property of the SDK configuration that implements the following functions. All the functions can return a Promise or a static value.
 
-| Signature                        | Return type                    | Description                                                                                                                                                                    |
-| -------------------------------- | ------------------------------ |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `get(key)`                       | Promise<object> or object      | Returns the item from the cache with the specified key, or `undefined` if it was not found                                                                                     |
-| `set(key: string, object: any) ` | Promise<void> or void          | Sets an item into the cache                                                                                                                                                    |
-| `remove(key)`                    | Promise<void> or void          | Removes a single item from the cache at the specified key, or no-op if the item was not found                                                                                  |
+| Signature                        | Return type                    | Description                                                                                                                                                                     |
+| -------------------------------- | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `get(key)`                       | Promise<object> or object      | Returns the item from the cache with the specified key, or `undefined` if it was not found                                                                                      |
+| `set(key: string, object: any) ` | Promise<void> or void          | Sets an item into the cache                                                                                                                                                     |
+| `remove(key)`                    | Promise<void> or void          | Removes a single item from the cache at the specified key, or no-op if the item was not found                                                                                   |
 | `allKeys()`                      | Promise<string[]> or string [] | Returns the list of all keys. By default, the keys we use are prefixed with `@fpjs@client@` but you can pass your own custom prefix as an option when you create the FpjsClient |
 
-**Note:** The `cache` property takes priority over `cacheLocation` if both are set. A warning is displayed in the console if that happens.
+> [!NOTE]
+> The `cache` property takes priority over `cacheLocation` if both are set. A warning is displayed in the console if that happens.
 
 We export the internal `InMemoryCache`, `LocalStorageCache`, `SessionStorageCache`, and `CacheStub` implementations, so you can wrap your custom cache around these implementations if you wish.
 
 #### Cache time
-Use the `cacheTimeInSeconds` client constructor option to set a custom cache time. To ensure high identification accuracy we recommend not to cache visitors data for longer than 24 hours. If you pass a value higher than 86400 (60 * 60 * 24), the `FpjsClient` constructor will throw an error.
+
+Use the `cacheTimeInSeconds` client constructor option to set a custom cache time. To ensure high identification accuracy we recommend not to cache visitors data for longer than 24 hours. If you pass a value higher than 86400 (60 _ 60 _ 24), the `FpjsClient` constructor will throw an error.
 
 ## Support and feedback
 
-To report problems, ask questions or provide feedback, please use [Issues](https://github.com/fingerprintjs/fingerprintjs-pro-spa/issues). If you need private support, you can email us at [oss-support@fingerprint.com](mailto:oss-support@fingerprint.com).
+To report problems, ask questions, or provide feedback, please use [Issues](https://github.com/fingerprintjs/fingerprintjs-pro-spa/issues). If you need private support, you can email us at [oss-support@fingerprint.com](mailto:oss-support@fingerprint.com).
 
 ## Documentation
 
 This library uses [Fingerprint Pro](https://fingerprint.com/github/) under the hood.
+
 - To learn more about Fingerprint Pro read our [product documentation](https://dev.fingerprint.com/docs).
 - To learn more about this SDK, there is a [Typedoc-generated SDK Reference](https://fingerprintjs.github.io/fingerprintjs-pro-spa) available.
 
