@@ -89,7 +89,7 @@ const fpjsClient = new FpjsClient({
 })
 ```
 
-> [!INFO]
+> [!NOTE]
 > You must provide `loadOptions` containing your public API key either in the constructor or in the `init` method. If you don't, the SDK will throw an error. You can learn more about different load options here in the [JS Agent documentation](https://dev.fingerprint.com/docs/js-agent#initializing-the-agent).
 
 ### 3. Initialize the JS Agent
