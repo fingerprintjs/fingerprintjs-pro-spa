@@ -1,5 +1,5 @@
 import * as FingerprintJS from '@fingerprintjs/fingerprintjs-pro'
-import { GetOptions } from '@fingerprintjs/fingerprintjs-pro'
+import { GetOptions, LoadOptions } from '@fingerprintjs/fingerprintjs-pro'
 import {
   CacheKey,
   CacheManager,
@@ -11,7 +11,7 @@ import {
   MAX_CACHE_LIFE,
   SessionStorageCache,
 } from './cache'
-import { CacheLocation, FpjsClientOptions, VisitorData } from './global'
+import { CacheLocation, FpjsClientOptions, FpjsSpaResponse, VisitorData } from './global'
 import * as packageInfo from '../package.json'
 
 const cacheLocationBuilders: Record<CacheLocation, (prefix?: string) => ICache> = {
@@ -50,8 +50,9 @@ export interface CustomAgent {
   load: (options: FingerprintJS.LoadOptions) => Promise<FingerprintJS.Agent>
 }
 
-export interface FpjsSpaOptions extends FpjsClientOptions {
+export interface FpjsSpaOptions extends Omit<FpjsClientOptions, 'loadOptions'> {
   customAgent?: CustomAgent
+  loadOptions?: FpjsClientOptions['loadOptions']
 }
 
 /**
@@ -59,7 +60,7 @@ export interface FpjsSpaOptions extends FpjsClientOptions {
  */
 export class FpjsClient {
   private cacheManager: CacheManager
-  private loadOptions: FingerprintJS.LoadOptions
+  private readonly loadOptions?: FingerprintJS.LoadOptions
   private agent: FingerprintJS.Agent
   private agentPromise: Promise<FingerprintJS.Agent> | null
   private readonly customAgent?: CustomAgent
@@ -67,9 +68,9 @@ export class FpjsClient {
 
   private inFlightRequests = new Map<string, Promise<VisitorData>>()
 
-  constructor(options: FpjsSpaOptions) {
+  constructor(options?: FpjsSpaOptions) {
     this.agentPromise = null
-    this.customAgent = options.customAgent
+    this.customAgent = options?.customAgent
 
     this.agent = {
       get: () => {
@@ -77,12 +78,9 @@ export class FpjsClient {
       },
     }
 
-    this.loadOptions = {
-      ...options.loadOptions,
-      integrationInfo: [...(options.loadOptions.integrationInfo || []), `fingerprintjs-pro-spa/${packageInfo.version}`],
-    }
+    this.loadOptions = options?.loadOptions
 
-    if (options.cache && options.cacheLocation) {
+    if (options?.cache && options?.cacheLocation) {
       console.warn(
         'Both `cache` and `cacheLocation` options have been specified in the FpjsClient configuration; ignoring `cacheLocation` and using `cache`.'
       )
@@ -90,10 +88,10 @@ export class FpjsClient {
 
     let cache: ICache
 
-    if (options.cache) {
+    if (options?.cache) {
       cache = options.cache
     } else {
-      this.cacheLocation = options.cacheLocation || CacheLocation.SessionStorage
+      this.cacheLocation = options?.cacheLocation || CacheLocation.SessionStorage
 
       if (!cacheFactory(this.cacheLocation)) {
         throw new Error(`Invalid cache location "${this.cacheLocation}"`)
@@ -102,26 +100,42 @@ export class FpjsClient {
         this.cacheLocation = CacheLocation.Memory
       }
 
-      cache = cacheFactory(this.cacheLocation)(options.cachePrefix)
+      cache = cacheFactory(this.cacheLocation)(options?.cachePrefix)
     }
 
-    if (options.cacheTimeInSeconds && options.cacheTimeInSeconds > MAX_CACHE_LIFE) {
+    if (options?.cacheTimeInSeconds && options.cacheTimeInSeconds > MAX_CACHE_LIFE) {
       throw new Error(`Cache time cannot exceed 86400 seconds (24 hours)`)
     }
 
-    const cacheTime = options.cacheTimeInSeconds ?? DEFAULT_CACHE_LIFE
+    const cacheTime = options?.cacheTimeInSeconds ?? DEFAULT_CACHE_LIFE
     this.cacheManager = new CacheManager(cache, cacheTime)
   }
 
   /**
    * Loads FPJS JS agent with certain settings and stores the instance in memory
    * [https://dev.fingerprint.com/docs/js-agent#agent-initialization]
+   *
+   * @param passedLoadOptions Additional load options to be passed to the agent, they will be merged with load options provided in the constructor.
    */
-  public async init() {
+  public async init(passedLoadOptions?: Partial<LoadOptions>) {
+    if (!this.loadOptions && !passedLoadOptions) {
+      throw new TypeError('No load options provided')
+    }
+
+    const loadOptions: FingerprintJS.LoadOptions = {
+      ...this.loadOptions!,
+      ...passedLoadOptions!,
+      integrationInfo: [
+        ...(this.loadOptions?.integrationInfo || []),
+        ...(passedLoadOptions?.integrationInfo || []),
+        `fingerprintjs-pro-spa/${packageInfo.version}`,
+      ],
+    }
+
     if (!this.agentPromise) {
       const agentLoader = this.customAgent ?? FingerprintJS
       this.agentPromise = agentLoader
-        .load(this.loadOptions)
+        .load(loadOptions)
         .then((agent) => {
           this.agent = agent
           return agent
@@ -143,7 +157,10 @@ export class FpjsClient {
    * @param options
    * @param ignoreCache if set to true a request to the API will be made even if the data is present in cache
    */
-  public async getVisitorData<TExtended extends boolean>(options: GetOptions<TExtended> = {}, ignoreCache = false) {
+  public async getVisitorData<TExtended extends boolean>(
+    options: GetOptions<TExtended> = {},
+    ignoreCache = false
+  ): Promise<FpjsSpaResponse<VisitorData<TExtended>>> {
     const cacheKey = FpjsClient.makeCacheKey(options)
     const key = cacheKey.toKey()
 
@@ -154,7 +171,25 @@ export class FpjsClient {
       this.inFlightRequests.set(key, promise)
     }
 
-    return (await this.inFlightRequests.get(key)) as VisitorData<TExtended>
+    return (await this.inFlightRequests.get(key)) as FpjsSpaResponse<VisitorData<TExtended>>
+  }
+
+  /**
+   * Returns cached visitor data based on the request options, or undefined if the data is not present in cache
+   * */
+  public async getVisitorDataFromCache<TExtended extends boolean>(
+    options: GetOptions<TExtended> = {}
+  ): Promise<FpjsSpaResponse<VisitorData<TExtended>> | undefined> {
+    const cacheKey = FpjsClient.makeCacheKey(options)
+    const cacheResult = await this.cacheManager.get(cacheKey)
+    return cacheResult ? { ...cacheResult, cacheHit: true } : undefined
+  }
+
+  /**
+   * Checks if request matching given options is present in cache
+   * */
+  public async isInCache(options: GetOptions<boolean> = {}) {
+    return Boolean(await this.getVisitorDataFromCache(options))
   }
 
   /**
@@ -171,19 +206,28 @@ export class FpjsClient {
     return new CacheKey<TExtended>(options)
   }
 
-  private async _identify<TExtended extends boolean>(options: GetOptions<TExtended>, ignoreCache = false) {
+  private async _identify<TExtended extends boolean>(
+    options: GetOptions<TExtended>,
+    ignoreCache = false
+  ): Promise<FpjsSpaResponse<VisitorData<TExtended>>> {
     const key = FpjsClient.makeCacheKey(options)
 
     if (!ignoreCache) {
       const cacheResult = await this.cacheManager.get(key)
 
       if (cacheResult) {
-        return cacheResult
+        return {
+          ...cacheResult,
+          cacheHit: true,
+        }
       }
     }
 
-    const agentResult = await this.agent.get(options)
+    const agentResult = (await this.agent.get(options)) as VisitorData<TExtended>
     await this.cacheManager.set(key, agentResult)
-    return agentResult
+    return {
+      ...agentResult,
+      cacheHit: false,
+    }
   }
 }

@@ -5,6 +5,11 @@ export type VisitorData<TExtended extends boolean = false> = TExtended extends f
   ? FingerprintJS.GetResult
   : FingerprintJS.ExtendedGetResult
 
+export type FpjsSpaResponse<T> = T & {
+  // Indicates whether the response was retrieved from cache.
+  cacheHit: boolean
+}
+
 export enum CacheLocation {
   Memory = 'memory',
   LocalStorage = 'localstorage',
