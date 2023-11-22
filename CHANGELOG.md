@@ -1,3 +1,12 @@
+## [1.3.0](https://github.com/fingerprintjs/fingerprintjs-pro-spa/compare/v1.2.2...v1.3.0) (2023-11-22)
+
+
+### Features
+
+* add `cacheHit` flag to response that indicates if it was retrieved from cache ([c101318](https://github.com/fingerprintjs/fingerprintjs-pro-spa/commit/c1013183523fa8140c6df8a568eb93e0113c946a))
+* introduce `getVisitorDataFromCache` and `isInCache` options ([a9aa598](https://github.com/fingerprintjs/fingerprintjs-pro-spa/commit/a9aa598f4ff16115e7c4b49be9f0126687f870c0))
+* support passing loadOptions in .init() method as well ([f772512](https://github.com/fingerprintjs/fingerprintjs-pro-spa/commit/f77251293ae89dd8cec0d489b4a14b8ac18995b2))
+
 ## [1.2.2](https://github.com/fingerprintjs/fingerprintjs-pro-spa/compare/v1.2.1...v1.2.2) (2023-11-15)
 
 
