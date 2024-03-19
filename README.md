@@ -20,14 +20,14 @@
 
 [Fingerprint](https://fingerprint.com/) is a device intelligence platform offering 99.5% accurate visitor identification
 
-This library is designed to be used in single-page-application framework wrappers for the Fingerprint Pro JavaScript Agent.
-It has multiple built-in caching mechanisms with recommended default settings.
+This library is a framework-agnostic wrapper around the Fingerprint Pro [JavaScript Agent](https://www.npmjs.com/package/@fingerprintjs/fingerprintjs-pro), adding multiple built-in caching mechanisms with recommended default settings.
 
-If you just need the Fingerprint Pro [JS agent](https://www.npmjs.com/package/@fingerprintjs/fingerprintjs-pro), you can use it directly, without this wrapper. If you're looking for a framework-specific integration, we have dedicated SDKs for [React (including Next, Preact)](https://github.com/fingerprintjs/fingerprintjs-pro-react), [Vue](https://github.com/fingerprintjs/fingerprintjs-pro-vue), [Svelte](https://github.com/fingerprintjs/fingerprintjs-pro-svelte) and [Angular](https://github.com/fingerprintjs/fingerprintjs-pro-angular).
+* If you just need the Fingerprint Pro [JS agent](https://www.npmjs.com/package/@fingerprintjs/fingerprintjs-pro) without caching, you can use it directly.
+* If you're looking for a framework-specific integration, we have dedicated SDKs for [React (including Next, Preact)](https://github.com/fingerprintjs/fingerprintjs-pro-react), [Vue](https://github.com/fingerprintjs/fingerprintjs-pro-vue), [Svelte](https://github.com/fingerprintjs/fingerprintjs-pro-svelte) and [Angular](https://github.com/fingerprintjs/fingerprintjs-pro-angular).
+* If you have a single-page web application that needs caching, but also more low-level control over the agent than framework-specific SDKs provide, this library is for you.  
 
-**This SDK works with Fingerprint Pro, it will not work with the open-source FingerprintJS version!**
-Learn more about the [difference between Pro and OSS](https://dev.fingerprint.com/docs/pro-vs-open-source).
-If you'd like to have a similar SPA wrapper for the OSS version of FingerprintJS, consider [raising an issue in our issue tracker](https://github.com/fingerprintjs/fingerprintjs-pro-spa/issues).
+> [!NOTE]
+> This library assumes you have a Fingerprint Pro subscription or trial, it is not compatible with the [source-available FingerprintJS](https://github.com/fingerprintjs/fingerprintjs). See our documentation to learn more about the [differences between Fingerprint Pro and FingerprintJS](https://dev.fingerprint.com/docs/identification-vs-fingerprintjs).
 
 ## Table of Contents
 
@@ -209,7 +209,7 @@ We export the internal `InMemoryCache`, `LocalStorageCache`, `SessionStorageCach
 
 ### Cache time
 
-Use the `cacheTimeInSeconds` client constructor option to set a custom cache time. To ensure high identification accuracy we recommend not to cache visitors data for longer than 24 hours. If you pass a value higher than 86400 (60 _ 60 _ 24), the `FpjsClient` constructor will throw an error.
+Use the `cacheTimeInSeconds` client constructor option to set a custom cache time. To ensure high identification accuracy we recommend not to cache visitors data for longer than 24 hours. If you pass a value higher than 86400 (60 * 60 * 24), the `FpjsClient` constructor will throw an error.
 
 ## Support and feedback
 
