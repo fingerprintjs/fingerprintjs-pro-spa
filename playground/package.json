@@ -6,7 +6,7 @@
     "start": "webpack-dev-server --mode development"
   },
   "dependencies": {
-    "@fingerprintjs/fingerprintjs-pro-spa": "link:../"
+    "@fingerprintjs/fingerprintjs-pro-spa": "workspace:*"
   },
   "devDependencies": {
     "clean-webpack-plugin": "^4.0.0",
