@@ -28,7 +28,7 @@ describe(`SPA client`, () => {
   describe(`setup`, () => {
     const agentGetMock = jest.fn()
 
-    let loadSpy: jest.SpyInstance<ReturnType<typeof FingerprintJS['load']>>
+    let loadSpy: jest.SpyInstance<ReturnType<(typeof FingerprintJS)['load']>>
 
     beforeEach(() => {
       loadSpy = jest.spyOn(FingerprintJS, 'load')
