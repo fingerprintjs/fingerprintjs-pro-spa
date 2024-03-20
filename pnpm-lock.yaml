@@ -24,6 +24,9 @@ importers:
       '@fingerprintjs/commit-lint-dx-team':
         specifier: ^0.0.2
         version: 0.0.2
+      '@fingerprintjs/conventional-changelog-dx-team':
+        specifier: ^0.1.0
+        version: 0.1.0
       '@fingerprintjs/eslint-config-dx-team':
         specifier: ^0.1.0
         version: 0.1.0(prettier@3.2.5)(typescript@5.4.2)
@@ -690,6 +693,12 @@ packages:
     resolution: {integrity: sha512-8FDlPI+KhnWsfbf4Lo/TERdiHl9daMhnZb4MsV5nhrta13XXGRSxOvLPUnFmZA0FsxR4HHzpszlr7ZSoPVaLSg==}
     dependencies:
       '@commitlint/config-conventional': 17.8.1
+    dev: true
+
+  /@fingerprintjs/conventional-changelog-dx-team@0.1.0:
+    resolution: {integrity: sha512-d30rCGvQ5VTMSY0JUgIYEtbSQF11/tbGxbgVRj96lM8YJasL2dSq/zS2s4IwosfX5/XsfeEvg5t1W8IAyknqWg==}
+    dependencies:
+      conventional-changelog-conventionalcommits: 7.0.2
     dev: true
 
   /@fingerprintjs/eslint-config-dx-team@0.1.0(prettier@3.2.5)(typescript@5.4.2):
