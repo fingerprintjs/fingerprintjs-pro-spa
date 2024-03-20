@@ -21,6 +21,9 @@ importers:
       '@commitlint/config-conventional':
         specifier: ^19.1.0
         version: 19.1.0
+      '@fingerprintjs/commit-lint-dx-team':
+        specifier: ^0.0.2
+        version: 0.0.2
       '@fingerprintjs/eslint-config-dx-team':
         specifier: ^0.1.0
         version: 0.1.0(prettier@3.2.5)(typescript@5.4.2)
@@ -484,6 +487,13 @@ packages:
       - typescript
     dev: true
 
+  /@commitlint/config-conventional@17.8.1:
+    resolution: {integrity: sha512-NxCOHx1kgneig3VLauWJcDWS40DVjg7nKOpBEEK9E5fjJpQqLCilcnKkIIjdBH98kEO1q3NpE5NSrZ2kl/QGJg==}
+    engines: {node: '>=v14'}
+    dependencies:
+      conventional-changelog-conventionalcommits: 6.1.0
+    dev: true
+
   /@commitlint/config-conventional@19.1.0:
     resolution: {integrity: sha512-KIKD2xrp6Uuk+dcZVj3++MlzIr/Su6zLE8crEDQCZNvWHNQSeeGbzOlNtsR32TUy6H3JbP7nWgduAHCaiGQ6EA==}
     engines: {node: '>=v18'}
@@ -674,6 +684,12 @@ packages:
   /@eslint/js@8.56.0:
     resolution: {integrity: sha512-gMsVel9D7f2HLkBma9VbtzZRehRogVRfbr++f06nL2vnCGCNlzOD+/MUov/F4p8myyAHspEhVobgjpX64q5m6A==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+    dev: true
+
+  /@fingerprintjs/commit-lint-dx-team@0.0.2:
+    resolution: {integrity: sha512-8FDlPI+KhnWsfbf4Lo/TERdiHl9daMhnZb4MsV5nhrta13XXGRSxOvLPUnFmZA0FsxR4HHzpszlr7ZSoPVaLSg==}
+    dependencies:
+      '@commitlint/config-conventional': 17.8.1
     dev: true
 
   /@fingerprintjs/eslint-config-dx-team@0.1.0(prettier@3.2.5)(typescript@5.4.2):
@@ -2502,6 +2518,13 @@ packages:
   /conventional-changelog-angular@7.0.0:
     resolution: {integrity: sha512-ROjNchA9LgfNMTTFSIWPzebCwOGFdgkEq45EnvvrmSLvCtAw0HSmrCs7/ty+wAeYUZyNay0YMUNYFTRL72PkBQ==}
     engines: {node: '>=16'}
+    dependencies:
+      compare-func: 2.0.0
+    dev: true
+
+  /conventional-changelog-conventionalcommits@6.1.0:
+    resolution: {integrity: sha512-3cS3GEtR78zTfMzk0AizXKKIdN4OvSh7ibNz6/DPbhWWQu7LqE/8+/GqSodV+sywUR2gpJAdP/1JFf4XtN7Zpw==}
+    engines: {node: '>=14'}
     dependencies:
       compare-func: 2.0.0
     dev: true
