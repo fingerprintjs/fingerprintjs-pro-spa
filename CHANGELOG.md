@@ -1,3 +1,10 @@
+## [1.3.1-test.1](https://github.com/fingerprintjs/fingerprintjs-pro-spa/compare/v1.3.0...v1.3.1-test.1) (2024-03-20)
+
+
+### Bug Fixes
+
+* readme ([#82](https://github.com/fingerprintjs/fingerprintjs-pro-spa/issues/82)) ([a0405e0](https://github.com/fingerprintjs/fingerprintjs-pro-spa/commit/a0405e070613c620e324d37702609e7e6b148798))
+
 ## [1.3.0](https://github.com/fingerprintjs/fingerprintjs-pro-spa/compare/v1.2.2...v1.3.0) (2023-11-22)
 
 
