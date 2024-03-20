@@ -18,7 +18,7 @@
 
 # Fingerprint Pro SPA
 
-[Fingerprint](https://fingerprint.com/) is a device intelligence platform offering 99.5% accurate visitor identification
+[Fingerprint](https://fingerprint.com/) is a device intelligence platform offering 99.5% accurate visitor identification.
 
 This library is a framework-agnostic wrapper around the Fingerprint Pro [JavaScript Agent](https://www.npmjs.com/package/@fingerprintjs/fingerprintjs-pro), adding multiple built-in caching mechanisms with recommended default settings.
 
