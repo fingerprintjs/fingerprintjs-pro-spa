@@ -22,9 +22,9 @@
 
 This library is a framework-agnostic wrapper around the Fingerprint Pro [JavaScript Agent](https://www.npmjs.com/package/@fingerprintjs/fingerprintjs-pro), adding multiple built-in caching mechanisms with recommended default settings.
 
-* If you just need the Fingerprint Pro [JS agent](https://www.npmjs.com/package/@fingerprintjs/fingerprintjs-pro) without caching, you can use it directly.
-* If you're looking for a framework-specific integration, we have dedicated SDKs for [React (including Next, Preact)](https://github.com/fingerprintjs/fingerprintjs-pro-react), [Vue](https://github.com/fingerprintjs/fingerprintjs-pro-vue), [Svelte](https://github.com/fingerprintjs/fingerprintjs-pro-svelte) and [Angular](https://github.com/fingerprintjs/fingerprintjs-pro-angular).
-* If you have a single-page web application that needs caching, but also more low-level control over the agent than framework-specific SDKs provide, this library is for you.  
+- If you just need the Fingerprint Pro [JS agent](https://www.npmjs.com/package/@fingerprintjs/fingerprintjs-pro) without caching, you can use it directly.
+- If you're looking for a framework-specific integration, we have dedicated SDKs for [React (including Next, Preact)](https://github.com/fingerprintjs/fingerprintjs-pro-react), [Vue](https://github.com/fingerprintjs/fingerprintjs-pro-vue), [Svelte](https://github.com/fingerprintjs/fingerprintjs-pro-svelte) and [Angular](https://github.com/fingerprintjs/fingerprintjs-pro-angular).
+- If you have a single-page web application that needs caching, but also more low-level control over the agent than framework-specific SDKs provide, this library is for you.
 
 > [!NOTE]
 > This library assumes you have a Fingerprint Pro subscription or trial, it is not compatible with the [source-available FingerprintJS](https://github.com/fingerprintjs/fingerprintjs). See our documentation to learn more about the [differences between Fingerprint Pro and FingerprintJS](https://dev.fingerprint.com/docs/identification-vs-fingerprintjs).
@@ -138,6 +138,20 @@ const visitorData = fpjsClient.getVisitorData({ extendedResult: true }).then((vi
 
 See the [JS Agent API reference](https://dev.fingerprint.com/docs/js-agent) for more details.
 
+#### Linking and tagging information
+
+The `visitorId` provided by Fingerprint Identification is especially useful when combined with information you already know about your users, for example, account IDs, order IDs, etc. To learn more about various applications of the `linkedId` and `tag`, see [Linking and tagging information](https://dev.fingerprint.com/docs/tagging-information).
+
+```js
+const visitorData = await fpjsClient.getVisitorData({
+  linkedId: 'user_1234',
+  tag: {
+    userAction: 'login',
+    analyticsId: 'UA-5555-1111-1',
+  },
+})
+```
+
 ## Caching
 
 Fingerprint Pro usage is billed per API call. To avoid unnecessary API calls, it is a good practice to cache identification results. The SDK provides three ways to cache visitor data out of the box:
@@ -209,7 +223,7 @@ We export the internal `InMemoryCache`, `LocalStorageCache`, `SessionStorageCach
 
 ### Cache time
 
-Use the `cacheTimeInSeconds` client constructor option to set a custom cache time. To ensure high identification accuracy we recommend not to cache visitors data for longer than 24 hours. If you pass a value higher than 86400 (60 * 60 * 24), the `FpjsClient` constructor will throw an error.
+Use the `cacheTimeInSeconds` client constructor option to set a custom cache time. To ensure high identification accuracy we recommend not to cache visitors data for longer than 24 hours. If you pass a value higher than 86400 (60 x 60 x 24), the `FpjsClient` constructor will throw an error.
 
 ## Support and feedback
 
