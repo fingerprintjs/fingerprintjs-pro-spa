@@ -60,10 +60,10 @@ export interface FpjsSpaOptions extends Omit<FpjsClientOptions, 'loadOptions'> {
  */
 export class FpjsClient {
   private cacheManager: CacheManager
-  private readonly loadOptions?: FingerprintJS.LoadOptions
+  private readonly loadOptions: FingerprintJS.LoadOptions | undefined
   private agent: FingerprintJS.Agent
   private agentPromise: Promise<FingerprintJS.Agent> | null
-  private readonly customAgent?: CustomAgent
+  private readonly customAgent: CustomAgent | undefined
   readonly cacheLocation?: CacheLocation
 
   private inFlightRequests = new Map<string, Promise<VisitorData>>()

@@ -1,6 +1,6 @@
 import typescript from '@rollup/plugin-typescript'
 import jsonPlugin from '@rollup/plugin-json'
-import dtsPlugin from 'rollup-plugin-dts'
+import { dts } from 'rollup-plugin-dts'
 import licensePlugin from 'rollup-plugin-license'
 import { join } from 'path'
 const { dependencies } = require('./package.json')
@@ -50,7 +50,7 @@ export default [
   // TypeScript definition
   {
     ...commonInput,
-    plugins: [dtsPlugin(), commonBanner],
+    plugins: [dts(), commonBanner],
     output: {
       file: `${outputDirectory}/fp-pro-spa.d.ts`,
       format: 'es',
