@@ -83,8 +83,14 @@ const fpjsClient = new FpjsClient({
   // You can also pass these options later in `.init()` method
   loadOptions: {
     apiKey: '<PUBLIC_API_KEY>',
-    // endpoint: ["<CUSTOM_ENDPOINT>", FingerprintJSPro.defaultEndpoint],
-    // scriptUrlPattern: ["<CUSTOM_SCRIPT_URL>", FingerprintJSPro.defaultScriptUrlPattern],
+    endpoint: [
+      //'https://metrics.yourwebsite.com',
+      FingerprintJSPro.defaultEndpoint,
+    ],
+    scriptUrlPattern: [
+      // 'https://metrics.yourwebsite.com/web/v<version>/<apiKey>/loader_v<loaderVersion>.js',
+      FingerprintJSPro.defaultScriptUrlPattern,
+    ],
     // region: "eu"
   },
 })
