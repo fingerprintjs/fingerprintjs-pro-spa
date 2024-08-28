@@ -3,7 +3,7 @@ updates:
 - package-ecosystem: "npm"
   directory: "/"
   allow:
-    - dependency-name: "@fingerprintjs/fingerprintjs-pro"
+    - dependency-type: "production"
   schedule:
     interval: "daily"
   commit-message:
