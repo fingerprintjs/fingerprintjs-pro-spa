@@ -2,7 +2,10 @@ version: 2
 updates:
 - package-ecosystem: "npm"
   directory: "/"
+  allow:
+    - dependency-name: "@fingerprintjs/fingerprintjs-pro"
   schedule:
     interval: "daily"
   commit-message:
     prefix: "chore(deps)"
+
