@@ -97,7 +97,7 @@ const fpjsClient = new FpjsClient({
 ```
 
 > [!NOTE]
-> You must provide `loadOptions` containing your public API key either in the constructor or in the `init` method. If you don't, the SDK will throw an error. You can learn more about different load options here in the [JS Agent documentation](https://dev.fingerprint.com/docs/js-agent#initializing-the-agent).
+> You must provide `loadOptions` containing your public API key either in the constructor or in the `init` method. If you don't, the SDK will throw an error. You can learn more about different load options here in the [JS Agent documentation](https://dev.fingerprint.com/reference/load-function).
 
 ### 3. Initialize the JS Agent
 
@@ -128,7 +128,7 @@ await fpjsClient.init({
 
 ### 4. Identify visitors
 
-The `getVisitorData` method returns visitor identification data based on the request [options](https://dev.fingerprint.com/docs/js-agent#get-options).
+The `getVisitorData` method returns visitor identification data based on the request [options](https://dev.fingerprint.com/reference/get-function#get-options).
 Set `ignoreCache` to `true` to call the API even if the data is present in the cache.
 
 ```js
@@ -142,7 +142,7 @@ const visitorData = fpjsClient.getVisitorData({ extendedResult: true }).then((vi
 })
 ```
 
-See the [JS Agent API reference](https://dev.fingerprint.com/docs/js-agent) for more details.
+See the [JS Agent API reference](https://dev.fingerprint.com/reference/javascript-agent) for more details.
 
 #### Linking and tagging information
 
@@ -183,7 +183,7 @@ const fpjsClient = new FpjsClient({
 Cache keys are based on the combination of _GetOptions_. For example, API responses for calls with `extendedResult: true` and `extendedResult: false` are stored independently.
 
 > [!NOTE]
-> If you use data from [`extendedResult`](https://dev.fingerprint.com/docs/js-agent#extendedresult), pay additional attention to your caching strategy. Some fields, for example, `ip` or `lastSeenAt`, might change over time for the same visitor.
+> If you use data from [`extendedResult`](https://dev.fingerprint.com/reference/get-function#extendedresult), pay additional attention to your caching strategy. Some fields, for example, `ip` or `lastSeenAt`, might change over time for the same visitor.
 
 You can ignore the cached result for a specific API call and using `{ ignoreCache: true }`:
 
