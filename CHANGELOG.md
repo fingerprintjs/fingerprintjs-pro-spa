@@ -1,3 +1,10 @@
+## [1.3.2](https://github.com/fingerprintjs/fingerprintjs-pro-spa/compare/v1.3.1...v1.3.2) (2024-09-11)
+
+
+### Bug Fixes
+
+* upgraded dependencies to latest, now using @fingerprintjs/fingerprintjs-pro@3.11.0 ([c6bab05](https://github.com/fingerprintjs/fingerprintjs-pro-spa/commit/c6bab058dd89feac3ced4a819ffd8bbf89f2aaeb))
+
 ## [1.3.1](https://github.com/fingerprintjs/fingerprintjs-pro-spa/compare/v1.3.0...v1.3.1) (2024-03-21)
 
 
