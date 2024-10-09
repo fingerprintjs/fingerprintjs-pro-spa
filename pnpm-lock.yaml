@@ -10,7 +10,7 @@ importers:
     dependencies:
       '@fingerprintjs/fingerprintjs-pro':
         specifier: ^3.11.0
-        version: 3.11.0
+        version: 3.11.2
       tslib:
         specifier: ^2.7.0
         version: 2.7.0
@@ -406,8 +406,8 @@ packages:
     peerDependencies:
       prettier: '>=3'
 
-  '@fingerprintjs/fingerprintjs-pro@3.11.0':
-    resolution: {integrity: sha512-93GjPzKPXoTj03Hvu9DA+P+py6ixQOXkOMLAzvIA7aY2uKoJQFgyCiL1ZFJvTsdml0gxy42rfkxf2z+AeRRo0w==}
+  '@fingerprintjs/fingerprintjs-pro@3.11.2':
+    resolution: {integrity: sha512-KRRCDAwSEbSUgbZYD0k70uWdo/nv62YaQEz012/Uaa1XzgvHbrcvIaDVSVZr2Wmv34d1jg+szpp4m3Mcstmq3g==}
 
   '@fingerprintjs/prettier-config-dx-team@0.2.0':
     resolution: {integrity: sha512-fbtRuqF8YI4SKjvv9SQ2FoQxoTp4drKN15vXkhi2/SimC5ALpz7SFh1S0jbfmjM/rvDJ/z2x+sGFpp9ZsQZ6vg==}
@@ -1758,6 +1758,7 @@ packages:
   eslint@8.56.0:
     resolution: {integrity: sha512-Go19xM6T9puCOWntie1/P997aXxFsOi37JIHRWI514Hc6ZnaHGKY9xFhrU65RT6CcBEzZoGG1e6Nq+DT04ZtZQ==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+    deprecated: This version is no longer supported. Please see https://eslint.org/version-support for other options.
     hasBin: true
 
   espree@9.6.1:
@@ -4303,7 +4304,7 @@ snapshots:
       - supports-color
       - typescript
 
-  '@fingerprintjs/fingerprintjs-pro@3.11.0':
+  '@fingerprintjs/fingerprintjs-pro@3.11.2':
     dependencies:
       tslib: 2.7.0
 
