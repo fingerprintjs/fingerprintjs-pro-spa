@@ -133,7 +133,7 @@ Set `ignoreCache` to `true` to call the API even if the data is present in the c
 
 ```js
 // with async/await
-const visitorData = await fpjsClient.getVisitorData({ extendedResult: true, ignoreCache: false })
+const visitorData = await fpjsClient.getVisitorData({ extendedResult: true }, false)
 
 // with promises
 const visitorData = fpjsClient.getVisitorData({ extendedResult: true }).then((visitorData) => {
