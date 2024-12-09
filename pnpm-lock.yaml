@@ -10,7 +10,7 @@ importers:
     dependencies:
       '@fingerprintjs/fingerprintjs-pro':
         specifier: ^3.11.0
-        version: 3.11.0
+        version: 3.11.5
       tslib:
         specifier: ^2.7.0
         version: 2.7.0
@@ -99,22 +99,22 @@ importers:
     devDependencies:
       clean-webpack-plugin:
         specifier: ^4.0.0
-        version: 4.0.0(webpack@5.90.3(webpack-cli@5.1.4))
+        version: 4.0.0(webpack@5.90.3)
       dotenv:
         specifier: ^16.4.5
         version: 16.4.5
       file-loader:
         specifier: ^6.2.0
-        version: 6.2.0(webpack@5.90.3(webpack-cli@5.1.4))
+        version: 6.2.0(webpack@5.90.3)
       html-webpack-plugin:
         specifier: ^5.6.0
-        version: 5.6.0(webpack@5.90.3(webpack-cli@5.1.4))
+        version: 5.6.0(webpack@5.90.3)
       terser-webpack-plugin:
         specifier: ^5.3.10
-        version: 5.3.10(webpack@5.90.3(webpack-cli@5.1.4))
+        version: 5.3.10(webpack@5.90.3)
       ts-loader:
         specifier: ^9.5.1
-        version: 9.5.1(typescript@5.5.4)(webpack@5.90.3(webpack-cli@5.1.4))
+        version: 9.5.1(typescript@5.5.4)(webpack@5.90.3)
       webpack:
         specifier: ^5.90.3
         version: 5.90.3(webpack-cli@5.1.4)
@@ -406,8 +406,8 @@ packages:
     peerDependencies:
       prettier: '>=3'
 
-  '@fingerprintjs/fingerprintjs-pro@3.11.0':
-    resolution: {integrity: sha512-93GjPzKPXoTj03Hvu9DA+P+py6ixQOXkOMLAzvIA7aY2uKoJQFgyCiL1ZFJvTsdml0gxy42rfkxf2z+AeRRo0w==}
+  '@fingerprintjs/fingerprintjs-pro@3.11.5':
+    resolution: {integrity: sha512-Yn3E/nAE1udXQkNGJS7/jmlY3zUXDFXA4V32odMZ3vCAXb7kYnqHn62YMJ5jOa9NVVzicmDudiywLUtxUZU9PA==}
 
   '@fingerprintjs/prettier-config-dx-team@0.2.0':
     resolution: {integrity: sha512-fbtRuqF8YI4SKjvv9SQ2FoQxoTp4drKN15vXkhi2/SimC5ALpz7SFh1S0jbfmjM/rvDJ/z2x+sGFpp9ZsQZ6vg==}
@@ -963,6 +963,7 @@ packages:
 
   acorn-import-assertions@1.9.0:
     resolution: {integrity: sha512-cmMwop9x+8KFhxvKrKfPYmN6/pKTYYHBqLa0DfvVZcKMJWNyWLnaqND7dx/qn66R7ewM1UX5XMaDVP5wlVTaVA==}
+    deprecated: package has been renamed to acorn-import-attributes
     peerDependencies:
       acorn: ^8
 
@@ -1758,6 +1759,7 @@ packages:
   eslint@8.56.0:
     resolution: {integrity: sha512-Go19xM6T9puCOWntie1/P997aXxFsOi37JIHRWI514Hc6ZnaHGKY9xFhrU65RT6CcBEzZoGG1e6Nq+DT04ZtZQ==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+    deprecated: This version is no longer supported. Please see https://eslint.org/version-support for other options.
     hasBin: true
 
   espree@9.6.1:
@@ -4303,7 +4305,7 @@ snapshots:
       - supports-color
       - typescript
 
-  '@fingerprintjs/fingerprintjs-pro@3.11.0':
+  '@fingerprintjs/fingerprintjs-pro@3.11.5':
     dependencies:
       tslib: 2.7.0
 
@@ -4964,17 +4966,17 @@ snapshots:
       '@webassemblyjs/ast': 1.12.1
       '@xtuc/long': 4.2.2
 
-  '@webpack-cli/configtest@2.1.1(webpack-cli@5.1.4(webpack-dev-server@5.0.3)(webpack@5.90.3))(webpack@5.90.3(webpack-cli@5.1.4))':
+  '@webpack-cli/configtest@2.1.1(webpack-cli@5.1.4)(webpack@5.90.3)':
     dependencies:
       webpack: 5.90.3(webpack-cli@5.1.4)
       webpack-cli: 5.1.4(webpack-dev-server@5.0.3)(webpack@5.90.3)
 
-  '@webpack-cli/info@2.0.2(webpack-cli@5.1.4(webpack-dev-server@5.0.3)(webpack@5.90.3))(webpack@5.90.3(webpack-cli@5.1.4))':
+  '@webpack-cli/info@2.0.2(webpack-cli@5.1.4)(webpack@5.90.3)':
     dependencies:
       webpack: 5.90.3(webpack-cli@5.1.4)
       webpack-cli: 5.1.4(webpack-dev-server@5.0.3)(webpack@5.90.3)
 
-  '@webpack-cli/serve@2.0.5(webpack-cli@5.1.4(webpack-dev-server@5.0.3)(webpack@5.90.3))(webpack-dev-server@5.0.3(webpack-cli@5.1.4)(webpack@5.90.3))(webpack@5.90.3(webpack-cli@5.1.4))':
+  '@webpack-cli/serve@2.0.5(webpack-cli@5.1.4)(webpack-dev-server@5.0.3)(webpack@5.90.3)':
     dependencies:
       webpack: 5.90.3(webpack-cli@5.1.4)
       webpack-cli: 5.1.4(webpack-dev-server@5.0.3)(webpack@5.90.3)
@@ -5330,7 +5332,7 @@ snapshots:
     dependencies:
       source-map: 0.6.1
 
-  clean-webpack-plugin@4.0.0(webpack@5.90.3(webpack-cli@5.1.4)):
+  clean-webpack-plugin@4.0.0(webpack@5.90.3):
     dependencies:
       del: 4.1.1
       webpack: 5.90.3(webpack-cli@5.1.4)
@@ -5969,7 +5971,7 @@ snapshots:
     dependencies:
       flat-cache: 3.2.0
 
-  file-loader@6.2.0(webpack@5.90.3(webpack-cli@5.1.4)):
+  file-loader@6.2.0(webpack@5.90.3):
     dependencies:
       loader-utils: 2.0.4
       schema-utils: 3.3.0
@@ -6222,7 +6224,7 @@ snapshots:
       relateurl: 0.2.7
       terser: 5.29.2
 
-  html-webpack-plugin@5.6.0(webpack@5.90.3(webpack-cli@5.1.4)):
+  html-webpack-plugin@5.6.0(webpack@5.90.3):
     dependencies:
       '@types/html-minifier-terser': 6.1.0
       html-minifier-terser: 6.1.0
@@ -7828,7 +7830,7 @@ snapshots:
 
   tapable@2.2.1: {}
 
-  terser-webpack-plugin@5.3.10(webpack@5.90.3(webpack-cli@5.1.4)):
+  terser-webpack-plugin@5.3.10(webpack@5.90.3):
     dependencies:
       '@jridgewell/trace-mapping': 0.3.25
       jest-worker: 27.5.1
@@ -7906,7 +7908,7 @@ snapshots:
       '@jest/types': 29.6.3
       babel-jest: 29.7.0(@babel/core@7.25.2)
 
-  ts-loader@9.5.1(typescript@5.5.4)(webpack@5.90.3(webpack-cli@5.1.4)):
+  ts-loader@9.5.1(typescript@5.5.4)(webpack@5.90.3):
     dependencies:
       chalk: 4.1.2
       enhanced-resolve: 5.16.0
@@ -8020,9 +8022,9 @@ snapshots:
   webpack-cli@5.1.4(webpack-dev-server@5.0.3)(webpack@5.90.3):
     dependencies:
       '@discoveryjs/json-ext': 0.5.7
-      '@webpack-cli/configtest': 2.1.1(webpack-cli@5.1.4(webpack-dev-server@5.0.3)(webpack@5.90.3))(webpack@5.90.3(webpack-cli@5.1.4))
-      '@webpack-cli/info': 2.0.2(webpack-cli@5.1.4(webpack-dev-server@5.0.3)(webpack@5.90.3))(webpack@5.90.3(webpack-cli@5.1.4))
-      '@webpack-cli/serve': 2.0.5(webpack-cli@5.1.4(webpack-dev-server@5.0.3)(webpack@5.90.3))(webpack-dev-server@5.0.3(webpack-cli@5.1.4)(webpack@5.90.3))(webpack@5.90.3(webpack-cli@5.1.4))
+      '@webpack-cli/configtest': 2.1.1(webpack-cli@5.1.4)(webpack@5.90.3)
+      '@webpack-cli/info': 2.0.2(webpack-cli@5.1.4)(webpack@5.90.3)
+      '@webpack-cli/serve': 2.0.5(webpack-cli@5.1.4)(webpack-dev-server@5.0.3)(webpack@5.90.3)
       colorette: 2.0.20
       commander: 10.0.1
       cross-spawn: 7.0.3
@@ -8036,7 +8038,7 @@ snapshots:
     optionalDependencies:
       webpack-dev-server: 5.0.3(webpack-cli@5.1.4)(webpack@5.90.3)
 
-  webpack-dev-middleware@7.0.0(webpack@5.90.3(webpack-cli@5.1.4)):
+  webpack-dev-middleware@7.0.0(webpack@5.90.3):
     dependencies:
       colorette: 2.0.20
       memfs: 4.8.0
@@ -8076,7 +8078,7 @@ snapshots:
       serve-index: 1.9.1
       sockjs: 0.3.24
       spdy: 4.0.2
-      webpack-dev-middleware: 7.0.0(webpack@5.90.3(webpack-cli@5.1.4))
+      webpack-dev-middleware: 7.0.0(webpack@5.90.3)
       ws: 8.16.0
     optionalDependencies:
       webpack: 5.90.3(webpack-cli@5.1.4)
@@ -8118,7 +8120,7 @@ snapshots:
       neo-async: 2.6.2
       schema-utils: 3.3.0
       tapable: 2.2.1
-      terser-webpack-plugin: 5.3.10(webpack@5.90.3(webpack-cli@5.1.4))
+      terser-webpack-plugin: 5.3.10(webpack@5.90.3)
       watchpack: 2.4.1
       webpack-sources: 3.2.3
     optionalDependencies:
