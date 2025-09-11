@@ -73,6 +73,9 @@ export class FpjsClient {
     this.customAgent = options?.customAgent
 
     this.agent = {
+      collect: () => {
+        throw new Error("FPJSAgent hasn't loaded yet. Make sure to call the init() method first.")
+      },
       get: () => {
         throw new Error("FPJSAgent hasn't loaded yet. Make sure to call the init() method first.")
       },

@@ -27,6 +27,7 @@ describe(`SPA client`, () => {
 
   describe(`setup`, () => {
     const agentGetMock = jest.fn()
+    const agentCollectMock = jest.fn()
 
     let loadSpy: jest.SpyInstance<ReturnType<(typeof FingerprintJS)['load']>>
 
@@ -35,6 +36,7 @@ describe(`SPA client`, () => {
 
       loadSpy.mockImplementation(async () => {
         return {
+          collect: agentCollectMock,
           get: agentGetMock,
         }
       })
@@ -100,6 +102,7 @@ describe(`SPA client`, () => {
 
       loadSpy.mockImplementation(async () => {
         return {
+          collect: agentCollectMock,
           get: agentGetMock,
         }
       })
@@ -466,10 +469,12 @@ describe(`SPA client`, () => {
 
   describe('add integrationInfo', () => {
     const agentGetMock = jest.fn()
+    const agentCollectMock = jest.fn()
 
     beforeEach(() => {
       jest.spyOn(FingerprintJS, 'load').mockImplementation(async () => {
         return {
+          collect: agentCollectMock,
           get: agentGetMock,
         }
       })
