@@ -86,7 +86,7 @@ describe(`SPA client`, () => {
       expect(loadSpy).toHaveBeenCalledWith({
         ...getDefaultLoadOptions(),
         region: 'eu',
-        integrationInfo: ['integrationInfo1', 'integrationInfo2', `fingerprintjs-pro-spa/${packageInfo.version}`],
+        integrationInfo: ['integrationInfo1', 'integrationInfo2', `spa-sdk/${packageInfo.version}`],
       })
     })
 
@@ -480,7 +480,7 @@ describe(`SPA client`, () => {
       await client.init()
       expect(FingerprintJS.load).toBeCalledWith({
         ...getDefaultLoadOptions(),
-        integrationInfo: [`fingerprintjs-pro-spa/${packageInfo.version}`],
+        integrationInfo: [`spa-sdk/${packageInfo.version}`],
       })
     })
 
@@ -494,7 +494,24 @@ describe(`SPA client`, () => {
       await client.init()
       expect(FingerprintJS.load).toBeCalledWith({
         ...getDefaultLoadOptions(),
-        integrationInfo: ['fingerprintjs-pro-react/0.0.1', `fingerprintjs-pro-spa/${packageInfo.version}`],
+        integrationInfo: ['fingerprintjs-pro-react/0.0.1', `spa-sdk/${packageInfo.version}`],
+      })
+    })
+
+    it('when field contains other integration info, but in silent mode', async () => {
+      const client = new FpjsClient({
+        loadOptions: {
+          ...getDefaultLoadOptions(),
+          // @ts-ignore
+          silent: true,
+          integrationInfo: ['fingerprintjs-pro-react/0.0.1'],
+        },
+      })
+      await client.init()
+      expect(FingerprintJS.load).toBeCalledWith({
+        ...getDefaultLoadOptions(),
+        silent: true,
+        integrationInfo: [],
       })
     })
   })

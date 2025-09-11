@@ -122,14 +122,20 @@ export class FpjsClient {
       throw new TypeError('No load options provided')
     }
 
+    const integrationInfo =
+      // @ts-ignore
+      this.loadOptions?.silent === true
+        ? []
+        : [
+            ...(this.loadOptions?.integrationInfo || []),
+            ...(passedLoadOptions?.integrationInfo || []),
+            `spa-sdk/${packageInfo.version}`,
+          ]
+
     const loadOptions: FingerprintJS.LoadOptions = {
       ...this.loadOptions!,
       ...passedLoadOptions!,
-      integrationInfo: [
-        ...(this.loadOptions?.integrationInfo || []),
-        ...(passedLoadOptions?.integrationInfo || []),
-        `fingerprintjs-pro-spa/${packageInfo.version}`,
-      ],
+      integrationInfo,
     }
 
     if (!this.agentPromise) {
