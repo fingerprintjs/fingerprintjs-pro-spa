@@ -38,12 +38,14 @@ async function getAndPrintData() {
       output,
       header: 'Confidence score:',
       content: String(confidence.score),
-      comment: confidence.comment && {
-        html: confidence.comment.replace(
-          /(upgrade\s+to\s+)?pro(\s+version)?(:\s+(https?:\/\/\S+))?/gi,
-          '<a href="$4" target="_blank">$&</a>'
-        ),
-      },
+      comment:
+        (confidence.comment && {
+          html: confidence.comment.replace(
+            /(upgrade\s+to\s+)?pro(\s+version)?(:\s+(https?:\/\/\S+))?/gi,
+            '<a href="$4" target="_blank">$&</a>'
+          ),
+        }) ||
+        '',
       size: 'big',
     })
     addOutputSection({ output, header: 'User agent:', content: navigator.userAgent })
