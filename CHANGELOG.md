@@ -1,3 +1,10 @@
+## [1.3.3](https://github.com/fingerprintjs/fingerprintjs-pro-spa/compare/v1.3.2...v1.3.3) (2025-09-15)
+
+
+### Bug Fixes
+
+* rename integration monitoring ([8e9c160](https://github.com/fingerprintjs/fingerprintjs-pro-spa/commit/8e9c160efe2b07936aeee668d73eae6ce6872c5c))
+
 ## [1.3.2](https://github.com/fingerprintjs/fingerprintjs-pro-spa/compare/v1.3.1...v1.3.2) (2024-09-11)
 
 
