@@ -10,7 +10,7 @@ importers:
     dependencies:
       '@fingerprintjs/fingerprintjs-pro':
         specifier: ^3.12.0
-        version: 3.12.0
+        version: 3.12.1
       tslib:
         specifier: ^2.7.0
         version: 2.8.1
@@ -422,8 +422,8 @@ packages:
     peerDependencies:
       prettier: '>=3'
 
-  '@fingerprintjs/fingerprintjs-pro@3.12.0':
-    resolution: {integrity: sha512-zWCOunrsD6Op/9g0E3dAI2PRUfWvPlsNi0svJUoq+mqz4W2kuCsEVomQRRROTnEbqK/foTruBjYMZnRj0j/F3A==}
+  '@fingerprintjs/fingerprintjs-pro@3.12.1':
+    resolution: {integrity: sha512-lJSfafyXn0dQeZeg1MjRkGWtw4dbyPcARw6hfce43tRBZvFSCpih+6DPD0OWIu22B4yZcaS/9ESk5e8mkhhk4w==}
 
   '@fingerprintjs/prettier-config-dx-team@0.2.0':
     resolution: {integrity: sha512-fbtRuqF8YI4SKjvv9SQ2FoQxoTp4drKN15vXkhi2/SimC5ALpz7SFh1S0jbfmjM/rvDJ/z2x+sGFpp9ZsQZ6vg==}
@@ -4397,7 +4397,7 @@ snapshots:
       - supports-color
       - typescript
 
-  '@fingerprintjs/fingerprintjs-pro@3.12.0': {}
+  '@fingerprintjs/fingerprintjs-pro@3.12.1': {}
 
   '@fingerprintjs/prettier-config-dx-team@0.2.0':
     dependencies:
