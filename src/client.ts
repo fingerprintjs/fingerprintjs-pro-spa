@@ -107,7 +107,14 @@ export class FpjsClient {
     }
 
     if (options?.cacheTimeInSeconds && options.cacheTimeInSeconds > MAX_CACHE_LIFE) {
-      throw new Error(`Cache time cannot exceed 86400 seconds (24 hours)`)
+      if (options.__dangerouslyDisableCacheTimeLimitAndAcceptLowAccuracy) {
+        console.warn(
+          'WARNING: You are caching visitor data for longer than 24 hours. This will negatively affect identification accuracy. ' +
+            'To ensure high identification accuracy, we recommend not to cache visitors data for longer than 24 hours.'
+        )
+      } else {
+        throw new Error(`Cache time cannot exceed 86400 seconds (24 hours)`)
+      }
     }
 
     const cacheTime = options?.cacheTimeInSeconds ?? DEFAULT_CACHE_LIFE

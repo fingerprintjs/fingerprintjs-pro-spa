@@ -25,6 +25,24 @@ describe(`SPA client`, () => {
     ).toThrow('Cache time cannot exceed 86400 seconds (24 hours)')
   })
 
+  it('should warn instead of throwing when cacheTime exceeds limit if __dangerouslyDisableCacheTimeLimitAndAcceptLowAccuracy is true', function () {
+    const consoleWarnSpy = jest.spyOn(console, 'warn').mockImplementation()
+
+    const client = new FpjsClient({
+      loadOptions: getDefaultLoadOptions(),
+      cacheTimeInSeconds: MAX_CACHE_LIFE + 1000,
+      __dangerouslyDisableCacheTimeLimitAndAcceptLowAccuracy: true,
+    })
+
+    expect(consoleWarnSpy).toHaveBeenCalledWith(
+      'WARNING: You are caching visitor data for longer than 24 hours. This will negatively affect identification accuracy. ' +
+        'To ensure high identification accuracy, we recommend not to cache visitors data for longer than 24 hours.'
+    )
+    expect(client).toBeInstanceOf(FpjsClient)
+
+    consoleWarnSpy.mockRestore()
+  })
+
   describe(`setup`, () => {
     const agentGetMock = jest.fn()
     const agentCollectMock = jest.fn()
