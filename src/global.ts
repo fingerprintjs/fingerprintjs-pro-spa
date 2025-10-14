@@ -43,4 +43,10 @@ export interface FpjsClientOptions {
    * Custom prefix for localStorage and sessionStorage cache keys. Will be ignored if `cache` is provided.
    */
   cachePrefix?: string
+
+  /**
+   * If set to true, allows cacheTimeInSeconds to exceed 86_400 (24h). A warning will be logged instead of throwing an error.
+   * WARNING: Caching data for longer than 24 hours will negatively affect identification accuracy and is strongly discouraged.
+   */
+  __dangerouslyDisableCacheTimeLimitAndAcceptLowAccuracy?: boolean
 }
