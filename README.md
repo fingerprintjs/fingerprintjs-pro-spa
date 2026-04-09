@@ -18,6 +18,14 @@
 
 # Fingerprint Pro SPA
 
+> [!CAUTION]
+> **This package is deprecated.** The Fingerprint JavaScript Agent v4 now includes built-in caching features previously provided by this SPA package. Please migrate to using the [JavaScript Agent v4](https://www.npmjs.com/package/@fingerprint/agent) directly.
+>
+> - [Migration guide from v3 to v4](https://docs.fingerprint.com/reference/migrating-from-v3-to-v4)
+> - [JavaScript Agent v4 documentation](https://docs.fingerprint.com/reference/js-agent-v4)
+>
+> This package will continue to work as long as the Fingerprint JavaScript Agent v3 works, but it will no longer receive new features or updates.
+
 [Fingerprint](https://fingerprint.com/) is a device intelligence platform offering industry-leading accuracy
 
 This library is a framework-agnostic wrapper around the Fingerprint Pro [JavaScript Agent](https://www.npmjs.com/package/@fingerprintjs/fingerprintjs-pro), adding multiple built-in caching mechanisms with recommended default settings.
