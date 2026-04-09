@@ -24,7 +24,7 @@
 > - [Migration guide from v3 to v4](https://docs.fingerprint.com/reference/migrating-from-v3-to-v4)
 > - [JavaScript Agent v4 documentation](https://docs.fingerprint.com/reference/js-agent-v4)
 >
-> This package will continue to work as long as the JavaScript v3 itself works, but it will no longer receive new features or updates.
+> This package will continue to work as long as the Fingerprint JavaScript Agent v3 works, but it will no longer receive new features or updates.
 
 [Fingerprint](https://fingerprint.com/) is a device intelligence platform offering industry-leading accuracy
 
