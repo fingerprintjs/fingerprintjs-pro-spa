@@ -191,7 +191,7 @@ const fpjsClient = new FpjsClient({
 Cache keys are based on the combination of _GetOptions_. For example, API responses for calls with `extendedResult: true` and `extendedResult: false` are stored independently.
 
 > [!NOTE]
-> If you use data from [`extendedResult`](https://dev.fingerprint.com/reference/get-function#extendedresult), pay additional attention to your caching strategy. Some fields, for example, `ip` or `lastSeenAt`, might change over time for the same visitor.
+> If you use data from [`extendedResult`](https://docs.fingerprint.com/reference/v3/js-agent-get-function#extendedresult), pay additional attention to your caching strategy. Some fields, for example, `ip` or `lastSeenAt`, might change over time for the same visitor.
 
 You can ignore the cached result for a specific API call and using `{ ignoreCache: true }`:
 
@@ -252,4 +252,4 @@ This library uses [Fingerprint Pro](https://fingerprint.com/github/) under the h
 
 ## License
 
-This project is licensed under the MIT license. See the [LICENSE](https://github.com/fingerprintjs/fingerprintjs-pro-spa/blob/master/LICENSE) file for more information.
+This project is licensed under the MIT license. See the [LICENSE](https://github.com/fingerprintjs/fingerprintjs-pro-spa/blob/main/LICENSE) file for more information.
